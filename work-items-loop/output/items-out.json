@@ -4,26 +4,20 @@
             "name": "CustomName1",
             "id": 1
         },
-        "files": {
-            "orders.txt": "orders1.txt"
-        }
+        "files": {}
     },
     {
         "payload": {
             "name": "CustomName2",
             "id": 2
         },
-        "files": {
-            "orders.txt": "orders2.txt"
-        }
+        "files": {}
     },
     {
         "payload": {
             "name": "CustomName3",
             "id": 3
         },
-        "files": {
-            "orders.txt": "orders3.txt"
-        }
+        "files": {}
     }
 ]

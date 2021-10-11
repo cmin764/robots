@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.1 (Python 3.7.5 on darwin)" generated="20211007 17:08:40.146" rpa="true" schemaversion="2">
+<robot generator="Robot 4.1.1 (Python 3.7.5 on darwin)" generated="20211011 16:19:01.468" rpa="true" schemaversion="2">
 <suite id="s1" name="Tasks" source="/Users/cmin/Robots/work-items-loop/tasks.robot">
 <test id="s1-t1" name="Consume queue">
+<kw name="Log Environment Variables" library="OperatingSystem">
+<doc>Logs all environment variables using the given log level.</doc>
+<msg timestamp="20211011 16:19:01.723" level="INFO">_ = /Users/cmin/.vscode/extensions/robocorp.robocorp-code-0.15.0/bin/rcc</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">__CFBundleIdentifier = com.microsoft.VSCode</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">COMMAND_MODE = unix2003</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">CONDA_DEFAULT_ENV = rcc</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">CONDA_PREFIX = /Users/cmin/.robocorp/holotree/b1f3c244e_91bb43ea</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">CONDA_PROMPT_MODIFIER = (rcc) </msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">CONDA_SHLVL = 1</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">ELECTRON_RUN_AS_NODE = 1</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">HOME = /Users/cmin</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">HOMEBREW_CELLAR = /opt/homebrew/Cellar</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">HOMEBREW_PREFIX = /opt/homebrew</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">HOMEBREW_REPOSITORY = /opt/homebrew</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">HOMEBREW_SHELLENV_PREFIX = /opt/homebrew</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">INFOPATH = /opt/homebrew/share/info:</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">LC_CTYPE = UTF-8</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">LOGNAME = cmin</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">MAMBA_ROOT_PREFIX = /Users/cmin/.robocorp</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">MANPATH = /opt/homebrew/share/man::</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">OLDPWD = </msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">ORIGINAL_XDG_CURRENT_DESKTOP = undefined</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PATH = /Users/cmin/Robots/work-items-loop:/Users/cmin/.robocorp/holotree/b1f3c244e_91bb43ea/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PWD = /Users/cmin/Robots/work-items-loop</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHON_EXE = /Users/cmin/.robocorp/holotree/b1f3c244e_91bb43ea/bin/python3</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONDONTWRITEBYTECODE = x</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONEXECUTABLE = </msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONHOME = </msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONNOUSERSITE = 1</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONPATH = /Users/cmin/Robots/work-items-loop</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONPYCACHEPREFIX = /Users/cmin/.robocorp/temp/15aff8582a880789</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">PYTHONSTARTUP = </msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RCC_ENVIRONMENT_HASH = 7dbd83832e7ea30e</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RCC_INSTALLATION_ID = 8f5f3c75-9b01-06de-115d-90114553af26</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RCC_TRACKING_ALLOWED = true</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">ROBOCORP_HOME = /Users/cmin/.robocorp</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">ROBOT_ARTIFACTS = /Users/cmin/Robots/work-items-loop/output</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">ROBOT_ROOT = /Users/cmin/Robots/work-items-loop</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RPA_INPUT_WORKITEM_PATH = %{ROBOT_ROOT}/devdata/items-in.json</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RPA_OUTPUT_WORKITEM_PATH = %{ROBOT_ROOT}/output/items-out.json</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">RPA_WORKITEMS_ADAPTER = RPA.Robocorp.WorkItems.FileAdapter</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">SHELL = /bin/zsh</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">SHLVL = 1</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ogrBrH0F6p/Listeners</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">TEMP = /Users/cmin/.robocorp/temp/15aff8582a880789</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">TMP = /Users/cmin/.robocorp/temp/15aff8582a880789</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">TMPDIR = /var/folders/pp/wr5w2d3945s4r921ry12jkl00000gn/T/</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">USER = cmin</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess</msg>
+<msg timestamp="20211011 16:19:01.723" level="INFO">VSCODE_CODE_CACHE_PATH = /Users/cmin/Library/Application Support/Code/CachedData/7f6ab5485bbc008386c4386d08766667e155244e</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_CWD = /</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_HANDLES_UNCAUGHT_ERRORS = true</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_IPC_HOOK = /Users/cmin/Library/Application Support/Code/1.60.2-main.sock</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_IPC_HOOK_EXTHOST = /var/folders/pp/wr5w2d3945s4r921ry12jkl00000gn/T/vscode-ipc-4c874724-2f14-4f6e-9190-d0a3b55c9004.sock</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_LOG_NATIVE = false</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_LOG_STACK = false</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_PID = 69324</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_PIPE_LOGGING = true</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">VSCODE_VERBOSE_LOGGING = true</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">XPC_FLAGS = 0x0</msg>
+<msg timestamp="20211011 16:19:01.724" level="INFO">XPC_SERVICE_NAME = 0</msg>
+<status status="PASS" starttime="20211011 16:19:01.722" endtime="20211011 16:19:01.724"/>
+</kw>
 <kw name="For Each Input Work Item" library="RPA.Robocorp.WorkItems">
 <var>@{results}</var>
 <arg>Add Work Item Wrapper</arg>
@@ -13,71 +79,61 @@
 <kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
 <var>${path}</var>
 <arg>orders.txt</arg>
-<arg>path=${OUTPUT_DIR}${/}orders${counter}.txt</arg>
 <doc>Get attached file from work item to disk.
 Returns the absolute path to the created file.</doc>
-<msg timestamp="20211007 17:08:40.408" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/output/orders1.txt</msg>
-<msg timestamp="20211007 17:08:40.408" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/output/orders1.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.407" endtime="20211007 17:08:40.408"/>
+<msg timestamp="20211011 16:19:01.725" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<msg timestamp="20211011 16:19:01.725" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<status status="PASS" starttime="20211011 16:19:01.725" endtime="20211011 16:19:01.725"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Getting: ${path}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20211007 17:08:40.408" endtime="20211007 17:08:40.408"/>
+<status status="PASS" starttime="20211011 16:19:01.725" endtime="20211011 16:19:01.725"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${content}</var>
 <arg>${path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20211007 17:08:40.408" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/output/orders1.txt"&gt;/Users/cmin/Robots/work-items-loop/output/orders1.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20211007 17:08:40.408" level="INFO">${content} = Order 1
+<msg timestamp="20211011 16:19:01.725" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/orders.txt"&gt;/Users/cmin/Robots/work-items-loop/orders.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20211011 16:19:01.726" level="INFO">${content} = Order 1
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.408" endtime="20211007 17:08:40.408"/>
+<status status="PASS" starttime="20211011 16:19:01.725" endtime="20211011 16:19:01.726"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="PASS" starttime="20211007 17:08:40.408" endtime="20211007 17:08:40.408"/>
+<status status="PASS" starttime="20211011 16:19:01.726" endtime="20211011 16:19:01.726"/>
 </kw>
 <kw name="Set Work Item Variables" library="RPA.Robocorp.WorkItems">
 <arg>name=CustomName${counter}</arg>
 <arg>id=${counter}</arg>
 <doc>Set multiple variables in the current work item.</doc>
-<msg timestamp="20211007 17:08:40.409" level="INFO">name = CustomName1</msg>
-<msg timestamp="20211007 17:08:40.409" level="INFO">id = 1</msg>
-<status status="PASS" starttime="20211007 17:08:40.409" endtime="20211007 17:08:40.409"/>
-</kw>
-<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
-<arg>devdata/orders${counter}.txt</arg>
-<arg>name=orders.txt</arg>
-<doc>Add given file to work item.</doc>
-<msg timestamp="20211007 17:08:40.409" level="INFO">Adding file: devdata/orders1.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.409" endtime="20211007 17:08:40.409"/>
+<msg timestamp="20211011 16:19:01.726" level="INFO">name = CustomName1</msg>
+<msg timestamp="20211011 16:19:01.726" level="INFO">id = 1</msg>
+<status status="PASS" starttime="20211011 16:19:01.726" endtime="20211011 16:19:01.726"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211007 17:08:40.410" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211007 17:08:40.410" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/orders1.txt</msg>
-<msg timestamp="20211007 17:08:40.410" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<status status="PASS" starttime="20211007 17:08:40.409" endtime="20211007 17:08:40.410"/>
+<msg timestamp="20211011 16:19:01.727" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<status status="PASS" starttime="20211011 16:19:01.726" endtime="20211011 16:19:01.727"/>
 </kw>
-<msg timestamp="20211007 17:08:40.410" level="INFO">${ret} = Order 1
+<msg timestamp="20211011 16:19:01.727" level="INFO">${ret} = Order 1
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.407" endtime="20211007 17:08:40.410"/>
+<status status="PASS" starttime="20211011 16:19:01.724" endtime="20211011 16:19:01.727"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${idx}</arg>
 <arg>${idx + 1}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211007 17:08:40.411" level="INFO">${idx} = 2</msg>
-<status status="PASS" starttime="20211007 17:08:40.410" endtime="20211007 17:08:40.411"/>
+<msg timestamp="20211011 16:19:01.727" level="INFO">${idx} = 2</msg>
+<status status="PASS" starttime="20211011 16:19:01.727" endtime="20211011 16:19:01.727"/>
 </kw>
 <kw name="Release Input Work Item" library="RPA.Robocorp.WorkItems">
 <arg>DONE</arg>
 <doc>Set the result state for the current input work item, then release it.</doc>
-<status status="PASS" starttime="20211007 17:08:40.411" endtime="20211007 17:08:40.411"/>
+<status status="PASS" starttime="20211011 16:19:01.728" endtime="20211011 16:19:01.728"/>
 </kw>
-<status status="PASS" starttime="20211007 17:08:40.407" endtime="20211007 17:08:40.411"/>
+<status status="PASS" starttime="20211011 16:19:01.724" endtime="20211011 16:19:01.728"/>
 </kw>
 <kw name="Add Work Item Wrapper">
 <kw name="Add Work Item">
@@ -86,71 +142,61 @@ all changes are discarded when the library goes out of scope.</doc>
 <kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
 <var>${path}</var>
 <arg>orders.txt</arg>
-<arg>path=${OUTPUT_DIR}${/}orders${counter}.txt</arg>
 <doc>Get attached file from work item to disk.
 Returns the absolute path to the created file.</doc>
-<msg timestamp="20211007 17:08:40.412" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/output/orders2.txt</msg>
-<msg timestamp="20211007 17:08:40.412" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/output/orders2.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.411" endtime="20211007 17:08:40.412"/>
+<msg timestamp="20211011 16:19:01.728" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<msg timestamp="20211011 16:19:01.728" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<status status="PASS" starttime="20211011 16:19:01.728" endtime="20211011 16:19:01.729"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Getting: ${path}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20211007 17:08:40.412" endtime="20211007 17:08:40.412"/>
+<status status="PASS" starttime="20211011 16:19:01.729" endtime="20211011 16:19:01.729"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${content}</var>
 <arg>${path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20211007 17:08:40.412" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/output/orders2.txt"&gt;/Users/cmin/Robots/work-items-loop/output/orders2.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20211007 17:08:40.412" level="INFO">${content} = Order 2
+<msg timestamp="20211011 16:19:01.729" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/orders.txt"&gt;/Users/cmin/Robots/work-items-loop/orders.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20211011 16:19:01.729" level="INFO">${content} = Order 2
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.412" endtime="20211007 17:08:40.412"/>
+<status status="PASS" starttime="20211011 16:19:01.729" endtime="20211011 16:19:01.729"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="PASS" starttime="20211007 17:08:40.412" endtime="20211007 17:08:40.412"/>
+<status status="PASS" starttime="20211011 16:19:01.729" endtime="20211011 16:19:01.729"/>
 </kw>
 <kw name="Set Work Item Variables" library="RPA.Robocorp.WorkItems">
 <arg>name=CustomName${counter}</arg>
 <arg>id=${counter}</arg>
 <doc>Set multiple variables in the current work item.</doc>
-<msg timestamp="20211007 17:08:40.413" level="INFO">name = CustomName2</msg>
-<msg timestamp="20211007 17:08:40.413" level="INFO">id = 2</msg>
-<status status="PASS" starttime="20211007 17:08:40.413" endtime="20211007 17:08:40.413"/>
-</kw>
-<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
-<arg>devdata/orders${counter}.txt</arg>
-<arg>name=orders.txt</arg>
-<doc>Add given file to work item.</doc>
-<msg timestamp="20211007 17:08:40.413" level="INFO">Adding file: devdata/orders2.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.413" endtime="20211007 17:08:40.413"/>
+<msg timestamp="20211011 16:19:01.729" level="INFO">name = CustomName2</msg>
+<msg timestamp="20211011 16:19:01.729" level="INFO">id = 2</msg>
+<status status="PASS" starttime="20211011 16:19:01.729" endtime="20211011 16:19:01.729"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211007 17:08:40.413" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211007 17:08:40.414" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/orders2.txt</msg>
-<msg timestamp="20211007 17:08:40.414" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<status status="PASS" starttime="20211007 17:08:40.413" endtime="20211007 17:08:40.414"/>
+<msg timestamp="20211011 16:19:01.730" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<status status="PASS" starttime="20211011 16:19:01.730" endtime="20211011 16:19:01.730"/>
 </kw>
-<msg timestamp="20211007 17:08:40.414" level="INFO">${ret} = Order 2
+<msg timestamp="20211011 16:19:01.730" level="INFO">${ret} = Order 2
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.411" endtime="20211007 17:08:40.414"/>
+<status status="PASS" starttime="20211011 16:19:01.728" endtime="20211011 16:19:01.730"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${idx}</arg>
 <arg>${idx + 1}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211007 17:08:40.414" level="INFO">${idx} = 3</msg>
-<status status="PASS" starttime="20211007 17:08:40.414" endtime="20211007 17:08:40.414"/>
+<msg timestamp="20211011 16:19:01.730" level="INFO">${idx} = 3</msg>
+<status status="PASS" starttime="20211011 16:19:01.730" endtime="20211011 16:19:01.730"/>
 </kw>
 <kw name="Release Input Work Item" library="RPA.Robocorp.WorkItems">
 <arg>DONE</arg>
 <doc>Set the result state for the current input work item, then release it.</doc>
-<status status="PASS" starttime="20211007 17:08:40.414" endtime="20211007 17:08:40.415"/>
+<status status="PASS" starttime="20211011 16:19:01.731" endtime="20211011 16:19:01.731"/>
 </kw>
-<status status="PASS" starttime="20211007 17:08:40.411" endtime="20211007 17:08:40.415"/>
+<status status="PASS" starttime="20211011 16:19:01.728" endtime="20211011 16:19:01.731"/>
 </kw>
 <kw name="Add Work Item Wrapper">
 <kw name="Add Work Item">
@@ -159,94 +205,84 @@ all changes are discarded when the library goes out of scope.</doc>
 <kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
 <var>${path}</var>
 <arg>orders.txt</arg>
-<arg>path=${OUTPUT_DIR}${/}orders${counter}.txt</arg>
 <doc>Get attached file from work item to disk.
 Returns the absolute path to the created file.</doc>
-<msg timestamp="20211007 17:08:40.416" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/output/orders3.txt</msg>
-<msg timestamp="20211007 17:08:40.416" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/output/orders3.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.415" endtime="20211007 17:08:40.416"/>
+<msg timestamp="20211011 16:19:01.731" level="INFO">Downloaded file to: /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<msg timestamp="20211011 16:19:01.731" level="INFO">${path} = /Users/cmin/Robots/work-items-loop/orders.txt</msg>
+<status status="PASS" starttime="20211011 16:19:01.731" endtime="20211011 16:19:01.732"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Getting: ${path}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20211007 17:08:40.416" endtime="20211007 17:08:40.416"/>
+<status status="PASS" starttime="20211011 16:19:01.732" endtime="20211011 16:19:01.732"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${content}</var>
 <arg>${path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20211007 17:08:40.416" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/output/orders3.txt"&gt;/Users/cmin/Robots/work-items-loop/output/orders3.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20211007 17:08:40.416" level="INFO">${content} = Order 3
+<msg timestamp="20211011 16:19:01.732" level="INFO" html="true">Getting file '&lt;a href="file:///Users/cmin/Robots/work-items-loop/orders.txt"&gt;/Users/cmin/Robots/work-items-loop/orders.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20211011 16:19:01.732" level="INFO">${content} = Order 3
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.416" endtime="20211007 17:08:40.416"/>
+<status status="PASS" starttime="20211011 16:19:01.732" endtime="20211011 16:19:01.732"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="PASS" starttime="20211007 17:08:40.416" endtime="20211007 17:08:40.416"/>
+<status status="PASS" starttime="20211011 16:19:01.732" endtime="20211011 16:19:01.732"/>
 </kw>
 <kw name="Set Work Item Variables" library="RPA.Robocorp.WorkItems">
 <arg>name=CustomName${counter}</arg>
 <arg>id=${counter}</arg>
 <doc>Set multiple variables in the current work item.</doc>
-<msg timestamp="20211007 17:08:40.417" level="INFO">name = CustomName3</msg>
-<msg timestamp="20211007 17:08:40.417" level="INFO">id = 3</msg>
-<status status="PASS" starttime="20211007 17:08:40.416" endtime="20211007 17:08:40.417"/>
-</kw>
-<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
-<arg>devdata/orders${counter}.txt</arg>
-<arg>name=orders.txt</arg>
-<doc>Add given file to work item.</doc>
-<msg timestamp="20211007 17:08:40.417" level="INFO">Adding file: devdata/orders3.txt</msg>
-<status status="PASS" starttime="20211007 17:08:40.417" endtime="20211007 17:08:40.417"/>
+<msg timestamp="20211011 16:19:01.732" level="INFO">name = CustomName3</msg>
+<msg timestamp="20211011 16:19:01.732" level="INFO">id = 3</msg>
+<status status="PASS" starttime="20211011 16:19:01.732" endtime="20211011 16:19:01.732"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211007 17:08:40.417" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211007 17:08:40.417" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/orders3.txt</msg>
-<msg timestamp="20211007 17:08:40.418" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<status status="PASS" starttime="20211007 17:08:40.417" endtime="20211007 17:08:40.418"/>
+<msg timestamp="20211011 16:19:01.733" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<status status="PASS" starttime="20211011 16:19:01.732" endtime="20211011 16:19:01.733"/>
 </kw>
-<msg timestamp="20211007 17:08:40.418" level="INFO">${ret} = Order 3
+<msg timestamp="20211011 16:19:01.733" level="INFO">${ret} = Order 3
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.415" endtime="20211007 17:08:40.418"/>
+<status status="PASS" starttime="20211011 16:19:01.731" endtime="20211011 16:19:01.733"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${idx}</arg>
 <arg>${idx + 1}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211007 17:08:40.418" level="INFO">${idx} = 4</msg>
-<status status="PASS" starttime="20211007 17:08:40.418" endtime="20211007 17:08:40.418"/>
+<msg timestamp="20211011 16:19:01.733" level="INFO">${idx} = 4</msg>
+<status status="PASS" starttime="20211011 16:19:01.733" endtime="20211011 16:19:01.734"/>
 </kw>
 <kw name="Release Input Work Item" library="RPA.Robocorp.WorkItems">
 <arg>DONE</arg>
 <doc>Set the result state for the current input work item, then release it.</doc>
-<status status="PASS" starttime="20211007 17:08:40.418" endtime="20211007 17:08:40.418"/>
+<status status="PASS" starttime="20211011 16:19:01.734" endtime="20211011 16:19:01.734"/>
 </kw>
-<status status="PASS" starttime="20211007 17:08:40.415" endtime="20211007 17:08:40.419"/>
+<status status="PASS" starttime="20211011 16:19:01.731" endtime="20211011 16:19:01.734"/>
 </kw>
-<msg timestamp="20211007 17:08:40.419" level="INFO">@{results} = [ Order 1
+<msg timestamp="20211011 16:19:01.734" level="INFO">@{results} = [ Order 1
  | Order 2
  | Order 3
  ]</msg>
-<status status="PASS" starttime="20211007 17:08:40.406" endtime="20211007 17:08:40.419"/>
+<status status="PASS" starttime="20211011 16:19:01.724" endtime="20211011 16:19:01.734"/>
 </kw>
 <kw name="Log List" library="Collections">
 <arg>${results}</arg>
 <doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
-<msg timestamp="20211007 17:08:40.419" level="INFO">List length is 3 and it contains following items:
+<msg timestamp="20211011 16:19:01.734" level="INFO">List length is 3 and it contains following items:
 0: Order 1
 
 1: Order 2
 
 2: Order 3
 </msg>
-<status status="PASS" starttime="20211007 17:08:40.419" endtime="20211007 17:08:40.419"/>
+<status status="PASS" starttime="20211011 16:19:01.734" endtime="20211011 16:19:01.734"/>
 </kw>
-<status status="PASS" starttime="20211007 17:08:40.406" endtime="20211007 17:08:40.419"/>
+<status status="PASS" starttime="20211011 16:19:01.722" endtime="20211011 16:19:01.734"/>
 </test>
 <doc>Testing the helper keyword on consuming all work items in the queue.</doc>
-<status status="PASS" starttime="20211007 17:08:40.147" endtime="20211007 17:08:40.419"/>
+<status status="PASS" starttime="20211011 16:19:01.469" endtime="20211011 16:19:01.734"/>
 </suite>
 <statistics>
 <total>
