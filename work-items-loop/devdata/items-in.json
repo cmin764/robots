@@ -1,26 +1,9 @@
 [
     {
         "payload": {
-            "in_var": 1
         },
         "files": {
-            "orders.txt": "orders1.txt"
-        }
-    },
-    {
-        "payload": {
-            "in_var": 2
-        },
-        "files": {
-            "orders.txt": "orders2.txt"
-        }
-    },
-    {
-        "payload": {
-            "in_var": 3
-        },
-        "files": {
-            "orders.txt": "orders3.txt"
+            "orders.txt": "orders.txt"
         }
     }
 ]

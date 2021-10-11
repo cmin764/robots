@@ -1,22 +1,7 @@
 [
     {
         "payload": {
-            "name": "CustomName1",
-            "id": 1
-        },
-        "files": {}
-    },
-    {
-        "payload": {
-            "name": "CustomName2",
-            "id": 2
-        },
-        "files": {}
-    },
-    {
-        "payload": {
-            "name": "CustomName3",
-            "id": 3
+            "doesnt": "matter"
         },
         "files": {}
     }
