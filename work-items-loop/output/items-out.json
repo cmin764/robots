@@ -3,6 +3,16 @@
         "payload": {
             "doesnt": "matter"
         },
-        "files": {}
+        "files": {
+            "infile.txt": "infile1.txt"
+        }
+    },
+    {
+        "payload": {
+            "doesnt": "matter"
+        },
+        "files": {
+            "infile.txt": "infile2.txt"
+        }
     }
 ]

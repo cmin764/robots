@@ -1,6 +1,15 @@
 [
     {
         "payload": {
+            "infile": "devdata/infile1.txt"
+        },
+        "files": {
+            "orders.txt": "orders.txt"
+        }
+    },
+    {
+        "payload": {
+            "infile": "devdata/infile2.txt"
         },
         "files": {
             "orders.txt": "orders.txt"

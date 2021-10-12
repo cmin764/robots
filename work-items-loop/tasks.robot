@@ -10,10 +10,12 @@ Add Work Item
     ${path} =        Get Work Item File    orders.txt
     Log To Console    Getting: ${path}
     ${content} =     Get File    ${path}
+    ${infile_path} =     Get Work Item Variable    infile
 
     # Create a new output work item which doesn't contain files attached to it.
     Create Output Work Item
     Set work item variables    doesnt=matter
+    Add Work Item File    ${infile_path}    name=infile.txt
     Save Work Item
 
     # Release and return content.
