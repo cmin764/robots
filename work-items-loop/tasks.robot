@@ -14,6 +14,16 @@ Add work item with attached file
     Add Work Item File    ${infile_path}    name=infile.txt
     Save Work Item
 
+Read files and save content in payload
+    ${path} =     Get Work Item File    orders.txt
+    ${content} =     Get File    ${path}
+
+    Create Output Work Item
+    Set Work Item Variable    data    ${content}
+    Save Work Item
+
+    [Return]    ${content}
+
 
 *** Tasks ***
 Get inputs and create outputs using file paths from payload
@@ -25,5 +35,9 @@ Get inputs and create outputs using file paths from payload
 
 
 Get inputs and create outputs using file paths from payload with helper
-    @{results} =     For Each Input Work Item    Add work item with attached file
-    Log    ${results}
+    For Each Input Work Item    Add work item with attached file
+
+
+Read work item with attached file and add content as payload
+    @{contents} =    For Each Input Work Item    Read files and save content in payload
+    Log Many    @{contents}

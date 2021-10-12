@@ -1,8 +1,10 @@
 tasks:
-  Create outputs:
+  Create outputs with files:
     robotTaskName: Get inputs and create outputs using file paths from payload
-  Create outputs with helper:
+  Create outputs with files using helper:
     robotTaskName: Get inputs and create outputs using file paths from payload with helper
+  Create outputs with payload using helper:
+    robotTaskName: Read work item with attached file and add content as payload
 
 condaConfigFile: conda.yaml
 artifactsDir: output

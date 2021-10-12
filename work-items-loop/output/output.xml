@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.1 (Python 3.7.5 on darwin)" generated="20211012 10:28:32.914" rpa="true" schemaversion="2">
+<robot generator="Robot 4.1.1 (Python 3.7.5 on darwin)" generated="20211012 12:32:34.463" rpa="true" schemaversion="2">
 <suite id="s1" name="Work-Items-Loop" source="/Users/cmin/Robots/work-items-loop">
 <suite id="s1-s1" name="Tasks" source="/Users/cmin/Robots/work-items-loop/tasks.robot">
 <test id="s1-s1-t1" name="Get inputs and create outputs using file paths from payload with helper">
 <kw name="For Each Input Work Item" library="RPA.Robocorp.WorkItems">
-<var>@{results}</var>
 <arg>Add work item with attached file</arg>
 <doc>Run a keyword or function for each work item in the input queue.</doc>
 <kw name="Add work item with attached file">
@@ -13,29 +12,29 @@
 <arg>infile</arg>
 <doc>Return a single variable value from the work item,
 or default value if defined and key does not exist.</doc>
-<msg timestamp="20211012 10:28:33.180" level="INFO">${infile_path} = devdata/infile1.txt</msg>
-<status status="PASS" starttime="20211012 10:28:33.180" endtime="20211012 10:28:33.180"/>
+<msg timestamp="20211012 12:32:34.719" level="INFO">${infile_path} = devdata/infile1.txt</msg>
+<status status="PASS" starttime="20211012 12:32:34.719" endtime="20211012 12:32:34.719"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="PASS" starttime="20211012 10:28:33.180" endtime="20211012 10:28:33.181"/>
+<status status="PASS" starttime="20211012 12:32:34.719" endtime="20211012 12:32:34.719"/>
 </kw>
 <kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
 <arg>${infile_path}</arg>
 <arg>name=infile.txt</arg>
 <doc>Add given file to work item.</doc>
-<msg timestamp="20211012 10:28:33.181" level="INFO">Adding file: devdata/infile1.txt</msg>
-<status status="PASS" starttime="20211012 10:28:33.181" endtime="20211012 10:28:33.181"/>
+<msg timestamp="20211012 12:32:34.719" level="INFO">Adding file: devdata/infile1.txt</msg>
+<status status="PASS" starttime="20211012 12:32:34.719" endtime="20211012 12:32:34.719"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211012 10:28:33.181" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211012 10:28:33.182" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/infile1.txt</msg>
-<msg timestamp="20211012 10:28:33.182" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<status status="PASS" starttime="20211012 10:28:33.181" endtime="20211012 10:28:33.182"/>
+<msg timestamp="20211012 12:32:34.720" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211012 12:32:34.721" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/infile1.txt</msg>
+<msg timestamp="20211012 12:32:34.721" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<status status="PASS" starttime="20211012 12:32:34.719" endtime="20211012 12:32:34.721"/>
 </kw>
-<status status="PASS" starttime="20211012 10:28:33.180" endtime="20211012 10:28:33.182"/>
+<status status="PASS" starttime="20211012 12:32:34.719" endtime="20211012 12:32:34.721"/>
 </kw>
 <kw name="Add work item with attached file">
 <kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
@@ -43,45 +42,38 @@ all changes are discarded when the library goes out of scope.</doc>
 <arg>infile</arg>
 <doc>Return a single variable value from the work item,
 or default value if defined and key does not exist.</doc>
-<msg timestamp="20211012 10:28:33.182" level="INFO">${infile_path} = devdata/infile2.txt</msg>
-<status status="PASS" starttime="20211012 10:28:33.182" endtime="20211012 10:28:33.182"/>
+<msg timestamp="20211012 12:32:34.721" level="INFO">${infile_path} = devdata/infile2.txt</msg>
+<status status="PASS" starttime="20211012 12:32:34.721" endtime="20211012 12:32:34.721"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="PASS" starttime="20211012 10:28:33.182" endtime="20211012 10:28:33.182"/>
+<status status="PASS" starttime="20211012 12:32:34.721" endtime="20211012 12:32:34.721"/>
 </kw>
 <kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
 <arg>${infile_path}</arg>
 <arg>name=infile.txt</arg>
 <doc>Add given file to work item.</doc>
-<msg timestamp="20211012 10:28:33.183" level="INFO">Adding file: devdata/infile2.txt</msg>
-<status status="PASS" starttime="20211012 10:28:33.182" endtime="20211012 10:28:33.183"/>
+<msg timestamp="20211012 12:32:34.722" level="INFO">Adding file: devdata/infile2.txt</msg>
+<status status="PASS" starttime="20211012 12:32:34.721" endtime="20211012 12:32:34.722"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211012 10:28:33.183" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211012 10:28:33.183" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/infile2.txt</msg>
-<msg timestamp="20211012 10:28:33.183" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
-<status status="PASS" starttime="20211012 10:28:33.183" endtime="20211012 10:28:33.183"/>
+<msg timestamp="20211012 12:32:34.722" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211012 12:32:34.722" level="INFO">Created file: /Users/cmin/Robots/work-items-loop/output/infile2.txt</msg>
+<msg timestamp="20211012 12:32:34.722" level="INFO">Saved into output file: /Users/cmin/Robots/work-items-loop/output/items-out.json</msg>
+<status status="PASS" starttime="20211012 12:32:34.722" endtime="20211012 12:32:34.723"/>
 </kw>
-<status status="PASS" starttime="20211012 10:28:33.182" endtime="20211012 10:28:33.184"/>
+<status status="PASS" starttime="20211012 12:32:34.721" endtime="20211012 12:32:34.723"/>
 </kw>
-<msg timestamp="20211012 10:28:33.184" level="INFO">@{results} = [ None | None ]</msg>
-<status status="PASS" starttime="20211012 10:28:33.180" endtime="20211012 10:28:33.184"/>
+<status status="PASS" starttime="20211012 12:32:34.718" endtime="20211012 12:32:34.723"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${results}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20211012 10:28:33.184" level="INFO">[None, None]</msg>
-<status status="PASS" starttime="20211012 10:28:33.184" endtime="20211012 10:28:33.184"/>
-</kw>
-<status status="PASS" starttime="20211012 10:28:33.179" endtime="20211012 10:28:33.184"/>
+<status status="PASS" starttime="20211012 12:32:34.718" endtime="20211012 12:32:34.723"/>
 </test>
 <doc>Testing the helper keyword on consuming all work items in the queue.</doc>
-<status status="PASS" starttime="20211012 10:28:32.936" endtime="20211012 10:28:33.184"/>
+<status status="PASS" starttime="20211012 12:32:34.486" endtime="20211012 12:32:34.723"/>
 </suite>
-<status status="PASS" starttime="20211012 10:28:32.914" endtime="20211012 10:28:33.185"/>
+<status status="PASS" starttime="20211012 12:32:34.464" endtime="20211012 12:32:34.724"/>
 </suite>
 <statistics>
 <total>
