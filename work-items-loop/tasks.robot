@@ -6,30 +6,19 @@ Library          OperatingSystem
 
 *** Keywords ***
 Add Work Item
-    # Get a file from the current input work item.
-    ${path} =        Get Work Item File    orders.txt
-    Log To Console    Getting: ${path}
-    ${content} =     Get File    ${path}
+    # Get a file path from the current input work item payload.
     ${infile_path} =     Get Work Item Variable    infile
 
-    # Create a new output work item which doesn't contain files attached to it.
+    # Create a new output work item which contains files attached to it.
     Create Output Work Item
-    Set work item variables    doesnt=matter
     Add Work Item File    ${infile_path}    name=infile.txt
     Save Work Item
-
-    # Release and return content.
-    Release Input Work Item    DONE
-    [Return]    ${content}
 
 
 *** Tasks ***
 Consume queue
-    # This block can run with any kind of work item.
-    Log Environment Variables
-    ${payload} =     Get Work Item Payload
-    Log    ${payload}
-    
-    # This block runs with work items which have files attached to them.
-    @{results} =     For Each Input Work Item    Add Work Item
-    Log    ${results}
+    FOR    ${index}    IN RANGE    1024
+        Add Work Item
+        ${has_input} =     Run Keyword And Return Status    Get Input Work Item
+        Exit For Loop If    not ${has_input}
+    END

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.7.5 on darwin)" generated="20211012 10:02:49.563" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot Interactive Console" source="/Users/cmin/.vscode/extensions/robocorp.robotframework-lsp-0.23.2/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Log Environment Variables">
+<msg timestamp="20211012 10:02:50.114" level="FAIL">No keyword with name 'Log Environment Variables' found.</msg>
+<status status="FAIL" starttime="20211012 10:02:50.114" endtime="20211012 10:02:50.114"/>
+</kw>
+<kw name="Get Work Item Payload">
+<var>${payload} =</var>
+<status status="NOT RUN" starttime="20211012 10:02:50.115" endtime="20211012 10:02:50.116"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20211012 10:02:50.116" endtime="20211012 10:02:50.116"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1024</value>
+<iter>
+<var name="${index}">${index}</var>
+<kw name="Add Work Item">
+<status status="NOT RUN" starttime="20211012 10:02:50.117" endtime="20211012 10:02:50.117"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_input}</var>
+<arg>Get Input Work Item</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20211012 10:02:50.117" endtime="20211012 10:02:50.117"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>not ${has_input}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20211012 10:02:50.117" endtime="20211012 10:02:50.117"/>
+</kw>
+<status status="NOT RUN" starttime="20211012 10:02:50.116" endtime="20211012 10:02:50.117"/>
+</iter>
+<status status="NOT RUN" starttime="20211012 10:02:50.116" endtime="20211012 10:02:50.117"/>
+</for>
+<status status="PASS" starttime="20211012 10:02:49.585" endtime="20211012 10:02:55.479"/>
+</kw>
+<status status="PASS" starttime="20211012 10:02:49.585" endtime="20211012 10:02:55.479"/>
+</test>
+<status status="PASS" starttime="20211012 10:02:49.564" endtime="20211012 10:02:55.481"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
