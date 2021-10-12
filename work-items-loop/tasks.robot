@@ -22,3 +22,8 @@ Get inputs and create outputs using file paths from payload
         ${has_input} =     Run Keyword And Return Status    Get Input Work Item
         Exit For Loop If    not ${has_input}
     END
+
+
+Get inputs and create outputs using file paths from payload with helper
+    @{results} =     For Each Input Work Item    Add work item with attached file
+    Log    ${results}

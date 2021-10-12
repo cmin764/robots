@@ -1,6 +1,8 @@
 tasks:
-  Run all tasks:
-    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Create outputs:
+    robotTaskName: Get inputs and create outputs using file paths from payload
+  Create outputs with helper:
+    robotTaskName: Get inputs and create outputs using file paths from payload with helper
 
 condaConfigFile: conda.yaml
 artifactsDir: output
