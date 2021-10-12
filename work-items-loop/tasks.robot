@@ -28,6 +28,6 @@ Consume queue
     ${payload} =     Get Work Item Payload
     Log    ${payload}
     
-    # This block runs with work items which has files attached to them.
+    # This block runs with work items which have files attached to them.
     @{results} =     For Each Input Work Item    Add Work Item
     Log    ${results}
