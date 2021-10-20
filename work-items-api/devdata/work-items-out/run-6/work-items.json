@@ -1,0 +1,8 @@
+[
+    {
+        "payload": {},
+        "files": {
+            "other_file.txt": "file.txt"
+        }
+    }
+]

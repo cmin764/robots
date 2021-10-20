@@ -1,0 +1,11 @@
+[
+    {
+        "payload": {
+            "initial": "value",
+            "extra": "var"
+        },
+        "files": {
+            "file.txt": "file.txt"
+        }
+    }
+]
