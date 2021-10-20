@@ -1,6 +1,8 @@
 tasks:
-  Run all tasks:
-    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Work items coverage producer:
+    robotTaskName: Work items coverage producer
+  Work items coverage consumer:
+    robotTaskName: Work items coverage consumer
 
 condaConfigFile: conda.yaml
 artifactsDir: output
