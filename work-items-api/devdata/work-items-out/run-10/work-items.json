@@ -1,8 +1,9 @@
 [
     {
-        "payload": {},
+        "payload": {
+            "extra": "var"
+        },
         "files": {
-            "file.txt": "file.txt",
             "other_file.txt": "file.txt"
         }
     }
