@@ -3,6 +3,8 @@ tasks:
     robotTaskName: Work items coverage producer
   Work items coverage consumer:
     robotTaskName: Work items coverage consumer
+  Work items coverage consumer failures:
+    robotTaskName: Work items coverage consumer failures
 
 condaConfigFile: conda.yaml
 artifactsDir: output

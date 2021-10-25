@@ -25,6 +25,10 @@ Log other file
     ${file_path} =    Get Work Item File    ${other_file_name}
     Log    ${file_path}
 
+Log other file failure
+    Log other file
+    Release Input Work Item    FAILED    exception_type=BUSINESS
+
 
 *** Tasks ***
 Work items coverage producer
@@ -45,3 +49,8 @@ Work items coverage producer
 Work items coverage consumer
     # `.release_input()`, `.reserve_input()`
     For Each Input Work Item    Log other file
+
+
+Work items coverage consumer failures
+    # `.release_input()`, `.reserve_input()`
+    For Each Input Work Item    Log other file failure

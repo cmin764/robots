@@ -2,13 +2,14 @@
     {
         "payload": {},
         "files": {
-            "infile.txt": "infile1.txt"
+            "file.txt": "file.txt",
+            "other_file.txt": "file.txt"
         }
     },
     {
         "payload": {},
         "files": {
-            "infile.txt": "infile2.txt"
+            "other_file.txt": "file.txt"
         }
     }
 ]
