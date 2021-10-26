@@ -1,0 +1,14 @@
+[
+    {
+        "payload": {
+            "data": "This is orders1.txt\nA file named orders.txt should be attached in the initial input work item\n"
+        },
+        "files": {}
+    },
+    {
+        "payload": {
+            "data": "This is orders2.txt\nA file named orders.txt should be attached in the initial input work item\n"
+        },
+        "files": {}
+    }
+]

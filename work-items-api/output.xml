@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.7.5 on darwin)" generated="20211026 15:09:30.926" rpa="true" schemaversion="2">
+<suite id="s1" name="Tasks" source="/Users/cmin/Repos/robots/work-items-api/tasks.robot">
+<test id="s1-t1" name="Work items coverage producer">
+<kw name="Set Work Item Variable" library="RPA.Robocorp.WorkItems">
+<arg>extra</arg>
+<arg>var</arg>
+<doc>Set a single variable value in the current work item.</doc>
+<msg timestamp="20211026 15:09:31.350" level="INFO">extra = var</msg>
+<status status="PASS" starttime="20211026 15:09:31.349" endtime="20211026 15:09:31.350"/>
+</kw>
+<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Save the current data and files in the work item. If not saved,
+all changes are discarded when the library goes out of scope.</doc>
+<msg timestamp="20211026 15:09:31.354" level="INFO">Saved into input file: /Users/cmin/Repos/robots/work-items-api/devdata/items-in.json</msg>
+<status status="PASS" starttime="20211026 15:09:31.351" endtime="20211026 15:09:31.355"/>
+</kw>
+<kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
+<var>${file_path}</var>
+<arg>${file_name}</arg>
+<doc>Get attached file from work item to disk.
+Returns the absolute path to the created file.</doc>
+<msg timestamp="20211026 15:09:31.357" level="INFO">Downloaded file to: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<msg timestamp="20211026 15:09:31.357" level="INFO">${file_path} = /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.355" endtime="20211026 15:09:31.357"/>
+</kw>
+<kw name="Create work item">
+<arg>${file_path}</arg>
+<kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Create a new output work item.</doc>
+<status status="PASS" starttime="20211026 15:09:31.359" endtime="20211026 15:09:31.359"/>
+</kw>
+<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${file_path}</arg>
+<arg>name=${file_name}</arg>
+<doc>Add given file to work item.</doc>
+<msg timestamp="20211026 15:09:31.361" level="INFO">Adding file: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.360" endtime="20211026 15:09:31.361"/>
+</kw>
+<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${file_path}</arg>
+<arg>name=${other_file_name}</arg>
+<doc>Add given file to work item.</doc>
+<msg timestamp="20211026 15:09:31.363" level="INFO">Adding file: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<msg timestamp="20211026 15:09:31.363" level="WARN">File already added: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.361" endtime="20211026 15:09:31.363"/>
+</kw>
+<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Save the current data and files in the work item. If not saved,
+all changes are discarded when the library goes out of scope.</doc>
+<msg timestamp="20211026 15:09:31.365" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<msg timestamp="20211026 15:09:31.365" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/file.txt</msg>
+<msg timestamp="20211026 15:09:31.366" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<msg timestamp="20211026 15:09:31.366" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/file.txt</msg>
+<msg timestamp="20211026 15:09:31.367" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<status status="PASS" starttime="20211026 15:09:31.364" endtime="20211026 15:09:31.367"/>
+</kw>
+<status status="PASS" starttime="20211026 15:09:31.358" endtime="20211026 15:09:31.367"/>
+</kw>
+<kw name="Create work item">
+<arg>${file_path}</arg>
+<kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Create a new output work item.</doc>
+<status status="PASS" starttime="20211026 15:09:31.369" endtime="20211026 15:09:31.369"/>
+</kw>
+<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${file_path}</arg>
+<arg>name=${file_name}</arg>
+<doc>Add given file to work item.</doc>
+<msg timestamp="20211026 15:09:31.371" level="INFO">Adding file: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.370" endtime="20211026 15:09:31.371"/>
+</kw>
+<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${file_path}</arg>
+<arg>name=${other_file_name}</arg>
+<doc>Add given file to work item.</doc>
+<msg timestamp="20211026 15:09:31.373" level="INFO">Adding file: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<msg timestamp="20211026 15:09:31.373" level="WARN">File already added: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.371" endtime="20211026 15:09:31.373"/>
+</kw>
+<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Save the current data and files in the work item. If not saved,
+all changes are discarded when the library goes out of scope.</doc>
+<msg timestamp="20211026 15:09:31.375" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<msg timestamp="20211026 15:09:31.375" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/file.txt</msg>
+<msg timestamp="20211026 15:09:31.376" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<msg timestamp="20211026 15:09:31.376" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/file.txt</msg>
+<msg timestamp="20211026 15:09:31.377" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<status status="PASS" starttime="20211026 15:09:31.373" endtime="20211026 15:09:31.377"/>
+</kw>
+<status status="PASS" starttime="20211026 15:09:31.368" endtime="20211026 15:09:31.378"/>
+</kw>
+<kw name="Remove Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${file_name}</arg>
+<doc>Remove attached file from work item.</doc>
+<msg timestamp="20211026 15:09:31.379" level="INFO">Removing file: file.txt</msg>
+<status status="PASS" starttime="20211026 15:09:31.378" endtime="20211026 15:09:31.379"/>
+</kw>
+<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
+<doc>Save the current data and files in the work item. If not saved,
+all changes are discarded when the library goes out of scope.</doc>
+<msg timestamp="20211026 15:09:31.381" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<msg timestamp="20211026 15:09:31.381" level="INFO">Would remove file: file.txt</msg>
+<msg timestamp="20211026 15:09:31.382" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-api/devdata/work-items-out/run-20/work-items.json</msg>
+<status status="PASS" starttime="20211026 15:09:31.379" endtime="20211026 15:09:31.382"/>
+</kw>
+<kw name="Release Input Work Item" library="RPA.Robocorp.WorkItems">
+<arg>DONE</arg>
+<doc>Release the lastly retrieved input work item and set its state.</doc>
+<msg timestamp="20211026 15:09:31.383" level="INFO">Releasing item '0' with COMPLETED state and exception: None</msg>
+<status status="PASS" starttime="20211026 15:09:31.382" endtime="20211026 15:09:31.383"/>
+</kw>
+<status status="PASS" starttime="20211026 15:09:31.347" endtime="20211026 15:09:31.384"/>
+</test>
+<doc>Minimum set of tasks on using the entire cloud API given work items.</doc>
+<status status="PASS" starttime="20211026 15:09:30.930" endtime="20211026 15:09:31.386"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211026 15:09:31.363" level="WARN">File already added: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+<msg timestamp="20211026 15:09:31.373" level="WARN">File already added: /Users/cmin/Repos/robots/work-items-api/file.txt</msg>
+</errors>
+</robot>

@@ -35,7 +35,7 @@ Get inputs and create outputs using file paths from payload
 
 
 Get inputs and create outputs using file paths from payload with helper
-    For Each Input Work Item    Add work item with attached file
+    For Each Input Work Item    Add work item with attached file    return_results=False
 
 
 Read work item with attached file and add content as payload

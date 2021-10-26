@@ -1,0 +1,14 @@
+[
+    {
+        "payload": {},
+        "files": {
+            "infile.txt": "infile1.txt"
+        }
+    },
+    {
+        "payload": {},
+        "files": {
+            "infile.txt": "infile2.txt"
+        }
+    }
+]

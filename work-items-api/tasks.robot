@@ -48,9 +48,9 @@ Work items coverage producer
 
 Work items coverage consumer
     # `.release_input()`, `.reserve_input()`
-    For Each Input Work Item    Log other file
+    For Each Input Work Item    Log other file    return_results=False    items_limit=3
 
 
 Work items coverage consumer failures
     # `.release_input()`, `.reserve_input()`
-    For Each Input Work Item    Log other file failure
+    For Each Input Work Item    Log other file failure    return_results=False    items_limit=3

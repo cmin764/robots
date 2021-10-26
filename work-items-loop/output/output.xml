@@ -1,262 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.1 (Python 3.9.7 on darwin)" generated="20211022 14:46:37.393" rpa="true" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.9.7 on darwin)" generated="20211026 15:09:10.686" rpa="true" schemaversion="2">
 <suite id="s1" name="Tasks" source="/Users/cmin/Repos/robots/work-items-loop/tasks.robot">
-<test id="s1-t1" name="Get inputs and create outputs using file paths from payload">
-<for flavor="IN RANGE">
-<var>${index}</var>
-<value>1024</value>
-<iter>
-<var name="${index}">0</var>
-<kw name="Add work item with attached file">
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Arguments: [  ]</msg>
-<kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
-<var>${infile_path}</var>
-<arg>infile</arg>
-<doc>Return a single variable value from the work item,
-or default value if defined and key does not exist.</doc>
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Arguments: [ 'infile' ]</msg>
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Return: 'devdata/infile1.txt'</msg>
-<msg timestamp="20211022 14:46:37.465" level="INFO">${infile_path} = devdata/infile1.txt</msg>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.465"/>
-</kw>
-<kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Create a new output work item.</doc>
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Return: WorkItem(id=None, payload={}, files=0)</msg>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.465"/>
-</kw>
-<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
-<arg>${infile_path}</arg>
-<arg>name=infile.txt</arg>
-<doc>Add given file to work item.</doc>
-<msg timestamp="20211022 14:46:37.465" level="TRACE">Arguments: [ 'devdata/infile1.txt' | name='infile.txt' ]</msg>
-<msg timestamp="20211022 14:46:37.465" level="INFO">Adding file: devdata/infile1.txt</msg>
-<msg timestamp="20211022 14:46:37.466" level="TRACE">Return: 'infile.txt'</msg>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.466"/>
-</kw>
-<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Save the current data and files in the work item. If not saved,
-all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211022 14:46:37.466" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.466" level="DEBUG">Payload: {}</msg>
-<msg timestamp="20211022 14:46:37.467" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211022 14:46:37.467" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-loop/output/infile1.txt</msg>
-<msg timestamp="20211022 14:46:37.467" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20211022 14:46:37.466" endtime="20211022 14:46:37.467"/>
-</kw>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.467"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${has_input}</var>
-<arg>Get Input Work Item</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Arguments: [ 'Get Input Work Item' ]</msg>
-<kw name="Get Input Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Load the next work item from the input queue, and set it as the active work
-item.</doc>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.467" level="INFO">Releasing item '0' with COMPLETED state and exception: None</msg>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Return: WorkItem(id=1, payload={'infile': 'devdata/infile2.txt'}, files=1)</msg>
-<status status="PASS" starttime="20211022 14:46:37.467" endtime="20211022 14:46:37.467"/>
-</kw>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Return: True</msg>
-<msg timestamp="20211022 14:46:37.467" level="INFO">${has_input} = True</msg>
-<status status="PASS" starttime="20211022 14:46:37.467" endtime="20211022 14:46:37.467"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>not ${has_input}</arg>
-<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Arguments: [ 'not True' ]</msg>
-<msg timestamp="20211022 14:46:37.467" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20211022 14:46:37.467" endtime="20211022 14:46:37.467"/>
-</kw>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.467"/>
-</iter>
-<iter>
-<var name="${index}">1</var>
-<kw name="Add work item with attached file">
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Arguments: [  ]</msg>
-<kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
-<var>${infile_path}</var>
-<arg>infile</arg>
-<doc>Return a single variable value from the work item,
-or default value if defined and key does not exist.</doc>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Arguments: [ 'infile' ]</msg>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Return: 'devdata/infile2.txt'</msg>
-<msg timestamp="20211022 14:46:37.468" level="INFO">${infile_path} = devdata/infile2.txt</msg>
-<status status="PASS" starttime="20211022 14:46:37.468" endtime="20211022 14:46:37.468"/>
-</kw>
-<kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Create a new output work item.</doc>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Return: WorkItem(id=None, payload={}, files=0)</msg>
-<status status="PASS" starttime="20211022 14:46:37.468" endtime="20211022 14:46:37.468"/>
-</kw>
-<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
-<arg>${infile_path}</arg>
-<arg>name=infile.txt</arg>
-<doc>Add given file to work item.</doc>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Arguments: [ 'devdata/infile2.txt' | name='infile.txt' ]</msg>
-<msg timestamp="20211022 14:46:37.468" level="INFO">Adding file: devdata/infile2.txt</msg>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Return: 'infile.txt'</msg>
-<status status="PASS" starttime="20211022 14:46:37.468" endtime="20211022 14:46:37.468"/>
-</kw>
-<kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Save the current data and files in the work item. If not saved,
-all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211022 14:46:37.468" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.468" level="DEBUG">Payload: {}</msg>
-<msg timestamp="20211022 14:46:37.468" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211022 14:46:37.468" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-loop/output/infile2.txt</msg>
-<msg timestamp="20211022 14:46:37.469" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
-<msg timestamp="20211022 14:46:37.469" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20211022 14:46:37.468" endtime="20211022 14:46:37.469"/>
-</kw>
-<msg timestamp="20211022 14:46:37.469" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20211022 14:46:37.468" endtime="20211022 14:46:37.469"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${has_input}</var>
-<arg>Get Input Work Item</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<msg timestamp="20211022 14:46:37.469" level="TRACE">Arguments: [ 'Get Input Work Item' ]</msg>
-<kw name="Get Input Work Item" library="RPA.Robocorp.WorkItems">
-<doc>Load the next work item from the input queue, and set it as the active work
-item.</doc>
-<msg timestamp="20211022 14:46:37.469" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20211022 14:46:37.469" level="INFO">Releasing item '1' with COMPLETED state and exception: None</msg>
-<msg timestamp="20211022 14:46:37.470" level="FAIL">EmptyQueue: No work items in the input queue</msg>
-<msg timestamp="20211022 14:46:37.470" level="DEBUG">Traceback (most recent call last):
-  File "/Users/cmin/Repos/rpaframework/packages/main/src/RPA/Robocorp/WorkItems.py", line 971, in get_input_work_item
-    item_id = self.adapter.reserve_input()
-  File "/Users/cmin/Repos/rpaframework/packages/main/src/RPA/Robocorp/WorkItems.py", line 373, in reserve_input
-    raise EmptyQueue("No work items in the input queue")</msg>
-<status status="FAIL" starttime="20211022 14:46:37.469" endtime="20211022 14:46:37.470"/>
-</kw>
-<msg timestamp="20211022 14:46:37.470" level="TRACE">Return: False</msg>
-<msg timestamp="20211022 14:46:37.470" level="INFO">${has_input} = False</msg>
-<status status="PASS" starttime="20211022 14:46:37.469" endtime="20211022 14:46:37.470"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>not ${has_input}</arg>
-<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
-<msg timestamp="20211022 14:46:37.470" level="TRACE">Arguments: [ 'not False' ]</msg>
-<msg timestamp="20211022 14:46:37.470" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20211022 14:46:37.470" endtime="20211022 14:46:37.470"/>
-</kw>
-<status status="PASS" starttime="20211022 14:46:37.467" endtime="20211022 14:46:37.470"/>
-</iter>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.470"/>
-</for>
-<status status="PASS" starttime="20211022 14:46:37.465" endtime="20211022 14:46:37.470"/>
-</test>
-<test id="s1-t2" name="Get inputs and create outputs using file paths from payload with helper">
+<test id="s1-t1" name="Get inputs and create outputs using file paths from payload with helper">
 <kw name="For Each Input Work Item" library="RPA.Robocorp.WorkItems">
 <arg>Add work item with attached file</arg>
+<arg>return_results=False</arg>
 <doc>Run a keyword or function for each work item in the input queue.</doc>
-<msg timestamp="20211022 14:46:37.471" level="TRACE">Arguments: [ 'Add work item with attached file' ]</msg>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Arguments: [ 'Add work item with attached file' | return_results=False ]</msg>
 <kw name="Add work item with attached file">
-<msg timestamp="20211022 14:46:37.471" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Arguments: [  ]</msg>
 <kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
 <var>${infile_path}</var>
 <arg>infile</arg>
 <doc>Return a single variable value from the work item,
 or default value if defined and key does not exist.</doc>
-<msg timestamp="20211022 14:46:37.471" level="TRACE">Arguments: [ 'infile' ]</msg>
-<msg timestamp="20211022 14:46:37.471" level="FAIL">KeyError: 'Undefined variable: infile'</msg>
-<msg timestamp="20211022 14:46:37.471" level="DEBUG">Traceback (most recent call last):
-  File "/Users/cmin/Repos/rpaframework/packages/main/src/RPA/Robocorp/WorkItems.py", line 1106, in get_work_item_variable
-    raise KeyError(f"Undefined variable: {name}")</msg>
-<status status="FAIL" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Arguments: [ 'infile' ]</msg>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Return: 'devdata/infile1.txt'</msg>
+<msg timestamp="20211026 15:09:10.757" level="INFO">${infile_path} = devdata/infile1.txt</msg>
+<status status="PASS" starttime="20211026 15:09:10.757" endtime="20211026 15:09:10.757"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211026 15:09:10.757" level="TRACE">Return: WorkItem(id=None, payload={}, files=0)</msg>
+<status status="PASS" starttime="20211026 15:09:10.757" endtime="20211026 15:09:10.757"/>
 </kw>
 <kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
 <arg>${infile_path}</arg>
 <arg>name=infile.txt</arg>
 <doc>Add given file to work item.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
+<msg timestamp="20211026 15:09:10.758" level="TRACE">Arguments: [ 'devdata/infile1.txt' | name='infile.txt' ]</msg>
+<msg timestamp="20211026 15:09:10.758" level="INFO">Adding file: devdata/infile1.txt</msg>
+<msg timestamp="20211026 15:09:10.758" level="TRACE">Return: 'infile.txt'</msg>
+<status status="PASS" starttime="20211026 15:09:10.757" endtime="20211026 15:09:10.758"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
+<msg timestamp="20211026 15:09:10.758" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211026 15:09:10.758" level="DEBUG">Payload: {}</msg>
+<msg timestamp="20211026 15:09:10.759" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211026 15:09:10.760" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-loop/output/infile1.txt</msg>
+<msg timestamp="20211026 15:09:10.760" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211026 15:09:10.760" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211026 15:09:10.758" endtime="20211026 15:09:10.760"/>
 </kw>
-<status status="FAIL" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
+<msg timestamp="20211026 15:09:10.760" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211026 15:09:10.757" endtime="20211026 15:09:10.760"/>
 </kw>
-<status status="FAIL" starttime="20211022 14:46:37.471" endtime="20211022 14:46:37.471"/>
-</kw>
-<status status="FAIL" starttime="20211022 14:46:37.470" endtime="20211022 14:46:37.472">KeyError: 'Undefined variable: infile'</status>
-</test>
-<test id="s1-t3" name="Read work item with attached file and add content as payload">
-<kw name="For Each Input Work Item" library="RPA.Robocorp.WorkItems">
-<var>@{contents}</var>
-<arg>Read files and save content in payload</arg>
-<doc>Run a keyword or function for each work item in the input queue.</doc>
-<msg timestamp="20211022 14:46:37.472" level="TRACE">Arguments: [ 'Read files and save content in payload' ]</msg>
-<kw name="Read files and save content in payload">
-<msg timestamp="20211022 14:46:37.472" level="TRACE">Arguments: [  ]</msg>
-<kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
-<var>${path}</var>
-<arg>orders.txt</arg>
-<doc>Get attached file from work item to disk.
-Returns the absolute path to the created file.</doc>
-<msg timestamp="20211022 14:46:37.472" level="TRACE">Arguments: [ 'orders.txt' ]</msg>
-<msg timestamp="20211022 14:46:37.472" level="FAIL">FileNotFoundError: No such file: orders.txt</msg>
-<msg timestamp="20211022 14:46:37.472" level="DEBUG">Traceback (most recent call last):
-  File "/Users/cmin/Repos/rpaframework/packages/main/src/RPA/Robocorp/WorkItems.py", line 1239, in get_work_item_file
-    path = self.current.get_file(name, path)
-  File "/Users/cmin/Repos/rpaframework/packages/main/src/RPA/Robocorp/WorkItems.py", line 646, in get_file
-    raise FileNotFoundError(f"No such file: {name}")</msg>
-<status status="FAIL" starttime="20211022 14:46:37.472" endtime="20211022 14:46:37.472"/>
-</kw>
-<kw name="Get File" library="OperatingSystem">
-<var>${content}</var>
-<arg>${path}</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.473" endtime="20211022 14:46:37.473"/>
+<msg timestamp="20211026 15:09:10.760" level="INFO">Releasing item '0' with COMPLETED state and exception: None</msg>
+<kw name="Add work item with attached file">
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
+<var>${infile_path}</var>
+<arg>infile</arg>
+<doc>Return a single variable value from the work item,
+or default value if defined and key does not exist.</doc>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Arguments: [ 'infile' ]</msg>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Return: 'devdata/infile2.txt'</msg>
+<msg timestamp="20211026 15:09:10.761" level="INFO">${infile_path} = devdata/infile2.txt</msg>
+<status status="PASS" starttime="20211026 15:09:10.761" endtime="20211026 15:09:10.761"/>
 </kw>
 <kw name="Create Output Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Create a new output work item.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.473" endtime="20211022 14:46:37.473"/>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Return: WorkItem(id=None, payload={}, files=0)</msg>
+<status status="PASS" starttime="20211026 15:09:10.761" endtime="20211026 15:09:10.761"/>
 </kw>
-<kw name="Set Work Item Variable" library="RPA.Robocorp.WorkItems">
-<arg>data</arg>
-<arg>${content}</arg>
-<doc>Set a single variable value in the current work item.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.473" endtime="20211022 14:46:37.473"/>
+<kw name="Add Work Item File" library="RPA.Robocorp.WorkItems">
+<arg>${infile_path}</arg>
+<arg>name=infile.txt</arg>
+<doc>Add given file to work item.</doc>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Arguments: [ 'devdata/infile2.txt' | name='infile.txt' ]</msg>
+<msg timestamp="20211026 15:09:10.761" level="INFO">Adding file: devdata/infile2.txt</msg>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Return: 'infile.txt'</msg>
+<status status="PASS" starttime="20211026 15:09:10.761" endtime="20211026 15:09:10.761"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.473" endtime="20211022 14:46:37.473"/>
+<msg timestamp="20211026 15:09:10.761" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20211026 15:09:10.761" level="DEBUG">Payload: {}</msg>
+<msg timestamp="20211026 15:09:10.761" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211026 15:09:10.762" level="INFO">Created file: /Users/cmin/Repos/robots/work-items-loop/output/infile2.txt</msg>
+<msg timestamp="20211026 15:09:10.762" level="INFO">Saved into output file: /Users/cmin/Repos/robots/work-items-loop/output/items-out.json</msg>
+<msg timestamp="20211026 15:09:10.762" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211026 15:09:10.761" endtime="20211026 15:09:10.762"/>
 </kw>
-<status status="FAIL" starttime="20211022 14:46:37.472" endtime="20211022 14:46:37.473"/>
+<msg timestamp="20211026 15:09:10.762" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211026 15:09:10.760" endtime="20211026 15:09:10.762"/>
 </kw>
-<status status="FAIL" starttime="20211022 14:46:37.472" endtime="20211022 14:46:37.473"/>
+<msg timestamp="20211026 15:09:10.762" level="INFO">Releasing item '1' with COMPLETED state and exception: None</msg>
+<msg timestamp="20211026 15:09:10.762" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20211026 15:09:10.757" endtime="20211026 15:09:10.762"/>
 </kw>
-<kw name="Log Many" library="BuiltIn">
-<arg>@{contents}</arg>
-<doc>Logs the given messages as separate entries using the INFO level.</doc>
-<status status="NOT RUN" starttime="20211022 14:46:37.473" endtime="20211022 14:46:37.473"/>
-</kw>
-<status status="FAIL" starttime="20211022 14:46:37.472" endtime="20211022 14:46:37.473">FileNotFoundError: No such file: orders.txt</status>
+<status status="PASS" starttime="20211026 15:09:10.756" endtime="20211026 15:09:10.762"/>
 </test>
 <doc>Testing the helper keyword on consuming all work items in the queue.</doc>
-<status status="FAIL" starttime="20211022 14:46:37.394" endtime="20211022 14:46:37.474"/>
+<status status="PASS" starttime="20211026 15:09:10.690" endtime="20211026 15:09:10.762"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="2" skip="0">All Tasks</stat>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="2" skip="0" id="s1" name="Tasks">Tasks</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
 </suite>
 </statistics>
 <errors>
