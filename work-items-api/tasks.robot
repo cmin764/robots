@@ -26,6 +26,11 @@ Log other file
     Log    ${file_path}
 
 Log other file failure
+    [Arguments]    ${a}    ${b}    ${total}=0
+    ${result} =     Evaluate    ${a} + ${b}
+    ${total} =    Convert To Integer    ${total}
+    Should Be Equal    ${result}    ${total}
+
     Log other file
     Release Input Work Item    FAILED    exception_type=BUSINESS
 
@@ -53,4 +58,5 @@ Work items coverage consumer
 
 Work items coverage consumer failures
     # `.release_input()`, `.reserve_input()`
-    For Each Input Work Item    Log other file failure    return_results=False    items_limit=3
+    # Log other file failure   1   2    total=3
+    For Each Input Work Item    Log other file failure   1   2   3   return_results=False    items_limit=3
