@@ -6,6 +6,6 @@ Task Teardown       Quit Application
 
 
 *** Tasks ***
-Open Excel File
+Open and export excel file as PDF
     Open Workbook    devdata/blank.xlsx
     Export as PDF    output/blank.pdf
