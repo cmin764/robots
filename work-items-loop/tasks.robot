@@ -41,3 +41,11 @@ Get inputs and create outputs using file paths from payload with helper
 Read work item with attached file and add content as payload
     @{contents} =    For Each Input Work Item    Read files and save content in payload
     Log Many    @{contents}
+
+
+Get payload given e-mail process triggering
+    ${payload} =    Parse Work Item From Email
+    Log    ${payload}
+    Set Work Item Variables    &{payload}
+    ${message} =     Get Work Item Variable     message
+    Should Be Equal     ${message}      from email
