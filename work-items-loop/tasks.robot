@@ -47,5 +47,6 @@ Get payload given e-mail process triggering
     ${payload} =    Parse Work Item From Email
     Log    ${payload}
     Set Work Item Variables    &{payload}
+    Save Work Item
     ${message} =     Get Work Item Variable     message
     Should Be Equal     ${message}      from email
