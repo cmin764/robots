@@ -38,7 +38,7 @@ PDF To XML Parse
 *** Tasks ***
 Email To Document
     ${mail_data} =     Get File    devdata${/}mail.eml
-    HTML to PDF    ${mail_data}    output${/}mail.pdf
+    HTML to PDF    ${mail_data}    ${OUTPUT_DIR}${/}mail.pdf
 
 PDF To Document Parse
     # Get path to input PDF file from input work item.
