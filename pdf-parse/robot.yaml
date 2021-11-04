@@ -1,6 +1,8 @@
 tasks:
   Email to document:
     robotTaskName: Email to document
+  PDF to XML parse:
+    robotTaskName: PDF to XML parse
 
 condaConfigFile: conda.yaml
 artifactsDir: output
