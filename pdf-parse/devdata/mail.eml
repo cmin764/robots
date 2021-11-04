@@ -1,0 +1,127 @@
+MIME-Version: 1.0
+Date: Thu, 4 Nov 2021 09:26:14 +0100
+Message-ID: <CAJen4hg-f+FD6qKOOVo205D7SwnZ6RYsH4Ra+nNtDBa12=fh3g@mail.gmail.com>
+Subject: HTML mail test
+From: =?UTF-8?Q?Cosmin_Poiean=C4=83?= <cosmin@robocorp.com>
+To: cosmin@robocorp.com
+Content-Type: multipart/alternative; boundary="000000000000a9ea5505cff247e0"
+
+--000000000000a9ea5505cff247e0
+Content-Type: text/plain; charset="UTF-8"
+
+Html To Pdf
+<https://robocorp.com/docs/libraries/rpa-framework/rpa-pdf/keywords#html-to-pdf>
+
+Generate a PDF file from HTML content.
+Arguments
+ArgumentTypeDefault valueDescription
+content str null HTML content.
+output_path str null filepath where to save the PDF document.
+
+Note that input must be well-formed and valid HTML.
+
+Examples
+
+Robot Framework
+
+*** Tasks ******Settings***Library    RPA.PDF***Tasks***Example Keyword
+    HTML to PDF    ${html_content_as_string}  /tmp/output.pdf
+
+--000000000000a9ea5505cff247e0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><h2 style=3D"margin:1rem 0px 1.5rem;padding:0px;border:0px=
+;font-weight:500;box-sizing:border-box;outline:none;font-family:&quot;Barlo=
+w Semi Condensed&quot;,sans-serif;font-size:28px;line-height:33.6px;display=
+:flex;color:rgb(0,38,66)"><a href=3D"https://robocorp.com/docs/libraries/rp=
+a-framework/rpa-pdf/keywords#html-to-pdf" style=3D"margin:0px;padding:0px;b=
+order:0px;box-sizing:border-box;outline:none;text-decoration-line:none;colo=
+r:rgb(0,38,66)">Html To Pdf</a><div style=3D"margin:3px 0px 0px 12px;paddin=
+g:0px;border:0px;box-sizing:border-box;outline:none;height:20px"></div></h2=
+><div style=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outl=
+ine:none;color:rgb(0,38,66);font-family:Inter,sans-serif;font-size:16px"><p=
+ class=3D"gmail-shortdoc" style=3D"margin:1rem 0px 2rem;padding:0px;border:=
+0px;box-sizing:border-box;outline:none;font-size:15px;line-height:24px">Gen=
+erate a PDF file from HTML content.</p><h3 style=3D"margin:0px 0px 1rem;pad=
+ding:0px;border:0px;box-sizing:border-box;outline:none;font-family:&quot;Ba=
+rlow Semi Condensed&quot;,sans-serif;font-size:20px;line-height:24px">Argum=
+ents</h3><table class=3D"gmail-arguments" style=3D"margin:0px 0px 32px;padd=
+ing:0px;border:0px;outline:none;table-layout:fixed;width:672px"><tbody styl=
+e=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outline:none">=
+<tr style=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outlin=
+e:none;background:rgb(247,246,250)"><th style=3D"margin:0px;padding:4px 8px=
+;border:0px;box-sizing:border-box;outline:none;font-size:14px;background:rg=
+b(239,234,245)">Argument</th><th style=3D"margin:0px;padding:4px 8px;border=
+:0px;box-sizing:border-box;outline:none;font-size:14px;background:rgb(239,2=
+34,245)">Type</th><th style=3D"margin:0px;padding:4px 8px;border:0px;box-si=
+zing:border-box;outline:none;font-size:14px;background:rgb(239,234,245)">De=
+fault value</th><th style=3D"margin:0px;padding:4px 8px;border:0px;box-sizi=
+ng:border-box;outline:none;font-size:14px;background:rgb(239,234,245)">Desc=
+ription</th></tr><tr style=3D"margin:0px;padding:0px;border:0px;box-sizing:=
+border-box;outline:none"><td style=3D"padding:4px 8px;border:0px;box-sizing=
+:border-box;outline:none;font-size:14px">content</td><td style=3D"padding:4=
+px 8px;border:0px;box-sizing:border-box;outline:none;font-size:14px">str</t=
+d><td style=3D"padding:4px 8px;border:0px;box-sizing:border-box;outline:non=
+e;font-size:14px">null</td><td style=3D"padding:4px 8px;border:0px;box-sizi=
+ng:border-box;outline:none;font-size:14px">HTML content.</td></tr><tr style=
+=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outline:none;ba=
+ckground:rgb(247,246,250)"><td style=3D"padding:4px 8px;border:0px;box-sizi=
+ng:border-box;outline:none;font-size:14px">output_path</td><td style=3D"pad=
+ding:4px 8px;border:0px;box-sizing:border-box;outline:none;font-size:14px">=
+str</td><td style=3D"padding:4px 8px;border:0px;box-sizing:border-box;outli=
+ne:none;font-size:14px">null</td><td style=3D"padding:4px 8px;border:0px;bo=
+x-sizing:border-box;outline:none;font-size:14px">filepath where to save the=
+ PDF document.</td></tr></tbody></table><div class=3D"gmail-document" style=
+=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outline:none"><=
+p style=3D"margin:1rem 0px 2rem;padding:0px;border:0px;box-sizing:border-bo=
+x;outline:none;font-size:15px;line-height:24px">Note that input must be wel=
+l-formed and valid HTML.</p><p style=3D"margin:1rem 0px 2rem;padding:0px;bo=
+rder:0px;box-sizing:border-box;outline:none;font-size:15px;line-height:24px=
+"><span style=3D"margin:0px;padding:0px;border:0px;font-weight:700;box-sizi=
+ng:border-box;outline:none">Examples</span></p><p style=3D"margin:1rem 0px =
+2rem;padding:0px;border:0px;box-sizing:border-box;outline:none;font-size:15=
+px;line-height:24px"><span style=3D"margin:0px;padding:0px;border:0px;font-=
+weight:700;box-sizing:border-box;outline:none">Robot Framework</span></p><p=
+re class=3D"gmail-language-robot gmail-line-numbers" style=3D"margin-top:0p=
+x;margin-bottom:32px;padding:1em 1em 1em 3.8em;border:0px;box-sizing:border=
+-box;outline:none;overflow:auto;border-radius:0px 0px 4px 4px;background:rg=
+b(46,52,64);color:rgb(248,248,242)"><code class=3D"gmail-language-robot" st=
+yle=3D"margin:0px;padding:0px;border:0px;box-sizing:border-box;outline:none=
+;display:block;font-size:14px;background:none;font-family:&quot;Fira Code&q=
+uot;,Consolas,Monaco,&quot;Andale Mono&quot;,&quot;Ubuntu Mono&quot;,monosp=
+ace;white-space:inherit;word-spacing:normal;word-break:normal"><span class=
+=3D"gmail-token gmail-tasks gmail-section" style=3D"margin:0px;padding:0px;=
+border:0px;box-sizing:border-box;outline:none"><span class=3D"gmail-token g=
+mail-section-header gmail-keyword" style=3D"margin:0px;padding:0px;border:0=
+px;box-sizing:border-box;outline:none;color:rgb(165,140,246)">*** Tasks ***=
+</span>
+</span><span class=3D"gmail-token gmail-settings gmail-section" style=3D"ma=
+rgin:0px;padding:0px;border:0px;box-sizing:border-box;outline:none"><span c=
+lass=3D"gmail-token gmail-section-header gmail-keyword" style=3D"margin:0px=
+;padding:0px;border:0px;box-sizing:border-box;outline:none;color:rgb(165,14=
+0,246)">***Settings***</span>
+<span class=3D"gmail-token gmail-property" style=3D"margin:0px;padding:0px;=
+border:0px;box-sizing:border-box;outline:none;color:rgb(255,92,97)">Library=
+</span>    RPA.PDF
+</span>
+<span class=3D"gmail-token gmail-tasks gmail-section" style=3D"margin:0px;p=
+adding:0px;border:0px;box-sizing:border-box;outline:none"><span class=3D"gm=
+ail-token gmail-section-header gmail-keyword" style=3D"margin:0px;padding:0=
+px;border:0px;box-sizing:border-box;outline:none;color:rgb(165,140,246)">**=
+*Tasks***</span>
+<span class=3D"gmail-token gmail-task-name gmail-function" style=3D"margin:=
+0px;padding:0px;border:0px;box-sizing:border-box;outline:none;color:rgb(221=
+,74,104)">Example Keyword</span>
+    <span class=3D"gmail-token gmail-property" style=3D"margin:0px;padding:=
+0px;border:0px;box-sizing:border-box;outline:none;color:rgb(255,92,97)">HTM=
+L to PDF</span>    <span class=3D"gmail-token gmail-variable" style=3D"marg=
+in:0px;padding:0px;border:0px;box-sizing:border-box;outline:none;color:rgb(=
+238,153,0)"><span class=3D"gmail-token gmail-punctuation" style=3D"margin:0=
+px;padding:0px;border:0px;box-sizing:border-box;outline:none;color:rgb(153,=
+153,153)">${</span>html_content_as_string<span class=3D"gmail-token gmail-p=
+unctuation" style=3D"margin:0px;padding:0px;border:0px;box-sizing:border-bo=
+x;outline:none;color:rgb(153,153,153)">}</span></span>  /tmp/output.pdf</sp=
+an></code></pre></div></div></div>
+
+--000000000000a9ea5505cff247e0--
