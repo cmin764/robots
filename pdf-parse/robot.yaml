@@ -1,0 +1,12 @@
+tasks:
+  Email to document:
+    robotTaskName: Email to document
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
