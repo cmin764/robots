@@ -7,6 +7,10 @@ Library    XML
 Library    RPA.Robocorp.WorkItems
 
 
+*** Variables ***
+${invoice_file_name}    invoice.pdf
+
+
 *** Keywords ***
 PDF To Text Parse
     # Obtain text pages from PDF and write them in an output/pdf.txt file.
@@ -16,8 +20,7 @@ PDF To Text Parse
     Log    ${text_dict}
     @{pages} =    Set Variable    ${text_dict.values()}
     ${text_out} =     Set Variable    ${OUTPUT_DIR}${/}pdf.txt
-    Remove File    ${text_out}
-    Create File    ${text_out}
+    Create File    ${text_out}    overwrite=True
     FOR    ${page}    IN    @{pages}
         Append To File    ${text_out}    ${page}
         Append To File    ${text_out}    ${\n}${\n}${\n}${\n}
@@ -42,7 +45,7 @@ Email To Document
 
 PDF To Document Parse
     # Get path to input PDF file from input work item.
-    ${pdf} =     Get Work Item Variable    pdf
+    ${pdf} =     Get Work Item File    ${invoice_file_name}
 
     PDF To Text Parse    ${pdf}
     PDF To XML Parse     ${pdf}

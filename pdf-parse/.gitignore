@@ -14,4 +14,7 @@ temp/
 *.zip
 .~lock*
 */work-items-out/*
-sensitive
+
+# Sensitive files
+devdata/work-items-in/boost-plm/*.pdf
+invoice.pdf
