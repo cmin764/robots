@@ -51,7 +51,5 @@ PDF To Document Parse
     ${pdf} =     Get Work Item File    ${invoice_file_name}
     # ${pdf} =     Set Variable     invoice.pdf
 
-    PDF To Text Parse    ${pdf}
+    # PDF To Text Parse    ${pdf}
     PDF To XML Parse     ${pdf}
-
-
