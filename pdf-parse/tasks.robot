@@ -47,5 +47,5 @@ PDF To Document Parse
     # Get path to input PDF file from input work item.
     ${pdf} =     Get Work Item File    ${invoice_file_name}
 
-    PDF To Text Parse    ${pdf}
+    # PDF To Text Parse    ${pdf}
     PDF To XML Parse     ${pdf}
