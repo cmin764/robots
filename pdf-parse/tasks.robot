@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation   PDF parsing tests.
 
+*** Settings ***
 Library    OperatingSystem
 Library    RPA.PDF
 Library    XML
@@ -26,6 +27,7 @@ PDF To Text Parse
         Append To File    ${text_out}    ${\n}${\n}${\n}${\n}
     END
 
+*** Keywords ***
 PDF To XML Parse
     # Obtain the XML element object from PDF and write it in an output/pdf.xml file.
     [Arguments]    ${pdf}
@@ -39,13 +41,17 @@ PDF To XML Parse
 
 
 *** Tasks ***
-Email To Document
-    ${mail_data} =     Get File    devdata${/}mail.eml
-    HTML to PDF    ${mail_data}    ${OUTPUT_DIR}${/}mail.pdf
+# Email To Document
+#     ${mail_data} =     Get File    devdata${/}mail.eml
+#     HTML to PDF    ${mail_data}    ${OUTPUT_DIR}${/}mail.pdf
 
+*** Tasks ***
 PDF To Document Parse
     # Get path to input PDF file from input work item.
     ${pdf} =     Get Work Item File    ${invoice_file_name}
+    # ${pdf} =     Set Variable     invoice.pdf
 
-    # PDF To Text Parse    ${pdf}
+    PDF To Text Parse    ${pdf}
     PDF To XML Parse     ${pdf}
+
+
