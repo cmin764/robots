@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation   PDF parsing tests.
+Documentation    PDF parsing tests.
+Task Teardown    Close All Pdfs
 
 *** Settings ***
 Library    OperatingSystem
@@ -53,3 +54,6 @@ PDF To Document Parse
 
     # PDF To Text Parse    ${pdf}
     PDF To XML Parse     ${pdf}
+
+Boost PLM Invoice Parsing
+    Log    1
