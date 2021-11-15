@@ -1,10 +1,6 @@
 tasks:
   Email To Document:
     robotTaskName: Email To Document
-  PDF To Document Parse:
-    robotTaskName: PDF To Document Parse
-  Boost PLM Invoice Parsing:
-    robotTaskName: Boost PLM Invoice Parsing
 
 condaConfigFile: conda.yaml
 artifactsDir: output
