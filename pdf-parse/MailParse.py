@@ -3,7 +3,6 @@ import logging
 
 from htmldocx import HtmlToDocx
 from tidylib import tidy_document
-from RPA.Email.ImapSmtp import ImapSmtp
 
 
 # ---- BEGIN part of future changes in rpaframework library ---- 
