@@ -44,11 +44,18 @@ PDF To XML Parse
 
 *** Tasks ***
 Email To Document
-    ${mail_data} =     Get File    devdata${/}mail.eml
+    ${mail_data} =     Get File    devdata${/}bce.eml
     ${mail_dict} =     Email To Dictionary    ${mail_data}
     ${mail_html} =     Set Variable    ${mail_dict}[Body]
+
     RPA.FileSystem.Create File    ${OUTPUT_DIR}${/}mail.html    ${mail_html}    overwrite=True
-    # HTML to PDF    ${mail_dict}[Body]    ${OUTPUT_DIR}${/}mail.pdf
+
+    ${mail_html} =     Get File    ${OUTPUT_DIR}${/}mail.html
+
+    # This needs more work on validation and the output doesn't look right.
+    # HTML to PDF    ${mail_html}    ${OUTPUT_DIR}${/}mail.pdf
+
+    Html To Docx    ${mail_html}    ${OUTPUT_DIR}${/}mail.docx
 
 PDF To Document Parse
     # Get path to input PDF file from input work item.
