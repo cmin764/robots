@@ -19,3 +19,4 @@ temp/
 devdata/work-items-in/boost-plm/*.pdf
 devdata/sensitive/*.pdf
 invoice.pdf
+*boost-plm-invoice*

@@ -2,15 +2,17 @@
 Documentation    PDF parsing tests.
 Task Teardown    Close All Pdfs
 
-*** Settings ***
 Library    OperatingSystem
+Library    RPA.FileSystem
 Library    RPA.PDF
-Library    XML
 Library    RPA.Robocorp.WorkItems
+Library    XML
+Library    MailParse  # local library
 
 
 *** Variables ***
 ${invoice_file_name}    invoice.pdf
+${boost_plm_invoice}    devdata/work-items-in/boost-plm/boost-plm-invoice.pdf
 
 
 *** Keywords ***
@@ -22,13 +24,12 @@ PDF To Text Parse
     Log    ${text_dict}
     @{pages} =    Set Variable    ${text_dict.values()}
     ${text_out} =     Set Variable    ${OUTPUT_DIR}${/}pdf.txt
-    Create File    ${text_out}    overwrite=True
+    RPA.FileSystem.Create File    ${text_out}    overwrite=True
     FOR    ${page}    IN    @{pages}
         Append To File    ${text_out}    ${page}
         Append To File    ${text_out}    ${\n}${\n}${\n}${\n}
     END
 
-*** Keywords ***
 PDF To XML Parse
     # Obtain the XML element object from PDF and write it in an output/pdf.xml file.
     [Arguments]    ${pdf}
@@ -42,11 +43,13 @@ PDF To XML Parse
 
 
 *** Tasks ***
-# Email To Document
-#     ${mail_data} =     Get File    devdata${/}mail.eml
-#     HTML to PDF    ${mail_data}    ${OUTPUT_DIR}${/}mail.pdf
+Email To Document
+    ${mail_data} =     Get File    devdata${/}mail.eml
+    ${mail_dict} =     Email To Dictionary    ${mail_data}
+    ${mail_html} =     Set Variable    ${mail_dict}[Body]
+    RPA.FileSystem.Create File    ${OUTPUT_DIR}${/}mail.html    ${mail_html}    overwrite=True
+    # HTML to PDF    ${mail_dict}[Body]    ${OUTPUT_DIR}${/}mail.pdf
 
-*** Tasks ***
 PDF To Document Parse
     # Get path to input PDF file from input work item.
     ${pdf} =     Get Work Item File    ${invoice_file_name}
@@ -56,4 +59,7 @@ PDF To Document Parse
     PDF To XML Parse     ${pdf}
 
 Boost PLM Invoice Parsing
-    Log    1
+    Open Pdf     ${boost_plm_invoice}
+
+    ${customer} =    Find Text    uty tariff code:    direction=bottom    pagenum=1
+    Log    ${customer}
