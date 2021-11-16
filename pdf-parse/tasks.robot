@@ -2,13 +2,14 @@
 Documentation    E-mail HTML to Docx conversion tests.
 
 Library    OperatingSystem
+Library    RPA.Email.ImapSmtp
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 Library    MailParse  # local Python library
 
 
 *** Keywords ***
-Email To Document
+Local Email To Document
     [Arguments]    ${input_path}    ${output_path}
     ${mail_data} =     Get File    ${input_path}
     ${mail_dict} =     Email To Dictionary    ${mail_data}    validate=False
@@ -21,4 +22,5 @@ Email To Document
 *** Tasks ***
 Convert email to docx
     ${mail_file} =     Get Work Item File    mail.eml
-    Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
+    Local Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
+    # Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
