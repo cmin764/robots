@@ -76,11 +76,11 @@ def _validate_html(content: str) -> str:
     return document
 
 
-def email_to_dictionary(raw_email: str) -> dict:
+def email_to_dictionary(raw_email: str, validate: bool = True) -> dict:
     message = email.message_from_string(raw_email)
     message_dict = dict(message.items())
     body, _ = _get_decoded_email_body(message, html_first=True)  # need to add this support in the library
-    message_dict["Body"] = _validate_html(body)
+    message_dict["Body"] = _validate_html(body) if validate else body
     return message_dict
 
 

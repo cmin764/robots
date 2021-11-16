@@ -11,7 +11,7 @@ Library    MailParse  # local Python library
 Email To Document
     [Arguments]    ${input_path}    ${output_path}
     ${mail_data} =     Get File    ${input_path}
-    ${mail_dict} =     Email To Dictionary    ${mail_data}
+    ${mail_dict} =     Email To Dictionary    ${mail_data}    validate=False
     ${mail_html} =     Set Variable    ${mail_dict}[Body]
 
     RPA.FileSystem.Create File    ${output_path}.html    ${mail_html}    overwrite=True
