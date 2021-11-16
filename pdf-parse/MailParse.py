@@ -2,7 +2,7 @@ import email
 import logging
 
 from htmldocx import HtmlToDocx
-from tidylib import tidy_document
+# from tidylib import tidy_document
 
 
 # ---- BEGIN part of future changes in rpaframework library ---- 
