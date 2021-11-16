@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.7.5 on darwin)" generated="20211116 13:18:40.396" rpa="true" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.7.5 on darwin)" generated="20211116 13:45:08.791" rpa="true" schemaversion="2">
 <suite id="s1" name="Work-Items-Loop" source="/Users/cmin/Repos/robots/work-items-loop">
 <suite id="s1-s1" name="Tasks" source="/Users/cmin/Repos/robots/work-items-loop/tasks.robot">
 <test id="s1-s1-t1" name="Get payload given e-mail process triggering">
@@ -8,47 +8,47 @@
 <arg>parsedEmail</arg>
 <doc>Return a single variable value from the work item,
 or default value if defined and key does not exist.</doc>
-<msg timestamp="20211116 13:18:40.741" level="INFO">${mail} = {'Return-Path': '&lt;mika.hanninen@gmail.com&gt;', 'Received': 'by mail-yb1-f182.google.com with SMTP id 131so41986571ybc.7\r\n        for &lt;process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu&gt;; T...</msg>
-<status status="PASS" starttime="20211116 13:18:40.741" endtime="20211116 13:18:40.741"/>
+<msg timestamp="20211116 13:45:09.133" level="INFO">${mail} = {'Return-Path': '&lt;mika.hanninen@gmail.com&gt;', 'Received': 'by mail-yb1-f182.google.com with SMTP id 131so41986571ybc.7\r\n        for &lt;process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu&gt;; T...</msg>
+<status status="PASS" starttime="20211116 13:45:09.132" endtime="20211116 13:45:09.133"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${mail}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20211116 13:18:40.742" level="INFO">{'Return-Path': '&lt;mika.hanninen@gmail.com&gt;', 'Received': 'by mail-yb1-f182.google.com with SMTP id 131so41986571ybc.7\r\n        for &lt;process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu&gt;; Tue, 02 Nov 2021 07:22:46 -0700 (PDT)', 'X-SES-Spam-Verdict': 'PASS', 'X-SES-Virus-Verdict': 'PASS', 'Received-SPF': 'pass (spfCheck: domain of _spf.google.com designates 209.85.219.182 as permitted sender) client-ip=209.85.219.182; envelope-from=mika.hanninen@gmail.com; helo=mail-yb1-f182.google.com;', 'Authentication-Results': 'amazonses.com;\r\n spf=pass (spfCheck: domain of _spf.google.com designates 209.85.219.182 as permitted sender) client-ip=209.85.219.182; envelope-from=mika.hanninen@gmail.com; helo=mail-yb1-f182.google.com;\r\n dmarc=none header.from=iki.fi;', 'X-SES-RECEIPT': 'AEFBQUFBQUFBQUFIUVVtVEtEc2dJNUp5Z2Z1L2xBK2JvVWdlTDA5RzVJMGJ4Vmk5bGJFUExiWXZ0L0ZIN1EvZnBvRWtvc01rQU50c003QWZ6YXNSemNiZFRlOWYxV2kxUUkwK0QxNjRFWlR0R01Ua082eENSc1NLTlhvSms4WVU2a0VpZ3ZVcFlvY1Z2Uk9DRlJYSjZmZCs0N2ppRDBCcHJyOVpxUUFDdnozWXNEZ3VEWTNzakVkaW5pbkxleWttWEZ0M1I3STJrRCsxZzhZTVRqMEFETVZIaEgyN3IraXlTY1o5WE5CT0crc1BleStseFNsSjJ3bXhTa09jWkFxVjVlZlppbWlHZTVOQ1lmVzJWWk0yaFhsZjhCb1ZUT3BzbldhUktRZ2tZWkh6WXZYUDBhS2N0UlE9PQ==', 'X-SES-DKIM-SIGNATURE': 'a=rsa-sha256; q=dns/txt; b=gt8vVZHZuXj+EyaEzxe1/xoDM3zx4S5yrD9nar1X3QKUYzIlEM9nhUOOgUtPSpgE5FlTv6odVoQWqULZYk6P051FePkniQB6YXHpVymIiCe8yw8k1qWpwOqo71+K6XkTaavkmIMvslLgmJKBZMOJr4+hMCA6HwZcCxoyaodlfwk=; c=relaxed/simple; s=uku4taia5b5tsbglxyj6zym32efj7xqv; d=amazonses.com; t=1635862967; v=1; bh=aL4RLbzbC4fp2asO1iJICcbJo1jNWPennC9jUKJBS+0=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;', 'X-Google-DKIM-Signature': 'v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20210112;\r\n        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;\r\n        bh=aL4RLbzbC4fp2asO1iJICcbJo1jNWPennC9jUKJBS+0=;\r\n        b=vMarEVx4xhS7GOaMNB5hdh0uSvqIzxG9iv3MlQXivgIU9KDkJOnIcYw5ar+zXM8WPW\r\n         GY/tREhmmhrd/j6FW2LDTuOEUzolrH16Dl/iTs/k1FtdSZWa4wAx+YrTsjadBCTYiL2Z\r\n         9lGrSNqoxoWCd/xbVBSBkG0Afrg0FjFiwIF0pR+RCN+cAUejahB5TCVD2DTPYhXBHW7Z\r\n         NfyaTCEPVT/Qf8S6Z4YKOOlZgk/0+UCwlBEw/hXr9U6itYWf5gZVy1hMNpbyYZD//yqD\r\n         gotIGIKtzuQVSwGNUJF7qwYYEZkSnf4h/L4So2irhKWOr1fmldSZxKUlhZpzXGqQVieF\r\n         dJRw==', 'X-Gm-Message-State': 'AOAM533qwxQTjwtrwl+GA0b6gZhyv0/rpkiDRXRNO+M+awo9aH+F295/\r\n\tbN/uHB4avtTzcRrrRHn8KY7pwqEyhxXcOsmlx4HDjamcX+4=', 'X-Google-Smtp-Source': 'ABdhPJzNNJvicK9zsQy1yo6KIosVFzVSuUk6Q06JuSbAKiFkNtoApR1pkRHG7VEmt7F9+t53iMARLY+OcsR+sUkOrDc=', 'X-Received': 'by 2002:a25:ac0b:: with SMTP id w11mr32893942ybi.163.1635862965354;\r\n Tue, 02 Nov 2021 07:22:45 -0700 (PDT)', 'MIME-Version': '1.0', 'From': '=?UTF-8?Q?Mika_H=C3=A4nninen?= &lt;mika.hanninen@iki.fi&gt;', 'Date': 'Tue, 2 Nov 2021 16:22:34 +0200', 'Message-ID': '&lt;CAN2yf=W3yibz-6w6QQj1fk95ezOL8N=uM3-=59E1Wwj0e-7ghg@mail.gmail.com&gt;', 'Subject': 'trigger process', 'To': 'process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu', 'Content-Type': 'multipart/alternative; boundary="000000000000f3825c05cfcf0687"', 'Body': {'message': 'from email'}}</msg>
-<status status="PASS" starttime="20211116 13:18:40.741" endtime="20211116 13:18:40.742"/>
+<msg timestamp="20211116 13:45:09.133" level="INFO">{'Return-Path': '&lt;mika.hanninen@gmail.com&gt;', 'Received': 'by mail-yb1-f182.google.com with SMTP id 131so41986571ybc.7\r\n        for &lt;process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu&gt;; Tue, 02 Nov 2021 07:22:46 -0700 (PDT)', 'X-SES-Spam-Verdict': 'PASS', 'X-SES-Virus-Verdict': 'PASS', 'Received-SPF': 'pass (spfCheck: domain of _spf.google.com designates 209.85.219.182 as permitted sender) client-ip=209.85.219.182; envelope-from=mika.hanninen@gmail.com; helo=mail-yb1-f182.google.com;', 'Authentication-Results': 'amazonses.com;\r\n spf=pass (spfCheck: domain of _spf.google.com designates 209.85.219.182 as permitted sender) client-ip=209.85.219.182; envelope-from=mika.hanninen@gmail.com; helo=mail-yb1-f182.google.com;\r\n dmarc=none header.from=iki.fi;', 'X-SES-RECEIPT': 'AEFBQUFBQUFBQUFIUVVtVEtEc2dJNUp5Z2Z1L2xBK2JvVWdlTDA5RzVJMGJ4Vmk5bGJFUExiWXZ0L0ZIN1EvZnBvRWtvc01rQU50c003QWZ6YXNSemNiZFRlOWYxV2kxUUkwK0QxNjRFWlR0R01Ua082eENSc1NLTlhvSms4WVU2a0VpZ3ZVcFlvY1Z2Uk9DRlJYSjZmZCs0N2ppRDBCcHJyOVpxUUFDdnozWXNEZ3VEWTNzakVkaW5pbkxleWttWEZ0M1I3STJrRCsxZzhZTVRqMEFETVZIaEgyN3IraXlTY1o5WE5CT0crc1BleStseFNsSjJ3bXhTa09jWkFxVjVlZlppbWlHZTVOQ1lmVzJWWk0yaFhsZjhCb1ZUT3BzbldhUktRZ2tZWkh6WXZYUDBhS2N0UlE9PQ==', 'X-SES-DKIM-SIGNATURE': 'a=rsa-sha256; q=dns/txt; b=gt8vVZHZuXj+EyaEzxe1/xoDM3zx4S5yrD9nar1X3QKUYzIlEM9nhUOOgUtPSpgE5FlTv6odVoQWqULZYk6P051FePkniQB6YXHpVymIiCe8yw8k1qWpwOqo71+K6XkTaavkmIMvslLgmJKBZMOJr4+hMCA6HwZcCxoyaodlfwk=; c=relaxed/simple; s=uku4taia5b5tsbglxyj6zym32efj7xqv; d=amazonses.com; t=1635862967; v=1; bh=aL4RLbzbC4fp2asO1iJICcbJo1jNWPennC9jUKJBS+0=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;', 'X-Google-DKIM-Signature': 'v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20210112;\r\n        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;\r\n        bh=aL4RLbzbC4fp2asO1iJICcbJo1jNWPennC9jUKJBS+0=;\r\n        b=vMarEVx4xhS7GOaMNB5hdh0uSvqIzxG9iv3MlQXivgIU9KDkJOnIcYw5ar+zXM8WPW\r\n         GY/tREhmmhrd/j6FW2LDTuOEUzolrH16Dl/iTs/k1FtdSZWa4wAx+YrTsjadBCTYiL2Z\r\n         9lGrSNqoxoWCd/xbVBSBkG0Afrg0FjFiwIF0pR+RCN+cAUejahB5TCVD2DTPYhXBHW7Z\r\n         NfyaTCEPVT/Qf8S6Z4YKOOlZgk/0+UCwlBEw/hXr9U6itYWf5gZVy1hMNpbyYZD//yqD\r\n         gotIGIKtzuQVSwGNUJF7qwYYEZkSnf4h/L4So2irhKWOr1fmldSZxKUlhZpzXGqQVieF\r\n         dJRw==', 'X-Gm-Message-State': 'AOAM533qwxQTjwtrwl+GA0b6gZhyv0/rpkiDRXRNO+M+awo9aH+F295/\r\n\tbN/uHB4avtTzcRrrRHn8KY7pwqEyhxXcOsmlx4HDjamcX+4=', 'X-Google-Smtp-Source': 'ABdhPJzNNJvicK9zsQy1yo6KIosVFzVSuUk6Q06JuSbAKiFkNtoApR1pkRHG7VEmt7F9+t53iMARLY+OcsR+sUkOrDc=', 'X-Received': 'by 2002:a25:ac0b:: with SMTP id w11mr32893942ybi.163.1635862965354;\r\n Tue, 02 Nov 2021 07:22:45 -0700 (PDT)', 'MIME-Version': '1.0', 'From': '=?UTF-8?Q?Mika_H=C3=A4nninen?= &lt;mika.hanninen@iki.fi&gt;', 'Date': 'Tue, 2 Nov 2021 16:22:34 +0200', 'Message-ID': '&lt;CAN2yf=W3yibz-6w6QQj1fk95ezOL8N=uM3-=59E1Wwj0e-7ghg@mail.gmail.com&gt;', 'Subject': 'trigger process', 'To': 'process.Robocorp.WorkItemDemo.5lm3d9l1tp@mail.eu1.robocloud.eu', 'Content-Type': 'multipart/alternative; boundary="000000000000f3825c05cfcf0687"', 'Body': {'message': 'from email'}}</msg>
+<status status="PASS" starttime="20211116 13:45:09.133" endtime="20211116 13:45:09.133"/>
 </kw>
 <kw name="Set Work Item Variables" library="RPA.Robocorp.WorkItems">
 <arg>&amp;{mail}[Body]</arg>
 <doc>Set multiple variables in the current work item.</doc>
-<msg timestamp="20211116 13:18:40.742" level="INFO">message = from email</msg>
-<status status="PASS" starttime="20211116 13:18:40.742" endtime="20211116 13:18:40.742"/>
+<msg timestamp="20211116 13:45:09.134" level="INFO">message = from email</msg>
+<status status="PASS" starttime="20211116 13:45:09.134" endtime="20211116 13:45:09.134"/>
 </kw>
 <kw name="Save Work Item" library="RPA.Robocorp.WorkItems">
 <doc>Save the current data and files in the work item. If not saved,
 all changes are discarded when the library goes out of scope.</doc>
-<msg timestamp="20211116 13:18:40.743" level="INFO">Saved into input file: /Users/cmin/Repos/robots/work-items-loop/devdata/work-items-in/mail/work-items.json</msg>
-<status status="PASS" starttime="20211116 13:18:40.742" endtime="20211116 13:18:40.743"/>
+<msg timestamp="20211116 13:45:09.134" level="INFO">Saved into input file: /Users/cmin/Repos/robots/work-items-loop/devdata/work-items-in/mail/work-items.json</msg>
+<status status="PASS" starttime="20211116 13:45:09.134" endtime="20211116 13:45:09.134"/>
 </kw>
 <kw name="Get Work Item Variable" library="RPA.Robocorp.WorkItems">
 <var>${message}</var>
 <arg>message</arg>
 <doc>Return a single variable value from the work item,
 or default value if defined and key does not exist.</doc>
-<msg timestamp="20211116 13:18:40.743" level="INFO">${message} = from email</msg>
-<status status="PASS" starttime="20211116 13:18:40.743" endtime="20211116 13:18:40.743"/>
+<msg timestamp="20211116 13:45:09.135" level="INFO">${message} = from email</msg>
+<status status="PASS" starttime="20211116 13:45:09.134" endtime="20211116 13:45:09.135"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${message}</arg>
 <arg>from email</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20211116 13:18:40.743" endtime="20211116 13:18:40.743"/>
+<status status="PASS" starttime="20211116 13:45:09.135" endtime="20211116 13:45:09.135"/>
 </kw>
-<status status="PASS" starttime="20211116 13:18:40.740" endtime="20211116 13:18:40.744"/>
+<status status="PASS" starttime="20211116 13:45:09.132" endtime="20211116 13:45:09.135"/>
 </test>
 <doc>Testing the helper keyword on consuming all work items in the queue.</doc>
-<status status="PASS" starttime="20211116 13:18:40.421" endtime="20211116 13:18:40.744"/>
+<status status="PASS" starttime="20211116 13:45:08.813" endtime="20211116 13:45:09.135"/>
 </suite>
-<status status="PASS" starttime="20211116 13:18:40.397" endtime="20211116 13:18:40.745"/>
+<status status="PASS" starttime="20211116 13:45:08.792" endtime="20211116 13:45:09.136"/>
 </suite>
 <statistics>
 <total>
