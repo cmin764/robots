@@ -44,7 +44,7 @@ Read work item with attached file and add content as payload
 
 
 Get payload given e-mail process triggering
-    ${mail} =    Get Input Work Item    parsedEmail
+    ${mail} =    Get Work Item Variable    parsedEmail
     Log    ${mail}
     Set Work Item Variables    &{mail}[Body]
     Save Work Item
