@@ -68,7 +68,13 @@ def Convert_HTML_To_PDF(html: str, pdfFileName: str, pdfConverter: str):
     pdfkit.from_string(html, pdfFileName, configuration=config)
 
 
+def Convert_HTML_File_To_PDF(path: str, pdfFileName: str, pdfConverter: str):
+    config = CustomConfiguration(wkhtmltopdf=pdfConverter)
+    pdfkit.from_url(path, pdfFileName, configuration=config)
+
+
 if __name__ == "__main__":
-    with open(sys.argv[1]) as stream:
-        data = stream.read()  # reads HTML content from file path passed as CLI argument
-    Convert_HTML_To_PDF(data, sys.argv[2], pdfConverter=f"{XRUN_EXE} {WK_EXE}")
+    # with open(sys.argv[1]) as stream:
+    #     data = stream.read()  # reads HTML content from file path passed as CLI argument
+    # Convert_HTML_To_PDF(data, sys.argv[2], pdfConverter=f"{XRUN_EXE} {WK_EXE}")
+    Convert_HTML_File_To_PDF(sys.argv[1], sys.argv[2], pdfConverter=f"{XRUN_EXE} {WK_EXE}")
