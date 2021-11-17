@@ -9,7 +9,8 @@ from pdfkit.pdfkit import PDFKit
 
 
 XRUN_EXE = "/usr/bin/xvfb-run"
-WK_EXE = "/usr/local/bin/wkhtmltopdf"
+# WK_EXE = "/usr/local/bin/wkhtmltopdf"  # on Mac
+WK_EXE = "/usr/bin/wkhtmltopdf"  # on Linux
 
 
 class CustomConfiguration(Configuration):
