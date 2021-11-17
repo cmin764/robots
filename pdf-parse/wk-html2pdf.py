@@ -8,9 +8,13 @@ from pdfkit.configuration import Configuration
 from pdfkit.pdfkit import PDFKit
 
 
+# On Mac
+# XRUN_EXE = "/usr/local/bin/xvfb-run"
+# WK_EXE = "/usr/local/bin/wkhtmltopdf"
+
+# On Linux
 XRUN_EXE = "/usr/bin/xvfb-run"
-# WK_EXE = "/usr/local/bin/wkhtmltopdf"  # on Mac
-WK_EXE = "/usr/bin/wkhtmltopdf"  # on Linux
+WK_EXE = "/usr/bin/wkhtmltopdf"
 
 
 class CustomConfiguration(Configuration):
