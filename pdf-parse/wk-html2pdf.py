@@ -7,14 +7,7 @@ import pdfkit
 from pdfkit.configuration import Configuration
 from pdfkit.pdfkit import PDFKit
 
-
-# On Mac
-# XRUN_EXE = "/usr/local/bin/xvfb-run"
-# WK_EXE = "/usr/local/bin/wkhtmltopdf"
-
-# On Linux
-XRUN_EXE = "/usr/bin/xvfb-run"
-WK_EXE = "/usr/bin/wkhtmltopdf"
+from Variables import *
 
 
 class CustomConfiguration(Configuration):
@@ -69,6 +62,7 @@ def Convert_HTML_To_PDF(html: str, pdfFileName: str, pdfConverter: str):
 
 
 def Convert_HTML_File_To_PDF(path: str, pdfFileName: str, pdfConverter: str):
+    print(path, pdfFileName, pdfConverter)
     config = CustomConfiguration(wkhtmltopdf=pdfConverter)
     pdfkit.from_url(path, pdfFileName, configuration=config)
 
@@ -76,5 +70,5 @@ def Convert_HTML_File_To_PDF(path: str, pdfFileName: str, pdfConverter: str):
 if __name__ == "__main__":
     # with open(sys.argv[1]) as stream:
     #     data = stream.read()  # reads HTML content from file path passed as CLI argument
-    # Convert_HTML_To_PDF(data, sys.argv[2], pdfConverter=f"{XRUN_EXE} {WK_EXE}")
-    Convert_HTML_File_To_PDF(sys.argv[1], sys.argv[2], pdfConverter=f"{XRUN_EXE} {WK_EXE}")
+    # Convert_HTML_To_PDF(data, sys.argv[2], pdfConverter=WK_PATH)
+    Convert_HTML_File_To_PDF(sys.argv[1], sys.argv[2], pdfConverter=WK_PATH)

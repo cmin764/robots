@@ -1,6 +1,8 @@
 tasks:
   Convert email to docx:
     robotTaskName: Convert email to docx
+  Convert email to PDF:
+    robotTaskName: Convert email to PDF
 
 condaConfigFile: conda.yaml
 artifactsDir: output
