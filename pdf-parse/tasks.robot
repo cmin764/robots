@@ -8,6 +8,7 @@ Library    RPA.PDF
 Library    RPA.Robocorp.WorkItems
 Library    XML
 Library    MailParse  # local library
+Library    Collections
 
 
 *** Variables ***
@@ -68,5 +69,5 @@ PDF To Document Parse
 Boost PLM Invoice Parsing
     Open Pdf     ${boost_plm_invoice}
 
-    ${customer} =    Find Text    uty tariff code:    direction=bottom    pagenum=1
-    Log    ${customer}
+    ${matches} =    Find Text    uty tariff code:    direction=bottom
+    Log List    ${matches}
