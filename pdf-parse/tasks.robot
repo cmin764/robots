@@ -69,5 +69,8 @@ PDF To Document Parse
 Boost PLM Invoice Parsing
     Open Pdf     ${boost_plm_invoice}
 
-    ${matches} =    Find Text    uty tariff code:    direction=bottom
-    Log List    ${matches}
+    ${material_matches} =    Find Text    .*Material No\..*    direction=bottom    pagenum=1    closest_neighbours=${None}
+    Log List    ${material_matches}
+
+    ${quantity_matches} =    Find Text    QTY    direction=bottom    pagenum=1    closest_neighbours=${None}
+    Log List    ${quantity_matches}
