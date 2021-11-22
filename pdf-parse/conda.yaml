@@ -8,12 +8,13 @@ dependencies:
   # https://anaconda.org/search  
   - python=3.7.5
 
-  - pip=20.1
+  - pip=21.3.1
   - pip:
     # Define pip packages here. 
     # https://pypi.org/
-    - --extra-index-url https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev
+    - --index-url https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev
     - rpaframework==11.6.3  # https://rpaframework.org/releasenotes.html
-    - htmldocx==0.0.6
+    # - https://github.com/cmin764/robots/blob/bce/html-to-document/builds/rpaframework-11.6.3.19nov-py3-none-any.whl?raw=true
+    # - htmldocx==0.0.6
     - wkhtmltopdf==0.2
     - pdfkit==1.0.0
