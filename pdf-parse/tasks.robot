@@ -31,8 +31,8 @@ Local Email To Document
 *** Tasks ***
 Convert email to docx
     ${mail_file} =     Get Work Item File    mail.eml
-    Local Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
-    # Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
+    # Local Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
+    Email To Document    ${mail_file}    ${OUTPUT_DIR}${/}mail.docx
 
 Convert email to PDF
     ${mail_file} =     Get Work Item File    mail.eml
