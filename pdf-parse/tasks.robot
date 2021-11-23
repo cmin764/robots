@@ -67,7 +67,7 @@ Boost PLM parse invoice on page
         ${offset} =     Set Variable    ${1}
     END
 
-    FOR    ${index}    ${qty}    IN ENUMERATE    @{quantity_matches[0].neighbours}
+    FOR    ${index}    ${qty}    IN ENUMERATE    @{quantity_match.neighbours}
         ${index} =     Evaluate    ${index} + ${offset}
         ${match_no} =     Convert To String    ${index}
         ${item} =    Get From Dictionary    ${items}    ${match_no}
