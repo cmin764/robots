@@ -1,16 +1,14 @@
 *** Settings ***
-Documentation    PDF parsing tests.
+Documentation    PDF parsing tests on BoostPLM invoices.
 Task Teardown    Close All Pdfs
 
-Library    OperatingSystem
-Library    RPA.FileSystem
-Library    RPA.PDF
 Library    Collections
+Library    RPA.PDF
+Library    RPA.Robocorp.WorkItems
 Library    String
 
 *** Variables ***
 ${invoice_file_name}    invoice.pdf
-${boost_plm_invoice}    devdata/work-items-in/boost-plm/boost-plm-invoice.pdf
 
 
 *** Keywords ***
@@ -79,8 +77,26 @@ Boost PLM parse invoice on page
 
 *** Tasks ***
 Boost PLM Invoice Parsing
+    ${boost_plm_invoice} =     Get Work Item File    ${invoice_file_name}
     Open Pdf     ${boost_plm_invoice}
-    FOR    ${page}    IN RANGE    1    3
+
+    # Extract invoice and purchase order numbers.
+    ${invoice_matches} =     Find Text    regex:INVOICE
+    ${inv_match} =     Set Variable    ${invoice_matches}[0]
+    
+    ${inv_nr_list} =    Split To Lines    ${inv_match.anchor}
+    ${inv_nr_parts} =    Split String    ${inv_nr_list}[0]
+    ${inv_nr} =     Set Variable    ${inv_nr_parts}[1]
+
+    ${inv_po_list} =    Split To Lines    ${inv_match.neighbours}[0]
+    ${inv_po} =    Set Variable    ${inv_po_list}[2]
+
+    Log    Invoice number: ${inv_nr}
+    Log    Invoice purchase order: ${inv_po}
+
+    # Extract all the items in the invoice.
+    ${pages} =     Get Number Of Pages
+    FOR    ${page}    IN RANGE    1    ${pages + 1}
         ${items} =    Boost PLM parse invoice on page    ${page}
         # Logs a dictionary with items where the key is the position of the item in the
         # page and the value is a dictionary with these keys:
