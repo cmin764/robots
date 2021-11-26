@@ -17,7 +17,8 @@ Boost PLM parse invoice on page
     &{items} =     Create Dictionary
 
     # Getting customer references below "Tariff Code".
-    ${tariff_matches_down} =    Find Text    regex:.*Tariff Code.*    direction=down    pagenum=${page}    closest_neighbours=1
+    ${tariff_matches_down} =    Find Text    regex:.*Tariff Code.*
+    ...    direction=down   pagenum=${page}    closest_neighbours=1
     FOR    ${index}    ${match}    IN ENUMERATE    @{tariff_matches_down}
         ${customer_ref} =     Set Variable    ${match.neighbours}[0]
         ${contains_tariff} =    Run Keyword And Return Status    Should Contain    ${customer_ref}    Tariff Code:
@@ -32,7 +33,8 @@ Boost PLM parse invoice on page
     END
 
     # Getting material number and description above "Tariff Code".
-    ${tariff_matches_up} =    Find Text    regex:.*Tariff Code.*    direction=up    pagenum=${page}    closest_neighbours=4
+    ${tariff_matches_up} =    Find Text    regex:.*Tariff Code.*
+    ...    direction=up    pagenum=${page}    closest_neighbours=4
     FOR    ${index}    ${match}    IN ENUMERATE    @{tariff_matches_up}
         ${material_pos} =    Set Variable    3
         ${first_neighbour} =    Set Variable    ${match.neighbours}[0]
@@ -53,7 +55,9 @@ Boost PLM parse invoice on page
 
     # Getting the quantities in the page in order below "QTY" column header.
     ${items_length} =     Get Length    ${items}
-    ${quantity_matches} =    Find Text    regex:QTY    direction=bottom    pagenum=${page}    closest_neighbours=${items_length}    regexp=\\d+$
+    ${quantity_matches} =    Find Text    regex:QTY
+    ...    direction=down    pagenum=${page}
+    ...    closest_neighbours=${items_length}    regexp=\\d+$
     ${quantity_match} =     Set Variable    ${quantity_matches}[0]
     ${offset} =     Set Variable    ${0}
     @{qty_parts} =     Split To Lines    ${quantity_match.anchor}
