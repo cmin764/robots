@@ -141,3 +141,12 @@ Boost PLM Invoice Parsing
         # - quantity
         Log Dictionary    ${items}
     END
+
+
+Unicode HTML To PDF
+    ${template_html_file} =    Set Variable    ${OUTPUT_DIR}${/}template.hmtl
+    ${output_pdf_file} =       Set Variable    ${OUTPUT_DIR}${/}template-filled.pdf
+
+    Create File    ${template_html_file}    {{name}}
+    ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźż
+    Template Html To Pdf    ${template_html_file}    ${output_pdf_file}    variables=${payload}

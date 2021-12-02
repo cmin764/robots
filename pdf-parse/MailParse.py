@@ -1,11 +1,12 @@
 import email
 
 from htmldocx import HtmlToDocx
-from tidylib import tidy_document
+# from tidylib import tidy_document
 from RPA.Email.ImapSmtp import ImapSmtp
 
 
 def validate_html(content: str) -> str:
+    return content
     document, errors = tidy_document(content, options={"numeric-entities": 1})
     print("Errors: ", errors)
     return document
