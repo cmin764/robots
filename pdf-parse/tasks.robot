@@ -144,9 +144,10 @@ Boost PLM Invoice Parsing
 
 
 Unicode HTML To PDF
-    ${template_html_file} =    Set Variable    ${OUTPUT_DIR}${/}template.hmtl
+    ${template_html_file} =    Set Variable    ${OUTPUT_DIR}${/}template.html
     ${output_pdf_file} =       Set Variable    ${OUTPUT_DIR}${/}template-filled.pdf
 
-    Create File    ${template_html_file}    {{name}}
+    RPA.FileSystem.Create File    ${template_html_file}    <h2>{{name}}</h2>    overwrite=${True}
+    # ${payload}    Create Dictionary    name=Testă
     ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźż
     Template Html To Pdf    ${template_html_file}    ${output_pdf_file}    variables=${payload}
