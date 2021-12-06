@@ -1,6 +1,8 @@
 tasks:
   Boost PLM Invoice Parsing:
     robotTaskName: Boost PLM Invoice Parsing
+  Run all tasks:
+    shell: python -m robot -L TRACE -d output --logtitle "Tasks log" tasks.robot
 
 condaConfigFile: conda.yaml
 artifactsDir: output
