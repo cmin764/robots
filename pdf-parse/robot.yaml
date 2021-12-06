@@ -7,6 +7,8 @@ tasks:
     robotTaskName: Boost PLM Invoice Parsing
   Unicode HTML To PDF:
     robotTaskName: Unicode HTML To PDF
+  PDF Invoice Parsing:
+    robotTaskName: PDF Invoice Parsing
 
 condaConfigFile: conda.yaml
 artifactsDir: output

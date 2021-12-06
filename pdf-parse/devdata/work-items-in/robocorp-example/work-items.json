@@ -3,7 +3,9 @@
       "payload": {
       },
       "files": {
-        "invoice.pdf": "example-invoice.pdf"
+        "invoice.pdf": "example-invoice.pdf",
+        "form.pdf": "form.pdf",
+        "report.pdf": "report.pdf"
       }
   }
 ]

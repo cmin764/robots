@@ -151,3 +151,25 @@ Unicode HTML To PDF
     # ${payload}    Create Dictionary    name=Testă
     ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźż
     Template Html To Pdf    ${template_html_file}    ${output_pdf_file}    variables=${payload}
+
+
+PDF Invoice Parsing
+    # Extract Data From First Page
+    ${robo_report} =     Get Work Item File    report.pdf
+    ${text} =    Get Text From PDF    ${robo_report}
+    ${lines} =     Get Lines Matching Regexp    ${text}[${1}]    .+pain.+
+    Log    ${lines}
+
+    # Get Invoice Number
+    ${robo_invoice} =     Get Work Item File    invoice.pdf
+    Open Pdf    ${robo_invoice}
+    ${matches} =  Find Text    Invoice Number
+    Log List      ${matches}
+
+    # Fill Form Fields
+    ${robo_form} =     Get Work Item File    form.pdf
+    Switch To Pdf    ${robo_form}
+    ${fields} =     Get Input Fields   encoding=utf-16
+    Log Dictionary    ${fields}
+    Set Field Value    Given Name Text Box    Mark
+    Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf    use_appearances_writer=${True}
