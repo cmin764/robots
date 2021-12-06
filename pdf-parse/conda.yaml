@@ -14,3 +14,4 @@ dependencies:
     # https://pypi.org/
     - --index-url https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev
     - rpaframework==12.0.3  # https://rpaframework.org/releasenotes.html
+    - https://github.com/cmin764/robots/blob/boost-plm/pdf-invoice-parse/builds/rpaframework_pdf-1.30.0.307-py3-none-any.whl?raw=true
