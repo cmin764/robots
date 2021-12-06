@@ -172,4 +172,5 @@ PDF Invoice Parsing
     ${fields} =     Get Input Fields   encoding=utf-16
     Log Dictionary    ${fields}
     Set Field Value    Given Name Text Box    Mark
-    Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf    use_appearances_writer=${True}
+    Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf
+    ...                  use_appearances_writer=${True}
