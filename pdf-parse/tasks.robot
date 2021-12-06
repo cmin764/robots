@@ -174,3 +174,11 @@ PDF Invoice Parsing
     Set Field Value    Given Name Text Box    Mark
     Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf
     ...                  use_appearances_writer=${True}
+
+    # Get text from Tesla annual report.
+    ${robo_tesla} =     Get Work Item File    tesla.pdf
+    Switch To Pdf    ${robo_tesla}
+    ${matches} =     Find Text    regex:.*FORM 10-K.*    direction=down    pagenum=2
+    Log Many    ${matches}
+    ${matches} =     Find Text    regex:.*Form 10-K.*    direction=up    pagenum=301
+    Log Many    ${matches}

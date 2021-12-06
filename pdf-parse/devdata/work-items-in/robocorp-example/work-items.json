@@ -5,7 +5,8 @@
       "files": {
         "invoice.pdf": "invoice.pdf",
         "form.pdf": "form.pdf",
-        "report.pdf": "report.pdf"
+        "report.pdf": "report.pdf",
+        "tesla.pdf": "NASDAQ_TSLA_2019.pdf"
       }
   }
 ]
