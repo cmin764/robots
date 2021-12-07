@@ -13,5 +13,6 @@ dependencies:
     # Define pip packages here. 
     # https://pypi.org/
     # - --index-url https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev
-    - rpaframework==12.1.0  # https://rpaframework.org/releasenotes.html
-    - https://github.com/cmin764/robots/blob/main/builds/rpaframework_pdf-1.30.2-py3-none-any.whl?raw=true
+    - rpaframework==12.1.1  # https://rpaframework.org/releasenotes.html
+    # - https://github.com/cmin764/robots/blob/main/builds/rpaframework_pdf-1.30.2-py3-none-any.whl?raw=true
+    # - rpaframework-pdf==1.30.2
