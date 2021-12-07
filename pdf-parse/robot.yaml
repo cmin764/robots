@@ -7,6 +7,8 @@ tasks:
     robotTaskName: Boost PLM Invoice Parsing
   Unicode HTML To PDF:
     robotTaskName: Unicode HTML To PDF
+  Unicode HTML To PDF TRACE:
+    shell: python -m robot -d output -L TRACE --logtitle "Task log" --task "Unicode HTML To PDF" tasks.robot
   PDF Invoice Parsing:
     robotTaskName: PDF Invoice Parsing
 
