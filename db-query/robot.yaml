@@ -1,0 +1,12 @@
+tasks:
+  Returning database query:
+    robotTaskName: Returning database query
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
