@@ -11,6 +11,8 @@ tasks:
     shell: python -m robot -d output -L TRACE --logtitle "Task log" --task "Unicode HTML To PDF" tasks.robot
   PDF Invoice Parsing:
     robotTaskName: PDF Invoice Parsing
+  Add watermark into PDF:
+    robotTaskName: Add watermark into PDF
 
 condaConfigFile: conda.yaml
 artifactsDir: output
