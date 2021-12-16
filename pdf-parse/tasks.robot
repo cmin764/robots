@@ -184,7 +184,7 @@ PDF Invoice Parsing
 
 Add watermark into PDF
     ${in_out_pdf} =     Set Variable    ${OUTPUT_DIR}${/}receipt.pdf
-    Copy File    devdata${/}receipt.pdf    ${in_out_pdf}
+    RPA.FileSystem.Copy File    devdata${/}receipt.pdf    ${in_out_pdf}
     ${screenshot} =    Set Variable    devdata${/}robot.png
     Open Pdf    ${in_out_pdf}
     Add Watermark Image to PDF    ${screenshot}    ${in_out_pdf}
