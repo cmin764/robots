@@ -18,7 +18,7 @@ Returning database query
     ${orders_ids} =     Query    INSERT INTO orders(id, name) VALUES(3, "my-3rd-order") RETURNING id;    returning=${True}
     Log    Order ID: ${orders_ids}[0][0]  # Order ID: 3
     
-    @{orders} =    Query    SELECT * FROM orders
+    @{orders} =    Query    SELECT id,name FROM orders
     FOR   ${order}  IN  @{orders}
         # {'id': 1, 'name': 'my-1st-order'}
         # {'id': 2, 'name': 'my-2nd-order'}
