@@ -154,7 +154,7 @@ Unicode HTML To PDF
 
 PDF Invoice Parsing
     # Extract Data From First Page
-    ${robo_report} =     Get Work Item File    report.pdf
+    ${robo_report} =     Get Work Item File     report.pdf    ${OUTPUT_DIR}${/}report.pdf
     ${text} =    Get Text From PDF    ${robo_report}
     ${lines} =     Get Lines Matching Regexp    ${text}[${1}]    .+pain.+
     Log    ${lines}
