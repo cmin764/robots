@@ -15,7 +15,7 @@ Returning database query
     Query    INSERT INTO orders(id, name) VALUES(1, "my-1st-order"),(2, "my-2nd-order");
     
     # Inserting with returning. (automatically detects if it should return)
-    ${orders_ids} =     Query    INSERT INTO orders(id, name) VALUES(3, "my-3rd-order") RETURNING id;
+    ${orders_ids} =     Query    INSERT INTO orders(id, name) VALUES(3, "my-3rd-order") RETURNING id;    returning=${True}
     Log    Order ID: ${orders_ids}[0][0]  # Order ID: 3
     
     @{orders} =    Query    SELECT * FROM orders
