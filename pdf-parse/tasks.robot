@@ -191,7 +191,7 @@ Add watermark into PDF
 
     ${dest} =     Set Variable    ${CURDIR}${/}receipt-moved.pdf
     Log To Console    ${dest}
-    RPA.FileSystem.Move File    ${in_out_pdf}      ${dest}     overwrite=True
+    RPA.FileSystem.Move File    ${in_out_pdf}      ${dest}     overwrite=${True}
 
     ${dest_copy} =     Set Variable    ${CURDIR}${/}receipt-moved-copy.pdf
     OperatingSystem.Copy File    ${dest}  ${dest_copy}
