@@ -188,3 +188,11 @@ Add watermark into PDF
     ${screenshot} =    Set Variable    devdata${/}robot.png
     Open Pdf    ${in_out_pdf}
     Add Watermark Image to PDF    ${screenshot}    ${in_out_pdf}
+
+    ${dest} =     Set Variable    ${CURDIR}${/}receipt-moved.pdf
+    Log To Console    ${dest}
+    RPA.FileSystem.Move File    ${in_out_pdf}      ${dest}     overwrite=True
+
+    ${dest_copy} =     Set Variable    ${CURDIR}${/}receipt-moved-copy.pdf
+    OperatingSystem.Copy File    ${dest}  ${dest_copy}
+    OperatingSystem.Move File    ${dest_copy}    ${in_out_pdf}
