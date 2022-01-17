@@ -12,4 +12,6 @@ dependencies:
   - pip:
     # Define pip packages here.
     # https://pypi.org/
+    - https://github.com/cmin764/robots/blob/main/builds/comtypes_fork-1.1.10-py3-none-any.whl?raw=true
     - rpaframework==12.4.1 # https://rpaframework.org/releasenotes.html
+    - rpaframework-windows==2.0.0
