@@ -17,6 +17,7 @@ Open App
         IF  ${exists}
             # Kill the process.
             ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
+            Log     Killing app: ${win}[title] (PID: $win["pid"])
             Evaluate    ${command}    signal
         END
     END
@@ -26,6 +27,8 @@ Open App
     Sleep    ${sleep_time}s
 
     # Controlling again a re-opened app will break with COMError.
+    # And just by the fact we get control to a window (even once) it will break the
+    #  rest of the Notepad related tasks. (not finding the window with subname)
     ${elem} =     Control Window   subname:${app_name}   timeout=${sleep_time}
     Log     Controlling element: ${elem}
 
@@ -52,13 +55,13 @@ Run Notepad Teardown Desktop
 
 *** Tasks ***
 Open an application many times  # This one fails with COMError.
-    Open App    Explorer    3  # here "active window = None"
+    Open App    Calc    3  # here "active window = None"
     
     # Calling a 2nd time this will break on `Control Window` keyword.
     # Breaks on `rect = self.Element.CurrentBoundingRectangle` due to
     #  `"active window = %s" % window` logging.
     # But commenting this line and running the robot twice in a row, will still work.
-    Open App    Explorer    3
+    # Open App    Calc    3
 
 
 Notepad Screenshots  # This one runs ok on Windows 11.
@@ -73,3 +76,17 @@ Notepad Screenshot Desktop  # Works well on Windows 11.
     Screenshot Notepad Desktop
     # Screenshot Notepad Desktop
     [Teardown]   Run Notepad Teardown Desktop
+
+
+Screenshot Notepad while controlling Calc
+    Desktop.Open Application    Calc
+    Sleep     2s  # without a little sleep, the controller can't find Calculator
+    # Control Window   subname:Calc   timeout=1  # commenting this will make below stuff work
+
+    # Errors with "ElementNotFound: Element not found with locator subname:Notepad".
+    Desktop.Open Application    Notepad
+    # Will try to find Notepad inside of the controlled window and it breaks because
+    # Notepad is found starting from desktop level instead.
+    Windows.Screenshot    subname:Notepad    ${OUTPUT_DIR}${/}success-control.png
+
+    [Teardown]    Desktop.Close All Applications  # will fail to close Calculator

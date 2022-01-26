@@ -1,6 +1,8 @@
 tasks:
   Run all tasks:
     shell: python -m robot -d output -L TRACE --logtitle "Task log" tasks.robot
+  Screenshot Notepad while controlling Calc:
+    robotTaskName: Screenshot Notepad while controlling Calc
 
 condaConfigFile: conda.yaml
 artifactsDir: output
