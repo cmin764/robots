@@ -2,16 +2,23 @@
 Documentation   Minimum set of tasks on using the entire cloud API given work items.
 
 Library          RPA.Robocorp.WorkItems
+Library          RPA.FileSystem
 
 
 *** Variables ***
 ${file_name}    file.txt
 ${other_file_name}    other_${file_name}
+${devdata}    devdata
 
 
 *** Keywords ***
-# Adapter called methods under comments for each block.
+Ensure fresh input work item
+    ${bkp} =     Set Variable    ${devdata}${/}work-items.json
+    ${witem} =     Set Variable    ${devdata}${/}work-items-in${/}input-items${/}work-items.json
+    Copy File    ${witem}    ${OUTPUT_DIR}${/}work-items.json  # see how the work item looks like afterwards
+    Copy File   ${bkp}    ${witem}  # refresh the in-use work item to previous state
 
+# Adapter called methods under comments for each block.
 Create work item
     [Arguments]    ${file_path}
     # `.create_output()`, `.add_file()`, `.save_payload()`
@@ -55,8 +62,21 @@ Work items coverage consumer
     # `.release_input()`, `.reserve_input()`
     For Each Input Work Item    Log other file    return_results=False    items_limit=3
 
-
 Work items coverage consumer failures
     # `.release_input()`, `.reserve_input()`
     # Log other file failure   1   2    total=3
     For Each Input Work Item    Log other file failure   1   2   3   return_results=False    items_limit=3
+
+Work items variables
+    ${variables} =    List work item variables
+    Log    Available variables in work item: ${variables}
+    
+    Delete Work Item Variables    ${variables[0]}
+    Save Work Item  # it's important to save, to be reflected in CR as well
+    
+    ${variables} =    List work item variables
+    Log    Available variables in work item after removal of the initial one: ${variables}
+
+    # When running locally, look in the output for the real state of the work-items.
+    # When running in CR, just look in the initial input work item itself.
+    [Teardown]  Ensure fresh input work item
