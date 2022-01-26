@@ -7,7 +7,7 @@ Library    RPA.Windows    WITH NAME    Windows
 
 *** Keywords ***
 Open App
-    [Arguments]    ${app_name}
+    [Arguments]    ${app_name}   ${sleep_time}
     
     ${window_list}=   Windows.List Windows
     FOR  ${win}  IN   @{window_list}
@@ -19,22 +19,41 @@ Open App
             Evaluate    ${command}    signal
         END
     END
-    Sleep    3s
+    Sleep    ${sleep_time}s
 
     ${app} =     Desktop.Open Application    ${app_name}
-    Sleep    3s
+    Sleep    ${sleep_time}s
 
     # Controlling again a re-opened app will break with COMError.
-    ${elem} =     Control Window   subname:${app_name}   timeout=3
+    ${elem} =     Control Window   subname:${app_name}   timeout=${sleep_time}
     Log     Controlling element: ${elem}
 
     [Return]    ${elem}
 
+Screenshot Notepad
+    Desktop.Open Application    Notepad
+    Windows.Screenshot    subname:Notepad    ${OUTPUT_DIR}${/}success.png
+
+Run Notepad Teardown
+    # Shouldn't fail on Windows 11.
+    Run Keyword If Test Failed    Windows.Screenshot    subname:Notepad    ${OUTPUT_DIR}${/}fail.png
+    # But all opened apps should close.
+    Desktop.Close All Applications
+
 
 *** Tasks ***
-Open an application many times
-    Open App    Notepad
+Open an application many times  # This one fails with COMError.
+    Open App    Explorer    3  # here "active window = None"
     
-    # Calling a 2nd time this will break on `Control Window`.
+    # Calling a 2nd time this will break on `Control Window` keyword.
     # But commenting this line and running the robot twice in a row, will still work.
-    Open App    Notepad
+    # Breaks on `rect = self.Element.CurrentBoundingRectangle` due to
+    #  `"active window = %s" % window` logging.
+    Open App    Explorer    3
+
+
+Notepad Screenshots  # This one runs ok on Windows 11.
+    # Take multiple screenshots within the same output image.
+    Screenshot Notepad
+    Screenshot Notepad
+    [Teardown]   Run Notepad Teardown
