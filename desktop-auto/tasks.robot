@@ -1,7 +1,8 @@
 *** Settings ***
-Documentation     Investigating COMErrors with the new beta Windows library.
+Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 
 Library    RPA.Desktop    WITH NAME    Desktop
+Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
 
 
@@ -40,15 +41,23 @@ Run Notepad Teardown
     # But all opened apps should close.
     Desktop.Close All Applications
 
+Screenshot Notepad Desktop
+    Desktop.Open Application    Notepad
+    Deskwin.Screenshot    ${OUTPUT_DIR}${/}success-desktop.png    desktop=${True}
+
+Run Notepad Teardown Desktop
+    Run Keyword If Test Failed     Deskwin.Screenshot    ${OUTPUT_DIR}${/}fail-desktop.png    desktop=${True}
+    Desktop.Close All Applications
+
 
 *** Tasks ***
 Open an application many times  # This one fails with COMError.
     Open App    Explorer    3  # here "active window = None"
     
     # Calling a 2nd time this will break on `Control Window` keyword.
-    # But commenting this line and running the robot twice in a row, will still work.
     # Breaks on `rect = self.Element.CurrentBoundingRectangle` due to
     #  `"active window = %s" % window` logging.
+    # But commenting this line and running the robot twice in a row, will still work.
     Open App    Explorer    3
 
 
@@ -57,3 +66,10 @@ Notepad Screenshots  # This one runs ok on Windows 11.
     Screenshot Notepad
     Screenshot Notepad
     [Teardown]   Run Notepad Teardown
+
+
+Notepad Screenshot Desktop  # Works well on Windows 11.
+    # Even with single/multiple screenshots.
+    Screenshot Notepad Desktop
+    # Screenshot Notepad Desktop
+    [Teardown]   Run Notepad Teardown Desktop
