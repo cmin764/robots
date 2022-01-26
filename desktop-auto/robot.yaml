@@ -1,6 +1,8 @@
 tasks:
   Run all tasks:
     shell: python -m robot -d output -L TRACE --logtitle "Task log" tasks.robot
+  Open an application many times:
+    robotTaskName: Open an application many times
   Screenshot Notepad while controlling Calc:
     robotTaskName: Screenshot Notepad while controlling Calc
 

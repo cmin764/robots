@@ -7,32 +7,30 @@ Library    RPA.Windows    WITH NAME    Windows
 
 
 *** Keywords ***
-Open App
+Open And Control App
     [Arguments]    ${app_name}   ${sleep_time}
     
-    ${window_list}=   Windows.List Windows
-    FOR  ${win}  IN   @{window_list}
-        ${exists} =   Evaluate   re.match(".*${app_name}.*", "${win}[title]")
+    # Bad example of closing apps while in control of the affected window.
 
-        IF  ${exists}
-            # Kill the process.
-            ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
-            Log     Killing app: ${win}[title] (PID: $win["pid"])
-            Evaluate    ${command}    signal
-        END
-    END
+    # ${window_list}=   Windows.List Windows
+    # FOR  ${win}  IN   @{window_list}
+    #     ${exists} =   Evaluate   re.match(".*${app_name}.*", "${win}[title]")
+
+    #     IF  ${exists}
+    #         # # Kill the process directly.
+    #         ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
+    #         Log     Killing app: ${win}[title] (PID: $win["pid"])
+    #         Evaluate    ${command}    signal
+    #     END
+    # END
+    # Sleep    ${sleep_time}s
+
+    Desktop.Open Application    ${app_name}
     Sleep    ${sleep_time}s
 
-    ${app} =     Desktop.Open Application    ${app_name}
-    Sleep    ${sleep_time}s
+    ${elem} =     Windows.Control Window   subname:${app_name}   timeout=${sleep_time}
 
-    # Controlling again a re-opened app will break with COMError.
-    # And just by the fact we get control to a window (even once) it will break the
-    #  rest of the Notepad related tasks. (not finding the window with subname)
-    ${elem} =     Control Window   subname:${app_name}   timeout=${sleep_time}
-    Log     Controlling element: ${elem}
-
-    [Return]    ${elem}
+    [Return]    {elem}
 
 Screenshot Notepad
     Desktop.Open Application    Notepad
@@ -55,13 +53,15 @@ Run Notepad Teardown Desktop
 
 *** Tasks ***
 Open an application many times  # This one fails with COMError.
-    Open App    Calc    3  # here "active window = None"
+    ${elem} =     Open And Control App    Calc    4
+    Log     Controlling element: ${elem}
+    Windows.Close Current Window
     
-    # Calling a 2nd time this will break on `Control Window` keyword.
-    # Breaks on `rect = self.Element.CurrentBoundingRectangle` due to
-    #  `"active window = %s" % window` logging.
-    # But commenting this line and running the robot twice in a row, will still work.
-    # Open App    Calc    3
+    ${elem} =     Open And Control App    Calc    2
+    Log     Controlling new element but forgetting to close window: ${elem}
+    # Windows.Close Current Window
+
+    [Teardown]    Desktop.Close All Applications  # this doesn't work on Calculator
 
 
 Notepad Screenshots  # This one runs ok on Windows 11.
@@ -81,7 +81,7 @@ Notepad Screenshot Desktop  # Works well on Windows 11.
 Screenshot Notepad while controlling Calc
     Desktop.Open Application    Calc
     Sleep     2s  # without a little sleep, the controller can't find Calculator
-    # Control Window   subname:Calc   timeout=1  # commenting this will make below stuff work
+    Control Window   subname:Calc   timeout=1  # commenting this will make below stuff work
 
     # Errors with "ElementNotFound: Element not found with locator subname:Notepad".
     Desktop.Open Application    Notepad
