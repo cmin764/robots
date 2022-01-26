@@ -53,7 +53,7 @@ Run Notepad Teardown Desktop
 
 *** Tasks ***
 Open an application many times  # This one fails with COMError.
-    ${elem} =     Open And Control App    Calc    4
+    ${elem} =     Open And Control App    Calc    2
     Log     Controlling element: ${elem}
     Windows.Close Current Window
     
