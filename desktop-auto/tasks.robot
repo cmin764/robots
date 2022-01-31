@@ -89,14 +89,18 @@ Screenshot Notepad while controlling Calc
     [Teardown]    Desktop.Close All Applications  # will fail to close Calculator
 
 Get elements of controlled window
-    ${app} =     Desktop.Open Application    Notepad
-    Sleep    2s
-    ${window} =     Control Window   subname:Notepad   timeout=2
+    [Setup]  Windows.Windows Run   Notepad
+    
+    # ${app} =   Desktop.Open Application    Notepad
+    # Sleep    1s
+    
+    ${window} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlled Notepad window: ${window}
 
     # ${attributes} =  List Attributes  ${window}
     # Log    Attributes: ${attributes}
-    ${elements} =  Get Elements  ${window}
+    ${elements} =  Windows.Get Elements  ${window}
     Log    Elements: ${elements}
 
-    [Teardown]    Desktop.Close Application    ${app}
+    # [Teardown]    Desktop.Close Application    ${app}
+    [Teardown]    Windows.Close Current Window

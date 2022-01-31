@@ -30,7 +30,8 @@ Create work item
 Log other file
     # `.get_file()`
     ${file_path} =    Get Work Item File    ${other_file_name}
-    Log    ${file_path}
+    # Pass Execution    Passed in the middle of for earch work item
+    Log    Path: ${file_path}
 
 Log other file failure
     [Arguments]    ${a}    ${b}    ${total}=0
