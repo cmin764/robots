@@ -63,20 +63,17 @@ Open an application many times  # This one fails with COMError.
 
     [Teardown]    Desktop.Close All Applications  # this doesn't work on Calculator
 
-
 Notepad Screenshots  # This one runs ok on Windows 11.
     # Take multiple screenshots within the same output image.
     Screenshot Notepad
     Screenshot Notepad
     [Teardown]   Run Notepad Teardown
 
-
 Notepad Screenshot Desktop  # Works well on Windows 11.
     # Even with single/multiple screenshots.
     Screenshot Notepad Desktop
     # Screenshot Notepad Desktop
     [Teardown]   Run Notepad Teardown Desktop
-
 
 Screenshot Notepad while controlling Calc
     Desktop.Open Application    Calc
@@ -90,3 +87,16 @@ Screenshot Notepad while controlling Calc
     Windows.Screenshot    subname:Notepad    ${OUTPUT_DIR}${/}success-control.png
 
     [Teardown]    Desktop.Close All Applications  # will fail to close Calculator
+
+Get elements of controlled window
+    ${app} =     Desktop.Open Application    Notepad
+    Sleep    2s
+    ${window} =     Control Window   subname:Notepad   timeout=2
+    Log    Controlled Notepad window: ${window}
+
+    # ${attributes} =  List Attributes  ${window}
+    # Log    Attributes: ${attributes}
+    ${elements} =  Get Elements  ${window}
+    Log    Elements: ${elements}
+
+    [Teardown]    Desktop.Close Application    ${app}

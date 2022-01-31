@@ -5,6 +5,8 @@ tasks:
     robotTaskName: Open an application many times
   Screenshot Notepad while controlling Calc:
     robotTaskName: Screenshot Notepad while controlling Calc
+  Get elements of controlled window:
+    robotTaskName: Get elements of controlled window
 
 condaConfigFile: conda.yaml
 artifactsDir: output
