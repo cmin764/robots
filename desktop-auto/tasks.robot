@@ -12,7 +12,7 @@ Kill app by name
 
     ${window_list} =   Windows.List Windows
     FOR  ${win}  IN   @{window_list}
-        ${exists} =   Evaluate   re.match(".*${app_name}.*", "${win}[title]")
+        ${exists} =   Evaluate   re.match(".*${app_name}.*", """${win}[title]""")
 
         IF  ${exists}
             ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
