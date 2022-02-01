@@ -7,22 +7,26 @@ Library    RPA.Windows    WITH NAME    Windows
 
 
 *** Keywords ***
+Kill app by name
+    [Arguments]     ${app_name}
+
+    ${window_list} =   Windows.List Windows
+    FOR  ${win}  IN   @{window_list}
+        ${exists} =   Evaluate   re.match(".*${app_name}.*", "${win}[title]")
+
+        IF  ${exists}
+            ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
+            Log     Killing app: ${win}[title] (PID: $win["pid"])
+            Evaluate    ${command}    signal
+        END
+    END
+
 Open And Control App
     [Arguments]    ${app_name}   ${sleep_time}
     
     # Bad example of closing apps while in control of the affected window.
 
-    # ${window_list}=   Windows.List Windows
-    # FOR  ${win}  IN   @{window_list}
-    #     ${exists} =   Evaluate   re.match(".*${app_name}.*", "${win}[title]")
-
-    #     IF  ${exists}
-    #         # # Kill the process directly.
-    #         ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
-    #         Log     Killing app: ${win}[title] (PID: $win["pid"])
-    #         Evaluate    ${command}    signal
-    #     END
-    # END
+    # Kill app by name    ${app_name}
     # Sleep    ${sleep_time}s
 
     Desktop.Open Application    ${app_name}
@@ -80,8 +84,8 @@ Screenshot Notepad while controlling Calc
     Sleep     2s  # without a little sleep, the controller can't find Calculator
     Control Window   subname:Calc   timeout=1  # commenting this will make below stuff work
 
-    # Errors with "ElementNotFound: Element not found with locator subname:Notepad".
     Desktop.Open Application    Notepad
+    # Errors with "ElementNotFound: Element not found with locator subname:Notepad".
     # Will try to find Notepad inside of the controlled window and it breaks because
     # Notepad is found starting from desktop level instead.
     Windows.Screenshot    subname:Notepad    ${OUTPUT_DIR}${/}success-control.png
@@ -104,3 +108,20 @@ Get elements of controlled window
 
     # [Teardown]    Desktop.Close Application    ${app}
     [Teardown]    Windows.Close Current Window
+
+Control window after closing linked root
+    [Setup]  Windows.Windows Run   Notepad
+    ${window} =     Windows.Control Window   subname:Notepad   timeout=1
+    Log    Controlling Notepad window: ${window}
+
+    Kill app by name    Notepad
+
+    Windows.Windows Run   Calc
+    # "COMError: (-2147220991, 'An event was unable to invoke any of the subscribers', (None, None, None, 0, None))"
+    # Happens due to `str(self.ctx.window)` over a window that doesn't exist anymore.
+    # Solution: cleanup context properly (through `Close Window` keyword) and tackle
+    #  internally this edge case.
+    ${window} =     Windows.Control Window   subname:Calc   timeout=1
+    Log    Controlling Calculator window: ${window}
+
+    # [Teardown]    Windows.Close Current Window

@@ -7,6 +7,8 @@ tasks:
     robotTaskName: Screenshot Notepad while controlling Calc
   Get elements of controlled window:
     robotTaskName: Get elements of controlled window
+  Control window after closing linked root:
+    robotTaskName: Control window after closing linked root
 
 condaConfigFile: conda.yaml
 artifactsDir: output
