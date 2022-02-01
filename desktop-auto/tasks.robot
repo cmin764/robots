@@ -4,6 +4,7 @@ Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 Library    RPA.Desktop    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
+Library    DebugLibrary
 
 
 *** Keywords ***
@@ -124,4 +125,4 @@ Control window after closing linked root
     ${window} =     Windows.Control Window   subname:Calc   timeout=1
     Log    Controlling Calculator window: ${window}
 
-    # [Teardown]    Windows.Close Current Window
+    [Teardown]    Windows.Close Current Window
