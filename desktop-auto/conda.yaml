@@ -14,4 +14,4 @@ dependencies:
     # https://pypi.org/
     - rpaframework==12.5.1 # https://rpaframework.org/releasenotes.html
     - rpaframework-windows==2.0.1
-    # - pywin32==302
+    # - pywin32==303

@@ -4,7 +4,6 @@ Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 Library    RPA.Desktop    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
-Library    DebugLibrary
 
 
 *** Keywords ***
