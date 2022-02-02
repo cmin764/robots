@@ -54,6 +54,11 @@ Run Notepad Teardown Desktop
     Run Keyword If Test Failed     Deskwin.Screenshot    ${OUTPUT_DIR}${/}fail-desktop.png    desktop=${True}
     Desktop.Close All Applications
 
+Close all Calculators and open Notepad
+    ${closed} =    Windows.Close Window    Calculator  # in development keyword
+    Log    Closed Calculators: ${closed}
+    Windows.Windows Run   Notepad
+
 
 *** Tasks ***
 Open an application many times  # This one fails with COMError.
@@ -110,7 +115,7 @@ Get elements of controlled window
     [Teardown]    Windows.Close Current Window
 
 Control window after closing linked root
-    [Setup]  Windows.Windows Run   Notepad
+    [Setup]    Close all Calculators and open Notepad
     ${window} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlling Notepad window: ${window}
 
@@ -120,7 +125,7 @@ Control window after closing linked root
     # "COMError: (-2147220991, 'An event was unable to invoke any of the subscribers', (None, None, None, 0, None))"
     # Happens due to `str(self.ctx.window)` over a window that doesn't exist anymore.
     # Solution: cleanup context properly (through `Close Window` keyword) and tackle
-    #  internally this edge case.
+    #  internally this closed `window` edge case.
     ${window} =     Windows.Control Window   subname:Calc   timeout=1
     Log    Controlling Calculator window: ${window}
 
