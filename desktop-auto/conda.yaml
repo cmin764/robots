@@ -14,4 +14,4 @@ dependencies:
     # https://pypi.org/
     - rpaframework==12.5.1 # https://rpaframework.org/releasenotes.html
     # - rpaframework-windows==2.0.1
-    - https://github.com/cmin764/robots/blob/main/builds/rpaframework_windows-2.1.0-py3-none-any.whl?raw=true
+    - https://github.com/cmin764/robots/blob/main/builds/rpaframework_windows-2.1.0.53d345e-py3-none-any.whl?raw=true
