@@ -10,7 +10,7 @@ Library    XML
 Library    MailParse  # local library
 Library    Collections
 Library    String
-Library    DebugLibrary
+# Library    DebugLibrary
 
 *** Variables ***
 ${invoice_file_name}    invoice.pdf
@@ -151,7 +151,7 @@ Unicode HTML To PDF
     RPA.FileSystem.Create File    ${template_html_file}    <h2><b><i>{{name}}</b></i></h2><br>normal<br><strong>strong</strong><br><em>em</em><br><i>italic</i><br><b>bold</b><br>    overwrite=${True}
     ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźżă
     Template Html To Pdf    ${template_html_file}    ${output_pdf_file}    variables=${payload}
-    Debug
+    # Debug
 
 
 PDF Invoice Parsing

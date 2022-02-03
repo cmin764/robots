@@ -54,9 +54,10 @@ Run Notepad Teardown Desktop
     Run Keyword If Test Failed     Deskwin.Screenshot    ${OUTPUT_DIR}${/}fail-desktop.png    desktop=${True}
     Desktop.Close All Applications
 
-Close all Calculators and open Notepad
-    ${closed} =    Windows.Close Window    Calculator  # in development keyword
-    Log    Closed Calculators: ${closed}
+Open a single Notepad
+    Windows.Set Global Timeout    1
+    ${closed} =    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
+    Log    Closed Notepads: ${closed}
     Windows.Windows Run   Notepad
 
 
@@ -115,8 +116,8 @@ Get elements of controlled window
     [Teardown]    Windows.Close Current Window
 
 Control window after closing linked root
-    [Setup]    Close all Calculators and open Notepad
-    ${window} =     Windows.Control Window   subname:Notepad   timeout=1
+    [Setup]    Open a single Notepad
+    ${window} =     Windows.Control Window   subname:Notepad control:WindowControl
     Log    Controlling Notepad window: ${window}
 
     Kill app by name    Notepad
@@ -126,7 +127,14 @@ Control window after closing linked root
     # Happens due to `str(self.ctx.window)` over a window that doesn't exist anymore.
     # Solution: cleanup context properly (through `Close Window` keyword) and tackle
     #  internally this closed `window` edge case.
-    ${window} =     Windows.Control Window   subname:Calc   timeout=1
+    ${window} =     Windows.Control Window   subname:Calc
     Log    Controlling Calculator window: ${window}
 
-    [Teardown]    Windows.Close Current Window
+    [Teardown]    Windows.Close Current Window  # closes Calculator (last active window)
+
+
+Control anchor cleanup
+    Windows.Windows Run   Calc
+    ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
+    Windows.Set Anchor    ${win}
+    Windows.Close Window    subname:Calc control:WindowControl    timeout=1
