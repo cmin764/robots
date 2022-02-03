@@ -132,7 +132,6 @@ Control window after closing linked root
 
     [Teardown]    Windows.Close Current Window  # closes Calculator (last active window)
 
-
 Control anchor cleanup
     Windows.Windows Run   Calc
     ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
