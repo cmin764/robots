@@ -133,6 +133,7 @@ Control window after closing linked root
     [Teardown]    Windows.Close Current Window  # closes Calculator (last active window)
 
 Control anchor cleanup
+    Windows.Print Tree     #capture_image_folder=output${/}controls
     Windows.Windows Run   Calc
     ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
     Windows.Set Anchor    ${win}
