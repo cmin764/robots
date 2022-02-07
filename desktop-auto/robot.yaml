@@ -7,10 +7,10 @@ tasks:
     robotTaskName: Screenshot Notepad while controlling Calc
   Get elements of controlled window:
     robotTaskName: Get elements of controlled window
-  Control window after closing linked root:
-    robotTaskName: Control window after closing linked root
-  Control anchor cleanup:
-    robotTaskName: Control anchor cleanup
+  Control window after closing linked root element:
+    robotTaskName: Control window after closing linked root element
+  Tree printing and controlled anchor cleanup:
+    robotTaskName: Tree printing and controlled anchor cleanup
 
 condaConfigFile: conda.yaml
 artifactsDir: output

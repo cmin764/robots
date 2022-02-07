@@ -54,7 +54,7 @@ Run Notepad Teardown Desktop
     Run Keyword If Test Failed     Deskwin.Screenshot    ${OUTPUT_DIR}${/}fail-desktop.png    desktop=${True}
     Desktop.Close All Applications
 
-Open a single Notepad
+Keep open a single Notepad
     Windows.Set Global Timeout    1
     ${closed} =    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
     Log    Closed Notepads: ${closed}
@@ -115,24 +115,21 @@ Get elements of controlled window
     # [Teardown]    Desktop.Close Application    ${app}
     [Teardown]    Windows.Close Current Window
 
-Control window after closing linked root
-    [Setup]    Open a single Notepad
+Control window after closing linked root element
+    [Setup]    Keep open a single Notepad
     ${window} =     Windows.Control Window   subname:Notepad control:WindowControl
     Log    Controlling Notepad window: ${window}
 
     Kill app by name    Notepad
 
     Windows.Windows Run   Calc
-    # "COMError: (-2147220991, 'An event was unable to invoke any of the subscribers', (None, None, None, 0, None))"
-    # Happens due to `str(self.ctx.window)` over a window that doesn't exist anymore.
-    # Solution: cleanup context properly (through `Close Window` keyword) and tackle
-    #  internally this closed `window` edge case.
-    ${window} =     Windows.Control Window   subname:Calc
+    # Tests against `COMError` fixes.
+    ${window} =     Windows.Control Window   subname:Calc    main=${False}
     Log    Controlling Calculator window: ${window}
 
     [Teardown]    Windows.Close Current Window  # closes Calculator (last active window)
 
-Control anchor cleanup
+Tree printing and controlled anchor cleanup
     Windows.Print Tree     #capture_image_folder=output${/}controls
     Windows.Windows Run   Calc
     ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
