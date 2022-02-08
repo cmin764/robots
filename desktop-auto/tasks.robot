@@ -107,8 +107,8 @@ Get elements of controlled window
     ${window} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlled Notepad window: ${window}
 
-    # ${attributes} =  List Attributes  ${window}
-    # Log    Attributes: ${attributes}
+    ${attributes} =  Windows.List Attributes  ${window}
+    Log    Attributes: ${attributes}
     ${elements} =  Windows.Get Elements  ${window}
     Log    Elements: ${elements}
 
