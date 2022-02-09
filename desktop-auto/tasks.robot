@@ -56,7 +56,11 @@ Run Notepad Teardown Desktop
 
 Keep open a single Notepad
     Windows.Set Global Timeout    1
-    ${closed} =    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
+    ${closed} =     Set Variable    0
+    ${run} =    Run Keyword And Ignore Error    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
+    IF    "${run}[0]" == "PASS"
+        ${closed} =    Set Variable    ${run}[1]
+    END
     Log    Closed Notepads: ${closed}
     Windows.Windows Run   Notepad
 
