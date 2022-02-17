@@ -58,7 +58,7 @@ Run Notepad Teardown Desktop
     Desktop.Close All Applications
 
 Keep open a single Notepad
-    Windows.Set Global Timeout    1
+    Windows.Set Global Timeout    6
     ${closed} =     Set Variable    0
     ${run} =    Run Keyword And Ignore Error    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
     IF    "${run}[0]" == "PASS"
@@ -145,9 +145,12 @@ Tree printing and controlled anchor cleanup
 
 Test desktop windows and apps
     [Setup]    Keep open a single Notepad
+
+    ${ver} =    Windows.Get Os Version
+    Log    Running on Windows ${ver}
     
     # Windows related calls.
-    ${window} =     Windows.Control Window   subname:Notepad control:WindowControl
+    ${window} =     Windows.Control Window   subname:Notepad
     Log    Controlling Notepad window: ${window}
     Kill app by name    Notepad
     Windows.Windows Run   Calc
@@ -156,15 +159,17 @@ Test desktop windows and apps
     Log    Controlling Calculator window: ${window}
     Windows.Close Current Window
 
-    # Excel, Word and Outlook apps.
+    # Excel, Word and Outlook apps. (needs these apps installed on host)
+    Open Application    visible=${True}
     Open Workbook           devdata${/}workbook.xlsx
     Export as PDF           ${OUTPUT_DIR}${/}workbook.pdf
+    Quit Application
 
     # Desktop, Windows and Desktop.Windows.
     Windows.Print Tree     #capture_image_folder=output${/}controls
     Desktop.Open Application    Calc
-    ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
+    ${win} =    Windows.Control Window   subname:Calc    timeout=5
     Windows.Set Anchor    ${win}
     Deskwin.Screenshot    ${OUTPUT_DIR}${/}calculator.png    desktop=${True}
         
-    [Teardown]    Windows.Close Window    subname:Calc control:WindowControl    timeout=1
+    [Teardown]    Windows.Close Window    subname:Calc    timeout=1
