@@ -12,7 +12,8 @@ dependencies:
   - pip:
     # Define pip packages here.
     # https://pypi.org/
-    - rpaframework==12.8.0 # https://rpaframework.org/releasenotes.html
+    # - rpaframework==12.8.1  # https://rpaframework.org/releasenotes.html
     # - rpaframework-windows==2.2.0
-    # - pywin32==303
+    # comtypes=1.1.11, pywin32==303, PRs: #278, #384
+    - https://github.com/cmin764/robots/blob/main/builds/rpaframework-12.8.1.ab9b6bb-py3-none-any.whl?raw=true
     - https://github.com/cmin764/robots/blob/main/builds/rpaframework_windows-2.2.0.f1d4eb8-py3-none-any.whl?raw=true

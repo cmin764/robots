@@ -4,6 +4,9 @@ Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 Library    RPA.Desktop    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
+Library    RPA.Excel.Application
+Library    RPA.Outlook.Application
+Library    RPA.Word.Application
 
 
 *** Keywords ***
@@ -139,3 +142,29 @@ Tree printing and controlled anchor cleanup
     ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
     Windows.Set Anchor    ${win}
     Windows.Close Window    subname:Calc control:WindowControl    timeout=1
+
+Test desktop windows and apps
+    [Setup]    Keep open a single Notepad
+    
+    # Windows related calls.
+    ${window} =     Windows.Control Window   subname:Notepad control:WindowControl
+    Log    Controlling Notepad window: ${window}
+    Kill app by name    Notepad
+    Windows.Windows Run   Calc
+    # Tests against `COMError` fixes.
+    ${window} =     Windows.Control Window   subname:Calc    main=${False}
+    Log    Controlling Calculator window: ${window}
+    Windows.Close Current Window
+
+    # Excel, Word and Outlook apps.
+    Open Workbook           devdata${/}workbook.xlsx
+    Export as PDF           ${OUTPUT_DIR}${/}workbook.pdf
+
+    # Desktop, Windows and Desktop.Windows.
+    Windows.Print Tree     #capture_image_folder=output${/}controls
+    Desktop.Open Application    Calc
+    ${win} =    Windows.Control Window   subname:Calc control:WindowControl    timeout=1
+    Windows.Set Anchor    ${win}
+    Deskwin.Screenshot    ${OUTPUT_DIR}${/}calculator.png    desktop=${True}
+        
+    [Teardown]    Windows.Close Window    subname:Calc control:WindowControl    timeout=1
