@@ -12,5 +12,5 @@ dependencies:
   - pip:
     # Define pip packages here. 
     # https://pypi.org/
-    - rpaframework==11.5.2 # https://rpaframework.org/releasenotes.html
-    - pywin32==302
+    - rpaframework==12.8.0 # https://rpaframework.org/releasenotes.html
+    # - pywin32==303
