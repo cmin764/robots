@@ -4,9 +4,9 @@ Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 Library    RPA.Desktop    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
-Library    RPA.Excel.Application
-Library    RPA.Outlook.Application
-Library    RPA.Word.Application
+Library    RPA.Excel.Application    WITH NAME    Excel
+Library    RPA.Outlook.Application    WITH NAME    Outlook
+Library    RPA.Word.Application    WITH NAME    Word
 
 
 *** Keywords ***
@@ -160,10 +160,10 @@ Test desktop windows and apps
     Windows.Close Current Window
 
     # Excel, Word and Outlook apps. (needs these apps installed on host)
-    Open Application    visible=${True}
-    Open Workbook           devdata${/}workbook.xlsx
-    Export as PDF           ${OUTPUT_DIR}${/}workbook.pdf
-    Quit Application
+    Excel.Open Application    visible=${True}
+    Excel.Open Workbook           devdata${/}workbook.xlsx
+    Excel.Export as PDF           ${OUTPUT_DIR}${/}workbook.pdf
+    Excel.Quit Application
 
     # Desktop, Windows and Desktop.Windows.
     Windows.Print Tree     #capture_image_folder=output${/}controls
