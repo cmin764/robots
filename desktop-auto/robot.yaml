@@ -11,6 +11,8 @@ tasks:
     robotTaskName: Control window after closing linked root element
   Tree printing and controlled anchor cleanup:
     robotTaskName: Tree printing and controlled anchor cleanup
+  Test desktop windows and apps:
+    robotTaskName: Test desktop windows and apps
 
 condaConfigFile: conda.yaml
 artifactsDir: output
