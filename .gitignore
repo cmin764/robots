@@ -132,3 +132,4 @@ output.xml
 *.db
 
 pdf-parse/report.pdf
+test.txt
