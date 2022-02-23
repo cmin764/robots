@@ -1,0 +1,11 @@
+[
+    {
+        "payload": {
+            "user": "Another3",
+            "mail": "another3@company.com"
+        },
+        "files": {
+            "test.txt": "test.txt"
+        }
+    }
+]

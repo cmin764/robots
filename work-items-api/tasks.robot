@@ -3,6 +3,7 @@ Documentation   Minimum set of tasks on using the entire cloud API given work it
 
 Library          RPA.Robocorp.WorkItems
 Library          RPA.FileSystem
+Library          OperatingSystem    WITH NAME    OS
 
 
 *** Variables ***
@@ -81,3 +82,20 @@ Work items variables
     # When running locally, look in the output for the real state of the work-items.
     # When running in CR, just look in the initial input work item itself.
     [Teardown]  Ensure fresh input work item
+
+Create output work item with variables and files
+    &{customer_vars} =    Create Dictionary    user=Another3    mail=another3@company.com
+    ${test_file} =      Set Variable    ${OUTPUT_DIR}${/}test.txt
+    ${content} =    Set Variable    Test output work item
+    RPA.FileSystem.Create File    ${test_file}   ${content}  overwrite=${True}
+    Create Output Work Item     variables=${customer_vars}  files=${test_file}  save=${True}
+
+    ${user_value} =     Get Work Item Variable      user
+    Should Be Equal     ${user_value}      Another3
+
+    ${path_out} =      Absolute Path   ${OUTPUT_DIR}${/}test-out.txt
+    ${path} =   Get Work Item File  test.txt    path=${path_out}
+    Should Be Equal    ${path}      ${path_out}
+    OS.File should exist    ${path}
+    ${obtained_content} =   Read File    ${path}
+    Should Be Equal     ${obtained_content}      ${content}
