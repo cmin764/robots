@@ -5,18 +5,24 @@ Library    RPA.Browser.Playwright
 Library    RPA.FileSystem
 
 
+*** Variables ***
+${HEADLESS}    ${True}
+
+
 *** Tasks ***
 File Upload
     ${path} =    Absolute Path    devdata${/}file.txt
     ${data} =    Read File    ${path}
     Log    File ${path} to be uploaded with data: ${data}
     
-    Open Browser    https://viljamis.com/filetest/    headless=${True}
+    Open Browser    https://viljamis.com/filetest/    headless=${HEADLESS}
     Sleep    1s
     Upload File By Selector    xpath=//input[@name="image"]    ${path}
     Sleep    2s
     Click    xpath=//input[@value="Upload"]
-    Click    id=proceed-button
+    IF    "${HEADLESS}" != "${True}"
+        Click    id=proceed-button
+    END
     Sleep    3s
 
     ${content} =    Get Text    table
