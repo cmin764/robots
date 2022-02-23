@@ -72,8 +72,8 @@ Work items coverage consumer failures
 Work items variables
     ${variables} =    List work item variables
     Log    Available variables in work item: ${variables}
-    # ${files} =    Get Work Item Files    *
-    # Log    Available files in work item: ${files}
+    ${files} =    Get Work Item Files    *
+    Log    Available files in work item: ${files}
     
     ${vars_len} =    Get Length    ${variables}
     IF    ${vars_len}
