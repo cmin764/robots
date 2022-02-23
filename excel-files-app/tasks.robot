@@ -35,3 +35,28 @@ Transplant Column
     Save Workbook
     
     [Teardown]    Close Workbook
+
+Remove rows with empty cells
+    # Open Excel and read "Sheet 1" as table.
+    Files.Open Workbook    devdata${/}emails.xlsx
+    ${table} =    Read Worksheet As Table    name=Sheet 1    start=3  # avoiding some headers
+    ${emails} =     Get Table Column    ${table}    C  # e-mails on third column
+    
+    # Iterate the rows bottom top so each time we pop out one row, the rest of the
+    #  rows positions wouldn't be affected. (if you traverse top -> bottom, then
+    #  removing a row will make the ones beneath move up by one position... and that
+    #  would add complexity to index computation)
+    ${rows_count} =    Get Length    ${emails}
+    # Starts from last row and ends on the first one (index: 0).
+    FOR    ${index}    IN RANGE    ${rows_count - 1}    -1    -1
+        ${email} =     Set Variable    ${emails}[${index}]
+        Log To Console    ${index}: ${email}
+        IF    "${email}" == "${None}"
+            Pop Table Row    ${table}    row=${index}
+        END
+    END
+    
+    # Now the table is shortened by the rows which don't contain an E-mail value.
+    Log To Console    ${table}
+    ${emails} =     Get Table Column    ${table}    C
+    Log To Console    ${emails}

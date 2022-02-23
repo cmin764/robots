@@ -3,6 +3,8 @@ tasks:
     shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
   Transplant Column:
     robotTaskName: Transplant Column
+  Remove rows with empty cells:
+    robotTaskName: Remove rows with empty cells
 
 condaConfigFile: conda.yaml
 artifactsDir: output
