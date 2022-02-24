@@ -4,7 +4,6 @@ Documentation       Testing issues with handling Excel files.
 Library             RPA.Excel.Application    WITH NAME    App
 Library             RPA.Excel.Files    WITH NAME    Files
 Library             RPA.FileSystem
-Library             RPA.Tables
 
 Suite Teardown    Close Workbooks
 
