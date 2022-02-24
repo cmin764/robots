@@ -5,6 +5,8 @@ tasks:
     robotTaskName: Transplant Column
   Remove rows with empty cells:
     robotTaskName: Remove rows with empty cells
+  Test single row sheet:
+    robotTaskName: Test single row sheet
 
 condaConfigFile: conda.yaml
 artifactsDir: output

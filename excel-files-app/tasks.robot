@@ -1,8 +1,32 @@
 *** Settings ***
 Documentation       Testing issues with handling Excel files.
+
 Library             RPA.Excel.Application    WITH NAME    App
 Library             RPA.Excel.Files    WITH NAME    Files
-Library             RPA.Tables  
+Library             RPA.FileSystem
+Library             RPA.Tables
+
+Suite Teardown    Close Workbooks
+
+
+*** Keywords ***
+Close Workbooks
+    Close Workbook
+    Close Document
+
+Append Content To Sheet
+    [Arguments]    ${excel_file}    ${content}
+    ${srcx} =    Set Variable    devdata${/}${excel_file}
+    ${destx} =    Set Variable    ${OUTPUT_DIR}${/}${excel_file}
+    Copy File    ${srcx}    ${destx}
+    Files.Open Workbook    ${destx}
+    ${data} =    Read Worksheet    Sheet
+    Log To Console    Initial table: ${data}
+    Append Rows To Worksheet    ${content}    header=${True}
+    Save Workbook
+    ${data} =    Read Worksheet    Sheet
+    Log To Console    Final table: ${data}
+    Close Workbook
 
 
 *** Tasks ***
@@ -33,8 +57,6 @@ Transplant Column
     # Finally, write the newly obtained table into the last excel on another sheet.
     Create Worksheet    Sheet 2    ${subtable2}    exist_ok=${True}
     Save Workbook
-    
-    [Teardown]    Close Workbook
 
 Remove rows with empty cells
     # Open Excel and read "Sheet 1" as table.
@@ -60,3 +82,22 @@ Remove rows with empty cells
     Log To Console    ${table}
     ${emails} =     Get Table Column    ${table}    C
     Log To Console    ${emails}
+
+Test single row sheet
+    &{row} =    Create Dictionary    Single    Test
+    @{content} =    Create List    ${row}
+
+    # Append Content To Sheet    one-row.xlsx    ${content}
+    # Append Content To Sheet    one-row.xls    ${content}
+    Append Content To Sheet    empty.xlsx    ${content}
+    # Append Content To Sheet    empty.xls    ${content}
+
+    # Files.Open Workbook    devdata${/}one-row.xls
+    # ${data} =    Read Worksheet    Sheet
+    # Log To Console    ${data}
+
+    # ${sheet_names} =    List Worksheets
+    # FOR  ${name}  IN  @{sheet_names}
+    #     ${data} =    Read Worksheet    ${name}
+    #     Log    ${data}
+    # END
