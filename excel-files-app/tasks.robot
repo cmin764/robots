@@ -16,6 +16,7 @@ Close Workbooks
 
 Append Content To Sheet
     [Arguments]    ${excel_file}    ${content}
+    Log To Console    Excel: ${excel_file}
     ${srcx} =    Set Variable    devdata${/}${excel_file}
     ${destx} =    Set Variable    ${OUTPUT_DIR}${/}${excel_file}
     Copy File    ${srcx}    ${destx}
@@ -84,20 +85,11 @@ Remove rows with empty cells
     Log To Console    ${emails}
 
 Test single row sheet
+    # "Single" in this case acts like header for a 1x1 table.
     &{row} =    Create Dictionary    Single    Test
     @{content} =    Create List    ${row}
 
-    # Append Content To Sheet    one-row.xlsx    ${content}
-    # Append Content To Sheet    one-row.xls    ${content}
+    Append Content To Sheet    one-row.xlsx    ${content}
+    Append Content To Sheet    one-row.xls    ${content}
     Append Content To Sheet    empty.xlsx    ${content}
-    # Append Content To Sheet    empty.xls    ${content}
-
-    # Files.Open Workbook    devdata${/}one-row.xls
-    # ${data} =    Read Worksheet    Sheet
-    # Log To Console    ${data}
-
-    # ${sheet_names} =    List Worksheets
-    # FOR  ${name}  IN  @{sheet_names}
-    #     ${data} =    Read Worksheet    ${name}
-    #     Log    ${data}
-    # END
+    Append Content To Sheet    empty.xls    ${content}
