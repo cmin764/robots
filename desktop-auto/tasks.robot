@@ -173,3 +173,13 @@ Test desktop windows and apps
     Deskwin.Screenshot    ${OUTPUT_DIR}${/}calculator.png    desktop=${True}
         
     [Teardown]    Windows.Close Window    subname:Calc    timeout=1
+
+
+Control Kulcs App
+    # Record mouse clicks and identify app windows with "windows-record" script.
+    Windows.Control Window    subname:Kulcs
+    Windows.Print Tree    log_as_warnings=${True}
+    ...    capture_image_folder=${OUTPUT_DIR}${/}kulcs-controls
+
+    Windows.Click   name:'Új projekt'  # clicks the "+" sign
+    Windows.Send Keys    ESC    TAB    ENTER  # exits without saving

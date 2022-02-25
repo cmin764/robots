@@ -13,6 +13,8 @@ tasks:
     robotTaskName: Tree printing and controlled anchor cleanup
   Test desktop windows and apps:
     robotTaskName: Test desktop windows and apps
+  Control Kulcs App:
+    robotTaskName: Control Kulcs App
 
 condaConfigFile: conda.yaml
 artifactsDir: output
