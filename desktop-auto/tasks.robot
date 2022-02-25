@@ -177,9 +177,13 @@ Test desktop windows and apps
 
 Control Kulcs App
     # Record mouse clicks and identify app windows with "windows-record" script.
+
+    # Logs all elements found in the app as warnings into a tree view.
     Windows.Control Window    subname:Kulcs
     Windows.Print Tree    log_as_warnings=${True}
     ...    capture_image_folder=${OUTPUT_DIR}${/}kulcs-controls
 
-    Windows.Click   name:'Új projekt'  # clicks the "+" sign
-    Windows.Send Keys    ESC    TAB    ENTER  # exits without saving
+    # Clicks a "+" sign over "Termekek", then exits.
+    Windows.Click   name:'Termékek'    wait_time=1
+    Windows.Click   name:'Új termék'    wait_time=3
+    Windows.Send Keys    keys={ESC}{TAB}{ENTER}    interval=0.5
