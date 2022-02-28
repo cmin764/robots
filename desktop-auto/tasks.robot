@@ -193,26 +193,28 @@ Control Kulcs App
     Windows.Click   name:'Termékek'    wait_time=1
     Windows.Click   name:'Új termék'    wait_time=2
     Windows.Control Window    Termék
-    # Windows.Print Tree   log_as_warnings=${True}
+    # # Windows.Print Tree   log_as_warnings=${True}
     ${vat_combo} =    Set Variable    control:EditControl id:lookUpEditVatObj
-    Windows.Click    ${vat_combo}
-    Windows.Send Keys    keys={HOME}{ENTER}  # goes on first option
-    ${last_value} =    Set Variable    ${EMPTY}
-    &{combos} =    Create Dictionary
-    Windows.Set Wait Time    0.1
-    FOR    ${idx}    IN RANGE    0    999
-        ${value} =     Windows.Get Value    ${vat_combo}
-        Exit For Loop If    "${value}" == "${last_value}"
-        ${last_value} =    Set Variable    ${value}
-        Set To Dictionary    ${combos}    ${value}    ${idx}
-        Windows.Click    ${vat_combo}
-        Windows.Send Keys    keys={DOWN}{ENTER}
-    END
-    Log Dictionary    ${combos}
+    # Windows.Click    ${vat_combo}
+    # Windows.Send Keys    keys={HOME}{ENTER}  # goes on first option
+    # ${last_value} =    Set Variable    ${EMPTY}
+    # &{combos} =    Create Dictionary
+    # Windows.Set Wait Time    0.1
+    # FOR    ${idx}    IN RANGE    0    999
+    #     ${value} =     Windows.Get Value    ${vat_combo}
+    #     Exit For Loop If    "${value}" == "${last_value}"
+    #     ${last_value} =    Set Variable    ${value}
+    #     Set To Dictionary    ${combos}    ${value}    ${idx}
+    #     Windows.Click    ${vat_combo}
+    #     Windows.Send Keys    keys={DOWN}{ENTER}
+    # END
+    # Log Dictionary    ${combos}
     
     ${vat_value} =    Set Variable    18%-os áfa  # identify option by text value
-    ${downs_count} =    Get From Dictionary    ${combos}    ${vat_value}
-    Log To Console    Going down ${downs_count} times...
-    ${downs_str} =    Evaluate    '{DOWN}'*${downs_count}
-    Windows.Click    ${vat_combo}
-    Windows.Send Keys    keys=${downs_str}{ENTER}
+    # ${downs_count} =    Get From Dictionary    ${combos}    ${vat_value}
+    # Log To Console    Going down ${downs_count} times...
+    # ${downs_str} =    Evaluate    '{DOWN}'*${downs_count}
+    # Windows.Click    ${vat_combo}
+    # Windows.Send Keys    keys={HOME}${downs_str}{ENTER}
+    Windows.Set Value    ${vat_combo}    ${vat_value}
+    Windows.Send Keys    keys={ENTER}
