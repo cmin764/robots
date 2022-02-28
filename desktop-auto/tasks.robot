@@ -201,15 +201,11 @@ Control Kulcs App
     &{combos} =    Create Dictionary
     Windows.Set Wait Time    0.1
     FOR    ${idx}    IN RANGE    0    999
-        Log To Console    value start
         ${value} =     Windows.Get Value    ${vat_combo}
-        Log To Console    value finish
         Exit For Loop If    "${value}" == "${last_value}"
         ${last_value} =    Set Variable    ${value}
         Set To Dictionary    ${combos}    ${value}    ${idx}
-        Log To Console    click start
         Windows.Click    ${vat_combo}
         Windows.Send Keys    keys={DOWN}{ENTER}
-        Log To Console    click finish
     END
     Log Dictionary    ${combos}
