@@ -13,5 +13,5 @@ dependencies:
     # Define pip packages here.
     # https://pypi.org/
     - rpaframework==12.8.2  # https://rpaframework.org/releasenotes.html
-    - rpaframework-windows==2.2.2
+    - rpaframework-windows==2.3.0
     # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/99f/94f1c13cc36ec/rpaframework_windows-2.2.2-py3-none-any.whl#sha256=99f94f1c13cc36ecd31dcb847304bb5834e105a279b5a5a1ebba79d2d354dace

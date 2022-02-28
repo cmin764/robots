@@ -7,6 +7,7 @@ Library    RPA.Windows    WITH NAME    Windows
 Library    RPA.Excel.Application    WITH NAME    Excel
 Library    RPA.Outlook.Application    WITH NAME    Outlook
 Library    RPA.Word.Application    WITH NAME    Word
+Library    Collections
 
 
 *** Keywords ***
@@ -180,10 +181,35 @@ Control Kulcs App
 
     # Logs all elements found in the app as warnings into a tree view.
     Windows.Control Window    subname:Kulcs
-    Windows.Print Tree    log_as_warnings=${True}
-    ...    capture_image_folder=${OUTPUT_DIR}${/}kulcs-controls
+    # Windows.Print Tree    log_as_warnings=${True}
+    # ...    capture_image_folder=${OUTPUT_DIR}${/}kulcs-controls
 
     # Clicks a "+" sign over "Termekek", then exits.
+    # Windows.Click   name:'Termékek'    wait_time=1
+    # Windows.Click   name:'Új termék'    wait_time=3
+    # Windows.Send Keys    keys={ESC}{TAB}{ENTER}    interval=0.5
+
+    # Collects and changes VAT value.
     Windows.Click   name:'Termékek'    wait_time=1
-    Windows.Click   name:'Új termék'    wait_time=3
-    Windows.Send Keys    keys={ESC}{TAB}{ENTER}    interval=0.5
+    Windows.Click   name:'Új termék'    wait_time=2
+    Windows.Control Window    Termék
+    # Windows.Print Tree   log_as_warnings=${True}
+    ${vat_combo} =    Set Variable    control:EditControl id:lookUpEditVatObj
+    Windows.Click    ${vat_combo}
+    Windows.Send Keys    keys={HOME}{ENTER}
+    ${last_value} =    Set Variable    ${EMPTY}
+    &{combos} =    Create Dictionary
+    Windows.Set Wait Time    0.1
+    FOR    ${idx}    IN RANGE    0    999
+        Log To Console    value start
+        ${value} =     Windows.Get Value    ${vat_combo}
+        Log To Console    value finish
+        Exit For Loop If    "${value}" == "${last_value}"
+        ${last_value} =    Set Variable    ${value}
+        Set To Dictionary    ${combos}    ${value}    ${idx}
+        Log To Console    click start
+        Windows.Click    ${vat_combo}
+        Windows.Send Keys    keys={DOWN}{ENTER}
+        Log To Console    click finish
+    END
+    Log Dictionary    ${combos}
