@@ -196,7 +196,7 @@ Control Kulcs App
     # Windows.Print Tree   log_as_warnings=${True}
     ${vat_combo} =    Set Variable    control:EditControl id:lookUpEditVatObj
     Windows.Click    ${vat_combo}
-    Windows.Send Keys    keys={HOME}{ENTER}
+    Windows.Send Keys    keys={HOME}{ENTER}  # goes on first option
     ${last_value} =    Set Variable    ${EMPTY}
     &{combos} =    Create Dictionary
     Windows.Set Wait Time    0.1
@@ -209,3 +209,10 @@ Control Kulcs App
         Windows.Send Keys    keys={DOWN}{ENTER}
     END
     Log Dictionary    ${combos}
+    
+    ${vat_value} =    Set Variable    18%-os áfa  # identify option by text value
+    ${downs_count} =    Get From Dictionary    ${combos}    ${vat_value}
+    Log To Console    Going down ${downs_count} times...
+    ${downs_str} =    Evaluate    '{DOWN}'*${downs_count}
+    Windows.Click    ${vat_combo}
+    Windows.Send Keys    keys=${downs_str}{ENTER}
