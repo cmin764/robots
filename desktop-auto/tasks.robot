@@ -180,7 +180,9 @@ Control Kulcs App
     # Record mouse clicks and identify app windows with "windows-record" script.
 
     # Logs all elements found in the app as warnings into a tree view.
-    Windows.Control Window    subname:Kulcs
+    ${win} =    Windows.Control Window    subname:Kulcs-
+    Log To Console    Controlling window: ${win}
+
     # Windows.Print Tree    log_as_warnings=${True}
     # ...    capture_image_folder=${OUTPUT_DIR}${/}kulcs-controls
 
