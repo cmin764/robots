@@ -175,7 +175,6 @@ Test desktop windows and apps
         
     [Teardown]    Windows.Close Window    subname:Calc    timeout=1
 
-
 Control Kulcs App
     # Record mouse clicks and identify app windows with "windows-record" script.
 
@@ -220,3 +219,8 @@ Control Kulcs App
     # Windows.Send Keys    keys={HOME}${downs_str}{ENTER}
     Windows.Set Value    ${vat_combo}    ${vat_value}
     Windows.Send Keys    keys={ENTER}
+
+Open and close app with legacy Desktop library
+    ${app} =    Desktop.Open Application    Calc
+    Sleep    5s
+    Desktop.Close Application    ${app}
