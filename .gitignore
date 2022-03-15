@@ -133,3 +133,6 @@ output.xml
 
 pdf-parse/report.pdf
 test.txt
+
+# Robot leftovers
+chromedriver

@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Browser related examples.
 
+Library    ExtendedSelenium    auto_close=${False}
 Library    RPA.Browser.Playwright
 Library    RPA.FileSystem
 
@@ -31,3 +32,7 @@ File Upload
     # This fails if the upload isn't done manually for some reason, maybe a problem
     #  with the web page itself.
     # Should Contain    ${content}    ${data}
+
+
+Open Website
+    Open Site    https://www.google.com    browser=chrome

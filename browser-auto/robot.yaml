@@ -3,6 +3,8 @@ tasks:
     shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
   File Upload:
     robotTaskName: File Upload
+  Open Website:
+    robotTaskName: Open Website
 
 condaConfigFile: conda.yaml
 artifactsDir: output
