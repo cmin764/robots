@@ -221,9 +221,9 @@ Control Kulcs App
     Windows.Send Keys    keys={ENTER}
 
 Open and close app with legacy Desktop library
-    # Desktop.Open File    devdata${/}workbook.xlsx
+    Desktop.Open File    devdata${/}workbook.xlsx
     ${app} =    Desktop.Open Application    Calc
-    # ${app} =    Deskwin.Open Application    Excel
-    Sleep    10s
+    Deskwin.Open Application    Excel
+    Sleep    1s
     Desktop.Close Application    ${app}
-    # Deskwin.Close All Applications
+    Deskwin.Close All Applications
