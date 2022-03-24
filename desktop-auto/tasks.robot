@@ -21,7 +21,7 @@ Kill app by name
     ${window_list} =   Windows.List Windows    icons=${icons}
     ...    icon_save_directory=${icons_dir}
     FOR  ${win}  IN   @{window_list}
-        ${exists} =   Evaluate   re.match(".*${app_name}.*", """${win}[title]""")
+        ${exists} =   Evaluate   re.match(r".*${app_name}.*", r"""${win}[title]""")
 
         IF  ${exists}
             Log    App details: ${win}
