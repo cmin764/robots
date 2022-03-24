@@ -1,21 +1,25 @@
 *** Settings ***
 Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 
+Library    Collections
+Library    RPA.FileSystem
 Library    RPA.Desktop    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
 Library    RPA.Excel.Application    WITH NAME    Excel
 Library    RPA.Outlook.Application    WITH NAME    Outlook
 Library    RPA.Word.Application    WITH NAME    Word
-Library    Collections
 
 
 *** Keywords ***
 Kill app by name
     [Arguments]     ${app_name}    ${icons}
 
+    ${icons_dir} =    Set Variable    ${OUTPUT_DIR}${/}icons
+    Create Directory    ${icons_dir}
+
     ${window_list} =   Windows.List Windows    icons=${icons}
-    ...    icon_save_directory=${OUTPUT_DIR}${/}icons
+    ...    icon_save_directory=${icons_dir}
     FOR  ${win}  IN   @{window_list}
         ${exists} =   Evaluate   re.match(".*${app_name}.*", """${win}[title]""")
 
