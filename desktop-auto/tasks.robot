@@ -12,13 +12,15 @@ Library    Collections
 
 *** Keywords ***
 Kill app by name
-    [Arguments]     ${app_name}
+    [Arguments]     ${app_name}    ${icons}
 
-    ${window_list} =   Windows.List Windows
+    ${window_list} =   Windows.List Windows    icons=${icons}
+    ...    icon_save_directory=${OUTPUT_DIR}${/}icons
     FOR  ${win}  IN   @{window_list}
         ${exists} =   Evaluate   re.match(".*${app_name}.*", """${win}[title]""")
 
         IF  ${exists}
+            Log    App details: ${win}
             ${command} =    Set Variable    os.kill($win["pid"], signal.SIGTERM)
             Log     Killing app: ${win}[title] (PID: $win["pid"])
             Evaluate    ${command}    signal
@@ -61,7 +63,7 @@ Run Notepad Teardown Desktop
 Keep open a single Notepad
     Windows.Set Global Timeout    6
     ${closed} =     Set Variable    0
-    ${run} =    Run Keyword And Ignore Error    Windows.Close Window    subname:Notepad control:WindowControl  # in development keyword
+    ${run} =    Run Keyword And Ignore Error    Windows.Close Window    subname:Notepad control:WindowControl
     IF    "${run}[0]" == "PASS"
         ${closed} =    Set Variable    ${run}[1]
     END
@@ -153,7 +155,7 @@ Test desktop windows and apps
     # Windows related calls.
     ${window} =     Windows.Control Window   subname:Notepad
     Log    Controlling Notepad window: ${window}
-    Kill app by name    Notepad
+    Kill app by name    Notepad    icons=${True}
     Windows.Windows Run   Calc
     # Tests against `COMError` fixes.
     ${window} =     Windows.Control Window   subname:Calc    main=${False}
