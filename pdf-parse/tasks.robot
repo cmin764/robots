@@ -148,9 +148,13 @@ Unicode HTML To PDF
     ${template_html_file} =    Set Variable    devdata${/}template.html
     ${output_pdf_file} =       Set Variable    ${OUTPUT_DIR}${/}template-filled.pdf
 
-    RPA.FileSystem.Create File    ${template_html_file}    <h2><b><i>{{name}}</b></i></h2><br>normal<br><strong>strong</strong><br><em>em</em><br><i>italic</i><br><b>bold</b><br>    overwrite=${True}
-    ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźżă
+    RPA.FileSystem.Create File    ${template_html_file}
+    ...    <html><head></head><body><h2><b><i>{{name}}</b></i></h2><br>normal<br><strong>strong</strong><br><em>em</em><br><i>italic</i><br><b>bold</b><br><img src="{{img}}" style="display: block; margin-left: auto; margin-right: auto; width:5%;" /></body></html>
+    ...    overwrite=${True}
+    ${payload}    Create Dictionary    name=ĄĆĘŁŃÓŚŹŻąćęłńóśźżă    img=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRls__alccn68ue9eVp_B2BcjMGolwEOkLzLg&usqp=CAU
     Template Html To Pdf    ${template_html_file}    ${output_pdf_file}    variables=${payload}
+    Open Pdf    ${output_pdf_file}
+    Add Watermark Image To Pdf    devdata${/}puppy.jpeg    ${output_pdf_file}
     # Debug
 
 
