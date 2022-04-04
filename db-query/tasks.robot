@@ -1,7 +1,9 @@
 *** Settings ***
 Documentation     Testing database related features.
 
+Library    Collections
 Library    RPA.Database
+Library    RPA.FileSystem
 
 
 *** Tasks ***
@@ -25,3 +27,33 @@ Returning database query
         # {'id': 3, 'name': 'my-3rd-order'}
         Log  ${order}
     END
+
+
+Join users and roles
+    Remove File    my-test.db
+    Connect To Database  sqlite3  my-test.db
+    # Connect To Database    pyodbc    master    host=localhost\\SQLEXPRESS
+
+    Query  CREATE TABLE Roles (role_id INTEGER, role_name TEXT)
+    Query  INSERT INTO Roles (role_id, role_name) VALUES (11, 'role1')
+    Query  INSERT INTO Roles (role_id, role_name) VALUES (12, 'role2')
+
+    Query  CREATE TABLE Users (id INTEGER, name TEXT, roleID INTEGER)
+    Query  INSERT INTO Users (id, name, roleID) VALUES (1, 'aaaaa', 11)
+    Query  INSERT INTO Users (id, name, roleID) VALUES (2, 'bbbbb', 12)
+
+    ${result} =  Query  SELECT * FROM Users
+    Log List    ${result}
+
+    ${result} =    Query    SELECT u.name, r.role_name FROM Users u JOIN Roles r ON u.roleID = r.role_id
+    FOR  ${row}  IN  @{result}
+        Log To Console   ${row}
+    END
+
+
+Query my database test
+    connect to database     module_name=pyodbc  database=master
+    ...                     host=localhost\\SQLEXPRESS    port=62693
+    @{query_result}    query    SELECT firstname, lastname, email, active FROM Users
+    log  ${query_result}
+    disconnect from database

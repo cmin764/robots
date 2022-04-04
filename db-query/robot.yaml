@@ -1,6 +1,10 @@
 tasks:
   Returning database query:
     robotTaskName: Returning database query
+  Join users and roles:
+    robotTaskName: Join users and roles
+  Query my database test:
+    robotTaskName: Query my database test
 
 condaConfigFile: conda.yaml
 artifactsDir: output
