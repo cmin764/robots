@@ -52,8 +52,9 @@ Join users and roles
 
 
 Query my database test
-    connect to database     module_name=pyodbc  database=master
-    ...                     host=localhost\\SQLEXPRESS    port=1433
-    @{query_result}    query    SELECT * FROM Users    assertion=row_count > 0
+    connect to database     module_name=pyodbc  database=db14215456
+    ...                     username=lucielavickovaDEV  password=skdN115fjdc957s55
+    ...                     host=localhost\\SQLEXPRESS
+    @{query_result}    query    SELECT firstname, lastname, email, active FROM Users
     log  ${query_result}
     disconnect from database
