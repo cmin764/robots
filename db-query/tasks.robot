@@ -42,7 +42,7 @@ Join users and roles
     Query  INSERT INTO Users (id, name, roleID) VALUES (1, 'aaaaa', 11)
     Query  INSERT INTO Users (id, name, roleID) VALUES (2, 'bbbbb', 12)
 
-    ${result} =  Query  SELECT * FROM Users
+    ${result} =  Query  SELECT * FROM Users    assertion=row_count == 2
     Log List    ${result}
 
     ${result} =    Query    SELECT u.name, r.role_name FROM Users u JOIN Roles r ON u.roleID = r.role_id
@@ -53,7 +53,7 @@ Join users and roles
 
 Query my database test
     connect to database     module_name=pyodbc  database=master
-    ...                     host=localhost\\SQLEXPRESS    port=62693
-    @{query_result}    query    SELECT firstname, lastname, email, active FROM Users
+    ...                     host=localhost\\SQLEXPRESS    port=1433
+    @{query_result}    query    SELECT * FROM Users    assertion=row_count > 0
     log  ${query_result}
     disconnect from database
