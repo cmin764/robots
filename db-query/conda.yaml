@@ -12,6 +12,7 @@ dependencies:
   - pip:
     # Define pip packages here.
     # https://pypi.org/
-    # - rpaframework==13.0.2 # https://rpaframework.org/releasenotes.html
-    - https://github.com/cmin764/robots/blob/main/builds/rpaframework-13.0.2.e947b1c-py3-none-any.whl?raw=true
+    # - rpaframework==13.0.3 # https://rpaframework.org/releasenotes.html
+    # - https://github.com/cmin764/robots/blob/main/builds/rpaframework-13.0.2.e947b1c-py3-none-any.whl?raw=true
+    - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev/+f/4a1/4e1f5740a7ddd/rpaframework-13.0.3-py3-none-any.whl#sha256=4a14e1f5740a7ddd1054f9c0eb178fd246b92dce2449a272ee41cd6aa3c1c5c9
     - pyodbc
