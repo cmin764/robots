@@ -26,3 +26,6 @@ invoice.pdf
 
 # Extra files
 receipt-moved.pdf
+
+# Client data
+devdata/work-items-in/unimate/*.pdf

@@ -202,3 +202,19 @@ Add watermark into PDF
     ${dest_copy} =     Set Variable    ${CURDIR}${/}receipt-moved-copy.pdf
     OperatingSystem.Copy File    ${dest}  ${dest_copy}
     OperatingSystem.Move File    ${dest_copy}    ${in_out_pdf}
+
+
+*** Keywords ***
+Parse Invoice
+    ${pdf} =     Get Work Item File    invoice.pdf
+    ${text} =    Get Text From Pdf    ${pdf}
+    Log    ${text}
+
+    ${matches} =    Find Text    regex:Descripción[.\\s]+
+    @{entries} =    Split To Lines    ${matches[0].anchor}
+    Log List    ${entries}
+
+
+*** Tasks ***
+Extract Text From PDFs
+    For Each Input Work Item    Parse Invoice
