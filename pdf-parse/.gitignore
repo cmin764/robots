@@ -26,6 +26,8 @@ invoice.pdf
 
 # Extra files
 receipt-moved.pdf
+tesla.pdf
+form.pdf
 
 # Client data
 devdata/work-items-in/unimate/*.pdf
