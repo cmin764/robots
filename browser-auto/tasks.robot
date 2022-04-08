@@ -1,13 +1,29 @@
 *** Settings ***
 Documentation     Browser related examples.
 
+Library    Browser    auto_closing_level=MANUAL
 Library    ExtendedSelenium    auto_close=${False}
-Library    RPA.Browser.Playwright
 Library    RPA.FileSystem
+Library    RPA.Robocorp.WorkItems
+
+Suite Setup    Set Headless
+Task Teardown    Close Browsers
 
 
 *** Variables ***
-${HEADLESS}    ${True}
+${HEADLESS}    ${False}
+
+
+*** Keywords ***
+Set Headless
+    ${headless} =    Get Work Item Variable    headless    default=${False}
+    Set Global Variable    ${HEADLESS}    ${headless}
+
+Close Browsers
+    IF    ${HEADLESS}
+        Close All Browsers
+        Browser.Close Browser    ALL
+    END
 
 
 *** Tasks ***
@@ -16,7 +32,7 @@ File Upload
     ${data} =    Read File    ${path}
     Log    File ${path} to be uploaded with data: ${data}
     
-    Open Browser    https://viljamis.com/filetest/    headless=${HEADLESS}
+    Browser.Open Browser    https://viljamis.com/filetest/    headless=${HEADLESS}
     Sleep    1s
     Upload File By Selector    xpath=//input[@name="image"]    ${path}
     Sleep    2s
@@ -26,7 +42,7 @@ File Upload
     END
     Sleep    3s
 
-    ${content} =    Get Text    table
+    ${content} =    Browser.Get Text    table
     Log    Page table data: ${content}
     Should Contain    ${content}    file.txt
     # This fails if the upload isn't done manually for some reason, maybe a problem
@@ -34,5 +50,9 @@ File Upload
     # Should Contain    ${content}    ${data}
 
 
-Open Website
-    Open Site    https://www.google.com    browser=chrome
+Open Google Chrome
+    IF    ${HEADLESS}
+        Open Headless Chrome Browser   https://www.google.com
+    ELSE
+        Open Site    https://www.google.com    browser=chrome
+    END
