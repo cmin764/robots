@@ -17,6 +17,8 @@ tasks:
     robotTaskName: Add watermark into PDF
   Extract Text From PDFs:
     robotTaskName: Extract Text From PDFs
+  Extract Text From CV:
+    robotTaskName: Extract Text From CV
 
 condaConfigFile: conda.yaml
 artifactsDir: output

@@ -218,3 +218,12 @@ Parse Invoice
 *** Tasks ***
 Extract Text From PDFs
     For Each Input Work Item    Parse Invoice
+
+
+Extract Text From CV
+    ${pdf} =     Get Work Item File    cv.pdf
+    ${text} =    Get Text From Pdf    ${pdf}
+    Log    ${text}
+
+    ${matches} =    Find Text    Name
+    Log List    ${matches}

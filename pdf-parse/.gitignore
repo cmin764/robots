@@ -16,18 +16,20 @@ temp/
 */work-items-out/*
 
 # Sensitive files
-devdata/work-items-in/boost-plm/*.pdf
 devdata/sensitive/*.pdf
-invoice.pdf
 *boost-plm-invoice*
 
 # Fonts
 *.pkl
 
-# Extra files
+# Extra sensitive files
 receipt-moved.pdf
 tesla.pdf
 form.pdf
+cv.pdf
+invoice.pdf
 
 # Client data
+devdata/work-items-in/boost-plm/*.pdf
 devdata/work-items-in/unimate/*.pdf
+devdata/work-items-in/rati-suri/*.pdf
