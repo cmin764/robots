@@ -222,8 +222,9 @@ Extract Text From PDFs
 
 Extract Text From CV
     ${pdf} =     Get Work Item File    cv.pdf
-    ${text} =    Get Text From Pdf    ${pdf}
-    Log    ${text}
+    # ${text} =    Get Text From Pdf    ${pdf}
+    # Log    ${text}
 
+    Open Pdf    ${pdf}
     ${matches} =    Find Text    Name
     Log List    ${matches}
