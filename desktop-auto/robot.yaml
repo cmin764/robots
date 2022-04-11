@@ -19,6 +19,8 @@ tasks:
     robotTaskName: Open and close app with legacy Desktop library
   Send Keys Open File:
     robotTaskName: Send Keys Open File
+  Send Keys LibreOffice:
+    robotTaskName: Send Keys LibreOffice
 
 condaConfigFile: conda.yaml
 artifactsDir: output

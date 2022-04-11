@@ -235,10 +235,13 @@ Open and close app with legacy Desktop library
     Deskwin.Close All Applications
 
 Send Keys Open File
-    # Windows.Windows Run   Notepad    wait_time=1
-    # Windows.Send Keys    keys={Ctrl}o
-    # Windows.Close Window    subname:Notepad
+    Windows.Windows Run   Notepad    wait_time=1
+    Windows.Send Keys    keys={Ctrl}o
+    Windows.Close Window    subname:Notepad
 
+Send Keys LibreOffice
     Windows.Control Window    name:LibreOffice
-    # Desktop.Press Keys    alt    O     # opens "Open File" menu action
-    Windows.Send Keys    keys={LAlt}o
+    # Sets "Robocorp" as company in user data options.
+    Windows.Send Keys    keys={LAlt}to    wait_time=1
+    Windows.Send Keys    keys={LAlt}c
+    Windows.Send Keys    keys=Robocorp    send_enter=${True}
