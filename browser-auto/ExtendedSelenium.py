@@ -6,6 +6,8 @@ from SeleniumLibrary.base import keyword
 from selenium import webdriver
 from webdrivermanager import ChromeDriverManager
 
+# from RPA.Cloud import Google
+
 
 class ExtendedSelenium(Selenium):
 
@@ -27,3 +29,5 @@ class ExtendedSelenium(Selenium):
             options=options,
             **kwargs
         )
+
+# lib = ExtendedSelenium()
