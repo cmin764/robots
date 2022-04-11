@@ -2,7 +2,8 @@
 Documentation     Browser related examples.
 
 Library    Browser    auto_closing_level=MANUAL
-Library    ExtendedSelenium    auto_close=${False}
+Library    RPA.Browser.Selenium    auto_close=${False}
+# Library    ExtendedSelenium    auto_close=${False}
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 
@@ -54,5 +55,6 @@ Open Google Chrome
     IF    ${HEADLESS}
         Open Headless Chrome Browser   https://www.google.com
     ELSE
-        Open Site    https://www.google.com    browser=chrome
+        Open Chrome Browser    https://www.google.com
+        # Open Site    https://www.google.com    browser=chrome
     END
