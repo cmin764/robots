@@ -17,6 +17,8 @@ tasks:
     robotTaskName: Control Kulcs App
   Open and close app with legacy Desktop library:
     robotTaskName: Open and close app with legacy Desktop library
+  Send Keys Open File:
+    robotTaskName: Send Keys Open File
 
 condaConfigFile: conda.yaml
 artifactsDir: output

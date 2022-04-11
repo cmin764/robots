@@ -233,3 +233,12 @@ Open and close app with legacy Desktop library
     Sleep    1s
     Desktop.Close Application    ${app}
     Deskwin.Close All Applications
+
+Send Keys Open File
+    # Windows.Windows Run   Notepad    wait_time=1
+    # Windows.Send Keys    keys={Ctrl}o
+    # Windows.Close Window    subname:Notepad
+
+    Windows.Control Window    name:LibreOffice
+    # Desktop.Press Keys    alt    O     # opens "Open File" menu action
+    Windows.Send Keys    keys={LAlt}o
