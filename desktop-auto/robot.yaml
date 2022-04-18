@@ -21,6 +21,8 @@ tasks:
     robotTaskName: Send Keys Open File
   Send Keys LibreOffice:
     robotTaskName: Send Keys LibreOffice
+  Match Quote Names:
+    robotTaskName: Match Quote Names
 
 condaConfigFile: conda.yaml
 artifactsDir: output

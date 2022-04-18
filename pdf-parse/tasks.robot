@@ -228,3 +228,8 @@ Extract Text From CV
     Open Pdf    ${pdf}
     ${matches} =    Find Text    Name
     Log List    ${matches}
+
+
+Log message
+    Log To Console    My console message
+    Log    My log message

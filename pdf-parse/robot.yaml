@@ -19,6 +19,8 @@ tasks:
     robotTaskName: Extract Text From PDFs
   Extract Text From CV:
     robotTaskName: Extract Text From CV
+  Log message:
+    robotTaskName: Log message
 
 condaConfigFile: conda.yaml
 artifactsDir: output

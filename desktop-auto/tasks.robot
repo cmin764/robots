@@ -177,9 +177,14 @@ Test desktop windows and apps
     Desktop.Open Application    Calc
     ${win} =    Windows.Control Window   subname:Calc    timeout=5
     Windows.Set Anchor    ${win}
+    ${elem} =    Windows.Get Element  # pulls the anchor
+    Log To Console    Element after anchor set: ${elem}
+    Should Be Equal    ${elem.name}    Calculator
     Deskwin.Screenshot    ${OUTPUT_DIR}${/}calculator.png    desktop=${True}
-        
-    [Teardown]    Windows.Close Window    subname:Calc    timeout=1
+    Windows.Close Window    subname:Calc    timeout=1
+    ${elem} =    Windows.Get Element  # pulls desktop since there's no more active anchor/window
+    Should Be Equal    ${elem.name}    Desktop 1
+    Log To Console    Element after window close: ${elem}
 
 Control Kulcs App
     # Record mouse clicks and identify app windows with "windows-record" script.
@@ -245,3 +250,10 @@ Send Keys LibreOffice
     Windows.Send Keys    keys={LAlt}to    wait_time=1
     Windows.Send Keys    keys={LAlt}c
     Windows.Send Keys    keys=Robocorp    send_enter=${True}
+
+Match Quote Names
+    ${loc} =    Windows.Control Window    subname:file'
+    Log    With subname: ${loc}
+
+    ${loc} =    Windows.Control Window    file.txt - Notepad    timeout=${1}
+    Log    With name: ${loc}
