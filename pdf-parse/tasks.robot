@@ -240,3 +240,4 @@ Log message
     Log    My log message
     Call with kwargs
     Call with kwargs    kwarg=other test
+    Dummy Func

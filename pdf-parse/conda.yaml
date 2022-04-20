@@ -14,4 +14,5 @@ dependencies:
     # https://pypi.org/
     # - --index-url https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/dev
     - rpaframework==13.3.1 # https://rpaframework.org/releasenotes.html
+    - rpaframework-google==3.0.0
     # - https://github.com/cmin764/robots/blob/main/builds/rpaframework_pdf-1.30.4-py3-none-any.whl?raw=true

@@ -1,4 +1,5 @@
 import email
+import sys
 
 from htmldocx import HtmlToDocx
 # from tidylib import tidy_document
@@ -24,3 +25,8 @@ def html_to_docx(content: str, path):
     h2d_parser = HtmlToDocx()
     docx = h2d_parser.parse_html_string(content)
     docx.save(path)
+
+
+def dummy_func():
+    path = sys.path
+    print(path)
