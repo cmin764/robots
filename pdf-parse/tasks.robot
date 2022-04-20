@@ -15,6 +15,7 @@ Library    String
 *** Variables ***
 ${invoice_file_name}    invoice.pdf
 ${boost_plm_invoice}    devdata/work-items-in/boost-plm/boost-plm-invoice.pdf
+${kwarg}    global value
 
 
 *** Keywords ***
@@ -42,7 +43,6 @@ PDF To XML Parse
     ${elem} =    Parse Xml    ${xml}
     Log    ${elem}
     Save Xml    ${elem}    ${OUTPUT_DIR}${/}pdf.xml
-
 
 Boost PLM parse invoice on page
     [Arguments]    ${page}
@@ -105,6 +105,11 @@ Boost PLM parse invoice on page
     END
 
     [Return]    ${items}
+
+
+Call with kwargs
+    [Arguments]    ${kwarg}=test
+    Log    ${kwarg}    console=${True}
 
 
 *** Tasks ***
@@ -233,3 +238,5 @@ Extract Text From CV
 Log message
     Log To Console    My console message
     Log    My log message
+    Call with kwargs
+    Call with kwargs    kwarg=other test
