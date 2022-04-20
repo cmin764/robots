@@ -5,6 +5,8 @@ tasks:
     robotTaskName: File Upload
   Open Google Chrome:
     robotTaskName: Open Google Chrome
+  Run Python Robot:
+    shell: python tasks.py
 
 condaConfigFile: conda.yaml
 artifactsDir: output

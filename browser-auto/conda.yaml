@@ -14,8 +14,7 @@ dependencies:
       # Define pip packages here.
       # https://pypi.org/
       - robotframework-browser==12.3.0
-      - rpaframework==13.2.0 # https://rpaframework.org/releasenotes.html
-      # - rpaframework-google==3.0.0
+      - rpaframework==13.3.1 # https://rpaframework.org/releasenotes.html
 
 rccPostInstall:
   - rfbrowser init
