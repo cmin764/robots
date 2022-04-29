@@ -7,7 +7,8 @@ from RPA.Email.ImapSmtp import ImapSmtp
 
 
 def validate_html(content: str) -> str:
-    return content
+    return content  # no validation happening
+
     document, errors = tidy_document(content, options={"numeric-entities": 1})
     print("Errors: ", errors)
     return document
