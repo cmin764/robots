@@ -241,6 +241,5 @@ Log message
 
 
 Add Files
-    Open Pdf    devdata${/}receipt.pdf
     @{images} =    Create List    devdata${/}robot.png    devdata${/}puppy.jpeg
     Add Files To Pdf    ${images}    ${OUTPUT_DIR}${/}new_receipt.pdf
