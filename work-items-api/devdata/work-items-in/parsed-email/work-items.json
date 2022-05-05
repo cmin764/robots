@@ -1,0 +1,18 @@
+[
+    {
+        "payload": {
+            "email": {
+                "text": "{\n\"message\": \"from email\"\n}",
+                "body": {
+                    "message": "from email"
+                }
+            },
+            "parsedEmail": {
+                "Body": {
+                    "message": "from email"
+                }
+            },
+            "message": "from email"
+        }
+    }
+]

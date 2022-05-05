@@ -9,6 +9,10 @@ tasks:
     robotTaskName: Work items variables
   Create output work item with variables and files:
     robotTaskName: Create output work item with variables and files
+  Display content on raw email process trigger:
+    robotTaskName: Display content on raw email process trigger
+  Display content on parsed email process trigger:
+    robotTaskName: Display content on parsed email process trigger
 
 condaConfigFile: conda.yaml
 artifactsDir: output

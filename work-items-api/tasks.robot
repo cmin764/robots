@@ -104,3 +104,19 @@ Create output work item with variables and files
     OS.File should exist    ${path}
     ${obtained_content} =   Read File    ${path}
     Should Be Equal     ${obtained_content}      ${content}
+
+Display content on raw email process trigger
+    ${parsed_email} =    Get Work Item Variable    parsedEmail
+    Log    ${parsed_email}
+    Set Work Item Variables    &{parsed_email}[Body]
+    Save Work Item
+    ${message} =     Get Work Item Variable     message
+    Should Be Equal     ${message}      from email
+
+Display content on parsed email process trigger
+    ${email_parsed} =    Get Work Item Variable    email
+    Log    ${email_parsed}
+    Set Work Item Variables    &{email_parsed}[body]
+    Save Work Item
+    ${message} =     Get Work Item Variable     message
+    Should Be Equal     ${message}      from email
