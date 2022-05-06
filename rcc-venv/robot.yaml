@@ -8,6 +8,5 @@ PATH:
   - bin
 PYTHONPATH:
   - .
-  - /Users/cmin/Repos/rpaframework/packages/main/src
 ignoreFiles:
   - .gitignore
