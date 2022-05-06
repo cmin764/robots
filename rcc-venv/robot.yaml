@@ -1,6 +1,8 @@
 tasks:
   venv:
-    shell: setupvenv.sh
+    shell: setupvenv.sh && which python
+  which:
+    shell: which python
 
 condaConfigFile: conda.yaml
 artifactsDir: output

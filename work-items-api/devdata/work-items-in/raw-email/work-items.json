@@ -24,7 +24,8 @@
                 "Content-Type": "multipart/alternative; boundary=\"000000000000f3825c05cfcf0687\"",
                 "Body": {
                     "message": "from email"
-                }
+                },
+                "Has-Attachments": false
             },
             "message": "from email"
         }
