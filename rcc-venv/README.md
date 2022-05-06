@@ -17,7 +17,7 @@ This template robot:
 1. `rcc run -t venv` -> makes available a *.venv*
 2. `rcc run -t which` -> get a path similar to */Users/cmin/.robocorp/holotree/5a1fac3c5_9fcd2534/bin/python*
 3. In your **poetry** project (containing *pyproject.toml* file) run `poetry env use <path>`
-4. `poetry install` -> creates a local *.venv* based the **rcc** *.venv* above
+4. `poetry install` -> creates a local *.venv* based on the **rcc** *.venv* above
 5. Add the same `<path>` in your favorite IDE as the Python interpreter to develop with
 
 ## Next steps (nice to have)
