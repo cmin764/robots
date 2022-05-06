@@ -9,4 +9,5 @@ rm -rf .venv
 ln -s $CONDA_PREFIX .venv
 cp tmp/?ctivate* .venv/bin/
 cp tmp/pyvenv.cfg .venv/
+echo Python path: $(which python)
 rm -rf tmp
