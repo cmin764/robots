@@ -1,0 +1,8 @@
+[
+  {
+      "payload": {
+         "oauth": false,
+         "vault_key": "app_password"
+      }
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+      "payload": {
+         "oauth": true,
+         "vault_key": "auth_string"
+      }
+  }
+]
