@@ -3,7 +3,7 @@ Documentation       Tests various GMail auth schemes. (check devdata/vault.yaml 
 
 Library    RPA.Email.ImapSmtp    smtp_server=smtp.gmail.com    imap_server=imap.gmail.com
 Library    RPA.Robocorp.Vault
-Library    RPA.Robocloud.Items
+Library    RPA.Robocorp.WorkItems
 
 
 *** Variables ***
