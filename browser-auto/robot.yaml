@@ -7,6 +7,8 @@ tasks:
     robotTaskName: Open Google Chrome
   Run Python Robot:
     shell: python tasks.py
+  Test Timeout Message:
+    robotTaskName: Test Timeout Message
 
 condaConfigFile: conda.yaml
 artifactsDir: output

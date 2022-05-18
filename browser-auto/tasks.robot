@@ -58,3 +58,10 @@ Open Google Chrome
         Open Chrome Browser    https://www.google.com
         # Open Site    https://www.google.com    browser=chrome
     END
+
+
+Test Timeout Message
+    Browser.Open Browser    headless=${HEADLESS}
+    Browser.Go To    https://google.com
+    Set Browser Timeout    0.1s
+    Click    nothing
