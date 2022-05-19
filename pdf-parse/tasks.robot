@@ -254,6 +254,6 @@ Tick Checkbox
     ${check_name} =    Set Variable    VeroeffentlichungInst
     ${check_value} =    Set Variable    ${fields}[${check_name}]
     Log To Console    Initial field "${check_name}" value: ${check_value}
-    Evaluate    setattr($check_value['value'], 'name', 'Off')
+    Evaluate    setattr($check_value['value'], 'name', 'Yes')
     Log To Console    After tick field "${check_name}" value: ${check_value}
-    Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf    use_appearances_writer=${False}
+    Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf    use_appearances_writer=${True}
