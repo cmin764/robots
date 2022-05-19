@@ -221,7 +221,6 @@ Parse Invoice
 Extract Text From PDFs
     For Each Input Work Item    Parse Invoice
 
-
 Extract Text From CV
     ${pdf} =     Get Work Item File    cv.pdf
     # ${text} =    Get Text From Pdf    ${pdf}
@@ -231,7 +230,6 @@ Extract Text From CV
     ${matches} =    Find Text    Name
     Log List    ${matches}
 
-
 Log message
     Log To Console    My console message
     Log    My log message
@@ -239,7 +237,23 @@ Log message
     Call with kwargs    kwarg=other test
     Dummy Func
 
-
 Add Files
     @{images} =    Create List    devdata${/}robot.png    devdata${/}puppy.jpeg
     Add Files To Pdf    ${images}    ${OUTPUT_DIR}${/}new_receipt.pdf    append=${True}
+
+Tick Checkbox
+    ${input} =     Set Variable    devdata${/}alianz.pdf
+    Open Pdf    ${input}
+    
+    ${fields} =    Get Input Fields
+    Log To Console    ${fields}
+    ${checkboxes} =    Evaluate    {key: value['value'] for key, value in $fields.items() if str(value['value']) == "/'Off'"}
+    Log    Checkboxes:
+    Log Dictionary    ${checkboxes}
+
+    ${check_name} =    Set Variable    VeroeffentlichungInst
+    ${check_value} =    Set Variable    ${fields}[${check_name}]
+    Log To Console    Initial field "${check_name}" value: ${check_value}
+    Evaluate    setattr($check_value['value'], 'name', 'Off')
+    Log To Console    After tick field "${check_name}" value: ${check_value}
+    Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf    use_appearances_writer=${False}

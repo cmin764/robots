@@ -23,6 +23,8 @@ tasks:
     robotTaskName: Log message
   Add Files:
     robotTaskName: Add Files
+  Tick Checkbox:
+    robotTaskName: Tick Checkbox
 
 condaConfigFile: conda.yaml
 artifactsDir: output
