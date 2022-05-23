@@ -9,6 +9,8 @@ tasks:
     shell: python tasks.py
   Test Timeout Message:
     robotTaskName: Test Timeout Message
+  Test Firefox:
+    robotTaskName: Test Firefox
 
 condaConfigFile: conda.yaml
 artifactsDir: output

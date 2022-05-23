@@ -2,8 +2,8 @@
 Documentation     Browser related examples.
 
 Library    Browser    auto_closing_level=MANUAL
-Library    RPA.Browser.Selenium    auto_close=${False}
-# Library    ExtendedSelenium    auto_close=${False}
+# Library    RPA.Browser.Selenium    auto_close=${False}    WITH NAME    Selenium
+Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 
@@ -23,7 +23,7 @@ Set Headless
 Close Browsers
     IF    ${HEADLESS}
         Close All Browsers
-        Browser.Close Browser    ALL
+        Run Keyword And Ignore Error    Browser.Close Browser    ALL
     END
 
 
@@ -65,3 +65,16 @@ Test Timeout Message
     Browser.Go To    https://google.com
     Set Browser Timeout    0.1s
     Click    nothing
+
+
+Test Firefox
+    # No simple `headless` switch with these. (require adding options or using
+    #  `headlessfirefox` driver directly)
+    # Selenium.Open Browser    https://www.google.com
+    # Selenium.Open Firefox Site    https://www.google.com
+
+    # Using our own RPA keywords.
+    Selenium.Open Available Browser    https://www.google.com    headless=${HEADLESS}
+    ...    browser_selection=firefox
+
+    Sleep    1s
