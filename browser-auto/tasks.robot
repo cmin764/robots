@@ -70,11 +70,11 @@ Test Timeout Message
 Test Firefox
     # No simple `headless` switch with these. (require adding options or using
     #  `headlessfirefox` driver directly)
-    # Selenium.Open Browser    https://www.google.com
-    # Selenium.Open Firefox Site    https://www.google.com
+    # Selenium.Open Browser    https://www.google.com  # this fails
+    # Selenium.Open Firefox Site    https://www.google.com  # this runs
 
     # Using our own RPA keywords.
     Selenium.Open Available Browser    https://www.google.com    headless=${HEADLESS}
-    ...    browser_selection=firefox
+    ...    browser_selection=firefox  # this also runs
 
     Sleep    1s
