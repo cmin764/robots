@@ -176,9 +176,10 @@ PDF Invoice Parsing
     # Fill Form Fields
     ${robo_form} =     Get Work Item File    form.pdf
     Switch To Pdf    ${robo_form}
-    ${fields} =     Get Input Fields   encoding=utf-16
+    ${fields} =     Get Input Fields   encoding=utf-8
     Log Dictionary    ${fields}
     Set Field Value    Given Name Text Box    Mark
+    Set Field Value    Language 1 Check Box    Yes
     Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf
     ...                  use_appearances_writer=${True}
 
@@ -241,19 +242,39 @@ Add Files
     @{images} =    Create List    devdata${/}robot.png    devdata${/}puppy.jpeg
     Add Files To Pdf    ${images}    ${OUTPUT_DIR}${/}new_receipt.pdf    append=${True}
 
-Tick Checkbox
-    ${input} =     Set Variable    devdata${/}alianz.pdf
-    Open Pdf    ${input}
+Tick Alianz Checkbox
+    Open Pdf    devdata${/}alianz.pdf
     
     ${fields} =    Get Input Fields
     Log To Console    ${fields}
-    ${checkboxes} =    Evaluate    {key: value['value'] for key, value in $fields.items() if str(value['value']) == "/'Off'"}
+    ${checkboxes} =    Evaluate    {key: value['value'] for key, value in $fields.items() if hasattr(value['value'], 'name') and value['value'].name in ('Off', 'Yes')}
     Log    Checkboxes:
     Log Dictionary    ${checkboxes}
 
-    ${check_name} =    Set Variable    VeroeffentlichungInst
-    ${check_value} =    Set Variable    ${fields}[${check_name}]
-    Log To Console    Initial field "${check_name}" value: ${check_value}
-    Evaluate    setattr($check_value['value'], 'name', 'Yes')
-    Log To Console    After tick field "${check_name}" value: ${check_value}
-    Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf    use_appearances_writer=${True}
+    Set Field Value    VeroeffentlichungInst    Yes
+    Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf
+    ...    use_appearances_writer=${False}  # can be False as well, doesn't change a thing
+
+Fill Foersom Form Fields
+    ${robo_form} =     Get Work Item File    form.pdf
+    Switch To Pdf    ${robo_form}
+    ${fields} =     Get Input Fields   encoding=utf-8
+    Log Dictionary    ${fields}
+    # Set Field Value    Given Name Text Box    Mark
+    # Set Field Value    Language 1 Check Box    Yes
+    # Set Field Value    慌杮慵敧ㄠ䌠敨正䈠硯    Yes
+    Set Field Value    Language 2 Check Box    Off
+    # Set Field Value    慌杮慵敧㈠䌠敨正䈠硯    Off
+    Save Field Values    output_path=${OUTPUT_DIR}${/}completed-form.pdf
+    ...                  use_appearances_writer=${True}
+
+Fill Robocorp Form Fields
+    Open Pdf    devdata${/}robo-form.pdf
+    ${fields} =    Get Input Fields
+    Log Dictionary    ${fields}
+    Set Field Value    Warranty    Yes
+    Set Field Value    Your name    John Doe
+    # Set Field Value    Robot model name    Robositter
+    # Set Field Value    Describe the problem    The Robot does not want to start anymore!
+    Save Field Values    output_path=${OUTPUT_DIR}${/}robo-form-ticked.pdf
+    ...    use_appearances_writer=${True}

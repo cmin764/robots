@@ -23,8 +23,12 @@ tasks:
     robotTaskName: Log message
   Add Files:
     robotTaskName: Add Files
-  Tick Checkbox:
-    robotTaskName: Tick Checkbox
+  Tick Alianz Checkbox:
+    robotTaskName: Tick Alianz Checkbox
+  Fill Foersom Form Fields:
+    robotTaskName: Fill Foersom Form Fields
+  Fill Robocorp Form Fields:
+    robotTaskName: Fill Robocorp Form Fields
 
 condaConfigFile: conda.yaml
 artifactsDir: output
