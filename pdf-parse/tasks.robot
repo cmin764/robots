@@ -253,7 +253,7 @@ Tick Alianz Checkbox
 
     Set Field Value    VeroeffentlichungInst    Yes
     Save Field Values    output_path=${OUTPUT_DIR}${/}alianz-ticked.pdf
-    ...    use_appearances_writer=${False}  # can be False as well, doesn't change a thing
+    ...    use_appearances_writer=${True}  # can be False as well, doesn't change a thing
 
 Fill Foersom Form Fields
     ${robo_form} =     Get Work Item File    form.pdf
