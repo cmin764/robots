@@ -23,6 +23,7 @@ def main():
         open_the_website("https://robocorp.com/docs/")
         search_for("python")
         store_screenshot("output/screenshot.png")
+        # open_the_website("https://www.amazon.com")
     finally:
         browser_lib.close_all_browsers()
 

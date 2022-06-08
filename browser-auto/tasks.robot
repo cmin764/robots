@@ -64,7 +64,11 @@ Test Timeout Message
     Browser.Open Browser    headless=${HEADLESS}
     Browser.Go To    https://google.com
     Set Browser Timeout    0.1s
-    Click    nothing
+    ${err} =    Catenate    SEPARATOR=
+    ...    locator.click: Timeout 100ms exceeded.
+    ...    *Use "Set Browser Timeout" for increasing the timeout or double check${SPACE}
+    ...    your locator as the targeted element(s) couldn't be found.
+    Run Keyword And Expect Error    *${err}*    Click    nothing
 
 
 Test Firefox
