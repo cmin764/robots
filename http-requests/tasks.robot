@@ -7,9 +7,7 @@ Library    RPA.Robocorp.Vault
 Library    RPA.Robocorp.WorkItems
 Library    Zamzar
 
-
-*** Variables ***
-${portrait_gif}    devdata${/}portrait.gif
+Variables    variables.py
 
 
 *** Keywords ***
@@ -26,6 +24,7 @@ HTTP Gif To Png
     ${portrait_file} =    Get File For Streaming Upload    ${portrait_gif}
     &{files} =    Create Dictionary    source_file    ${portrait_file}
     ${resp} =    POST On Session    zamzar    jobs    data=${data}    files=${files}
+    ...    expected_status=201
     ${resp_data} =    Set Variable    ${resp.json()}
     Log To Console    HTTP GIF -> PNG: ${resp_data}
     RETURN    ${resp_data}
@@ -34,19 +33,18 @@ HTTP Gif To Png
 *** Tasks ***
 Zamzar Gif To Png
     ${secret} =    Get Secret    zamzar_jose
-    @{creds} =    Create List  ${secret}[api_key_cosmin]    ${EMPTY}
-    Create Session    zamzar    https://sandbox.zamzar.com/v1/
-    ...    auth=${creds}
+    @{creds} =    Create List  ${secret}[${api_key_name}]    ${EMPTY}
+    Create Session    zamzar    ${api_base}    auth=${creds}
 
     # Send file to conversion job.
     ${with_rpa} =    Get Work Item Variable    rpa    default=${True}
     IF    ${with_rpa}
         ${resp_data} =    HTTP Gif To Png
     ELSE
-        ${resp_data} =    Requests Gif To Png    ${secret}[api_key_cosmin]
+        ${resp_data} =    Requests Gif To Png    ${secret}[${api_key_name}]
     END
     Log To Console    Sleeping...
-    Sleep    5s
+    Sleep    10s
 
     # Obtain status of the conversion job.
     ${job_id} =    Set Variable    ${resp_data}[id]
