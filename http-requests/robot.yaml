@@ -1,0 +1,16 @@
+tasks:
+  Run all tasks:
+    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Zamzar File Stream:
+    robotTaskName: Zamzar File Stream
+  Python Zamzar Stream:
+    robotTaskName: Python Zamzar Stream
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
