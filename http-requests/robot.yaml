@@ -1,10 +1,6 @@
 tasks:
-  Run all tasks:
-    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
-  Zamzar File Stream:
-    robotTaskName: Zamzar File Stream
-  Python Zamzar Stream:
-    robotTaskName: Python Zamzar Stream
+  Zamzar Gif To Png:
+    robotTaskName: Zamzar Gif To Png
 
 condaConfigFile: conda.yaml
 artifactsDir: output
