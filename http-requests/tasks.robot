@@ -9,7 +9,6 @@ Library    Zamzar
 
 
 *** Variables ***
-${test_txt}    devdata${/}test.txt
 ${portrait_gif}    devdata${/}portrait.gif
 
 
@@ -48,7 +47,7 @@ Zamzar Gif To Png
     END
     Log To Console    Sleeping...
     Sleep    5s
-    
+
     # Obtain status of the conversion job.
     ${job_id} =    Set Variable    ${resp_data}[id]
     ${resp} =    GET On Session    zamzar    jobs/${job_id}
@@ -58,6 +57,6 @@ Zamzar Gif To Png
     # Download the converted file.
     ${file_id} =    Set Variable    ${resp_data}[target_files][${0}][id]
     ${resp} =    GET On Session    zamzar    files/${file_id}/content    stream=${True}
-    ${path} =    Set Variable    devdata${/}portrait.png
+    ${path} =    Set Variable    ${OUTPUT_DIR}${/}portrait.png
     Create Binary File    ${path}    ${resp.content}    overwrite=${True}
     Log To Console    Done: ${path}
