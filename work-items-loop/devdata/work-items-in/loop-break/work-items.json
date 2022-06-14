@@ -1,0 +1,17 @@
+[
+  {
+      "payload": {
+         "var": 1
+      }
+  },
+  {
+    "payload": {
+       "var": 2
+    }
+  },
+  {
+    "payload": {
+       "var": 3
+    }
+  }
+]

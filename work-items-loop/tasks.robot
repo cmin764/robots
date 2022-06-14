@@ -1,7 +1,9 @@
 *** Settings ***
 Documentation    Testing the helper keyword on consuming all work items in the queue.
+
 Library          RPA.Robocorp.WorkItems
 Library          OperatingSystem
+Library    Collections
 
 
 *** Keywords ***
@@ -14,6 +16,7 @@ Add work item with attached file
     Add Work Item File    ${infile_path}    name=infile.txt
     Save Work Item
 
+
 Read files and save content in payload
     ${path} =     Get Work Item File    orders.txt
     ${content} =     Get File    ${path}
@@ -23,6 +26,12 @@ Read files and save content in payload
     Save Work Item
 
     [Return]    ${content}
+
+
+Process Item
+    ${value} =    Get Work Item Variable    var
+    Log To Console    ${value}
+    RETURN    ${value}
 
 
 *** Tasks ***
@@ -50,3 +59,8 @@ Get payload given e-mail process triggering
     Save Work Item
     ${message} =     Get Work Item Variable     message
     Should Be Equal     ${message}      from email
+
+
+Break Work Items Loop
+    @{values} =    For Each Input Work Item    Process Item
+    Log List    ${values}
