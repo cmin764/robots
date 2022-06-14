@@ -20,6 +20,7 @@ Set Headless
     ${headless} =    Get Work Item Variable    headless    default=${False}
     Set Global Variable    ${HEADLESS}    ${headless}
 
+
 Close Browsers
     IF    ${HEADLESS}
         Close All Browsers
@@ -82,3 +83,12 @@ Test Firefox
     ...    browser_selection=firefox  # this also runs
 
     Sleep    1s
+
+
+Selenium Select Elements
+    Selenium.Open Available Browser    https://my.hirezstudios.com/    headless=${HEADLESS}
+    # ${locator} =    Set Variable    xpath://div[contains(@class, 'panel')]
+    ${locator} =    Set Variable    class:hirez-acct-dashboard
+    Wait Until Element Is Visible    ${locator}
+    ${elem} =    Get WebElement    ${locator}
+    Log To Console    ${elem}

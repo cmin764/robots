@@ -11,6 +11,8 @@ tasks:
     robotTaskName: Test Timeout Message
   Test Firefox:
     robotTaskName: Test Firefox
+  Selenium Select Elements:
+    robotTaskName: Selenium Select Elements
 
 condaConfigFile: conda.yaml
 artifactsDir: output
