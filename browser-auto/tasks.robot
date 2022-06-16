@@ -92,3 +92,9 @@ Selenium Select Elements
     Wait Until Element Is Visible    ${locator}
     ${elem} =    Get WebElement    ${locator}
     Log To Console    ${elem}
+
+
+Selenium Print Source
+    Selenium.Open Available Browser    https://google.com
+    ${source} =    Get Source
+    Log    ${source}

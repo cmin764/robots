@@ -13,6 +13,8 @@ tasks:
     robotTaskName: Test Firefox
   Selenium Select Elements:
     robotTaskName: Selenium Select Elements
+  Selenium Print Source:
+    robotTaskName: Selenium Print Source
 
 condaConfigFile: conda.yaml
 artifactsDir: output
