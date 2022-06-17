@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation       Test JSON keywords.
 
+Library    OperatingSystem
 Library    RPA.JSON
 
 
@@ -27,3 +28,6 @@ Validate traffic data
     ${country} =    Get Value From Json    ${traffic_data}    $.country
     ${valid} =    Evaluate    len("${country}") == 3
     Log    Valid: ${valid}
+    Log To Console    Output: ${OUTPUT_DIR}
+    Log To Console    Artifacts: %{ROBOT_ARTIFACTS}
+    Log Environment Variables
