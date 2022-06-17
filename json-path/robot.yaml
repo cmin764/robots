@@ -1,6 +1,10 @@
 tasks:
   Run all tasks:
     shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Validate traffic data:
+    robotTaskName: Validate traffic data
+  Validate traffic data trace:
+    shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Validate traffic data" tasks.robot
 
 condaConfigFile: conda.yaml
 artifactsDir: output
