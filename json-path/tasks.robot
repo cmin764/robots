@@ -25,5 +25,5 @@ Delete Values
 Validate traffic data
     &{traffic_data} =    Create Dictionary    country=ISR    year=${2019}    rate=${3.9}
     ${country} =    Get Value From Json    ${traffic_data}    $.country
-    ${valid}=    Evaluate    len("${country}") == 3
+    ${valid} =    Evaluate    len("${country}") == 3
     Log    Valid: ${valid}
