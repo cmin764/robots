@@ -13,6 +13,6 @@ dependencies:
   - pip:
       # Define pip packages here.
       # https://pypi.org/
-      # - rpaframework==15.1.0 # https://rpaframework.org/releasenotes.html
+      - rpaframework==15.1.1 # https://rpaframework.org/releasenotes.html
       # - rpaframework==14.1.1
-      - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/0e2/29d434fee4299/rpaframework-15.1.0-py3-none-any.whl#sha256=0e229d434fee4299175f8d0f0d051c81b51af11cc514790aac1588933dac1286
+      # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/398/683ddc282c322/rpaframework-15.1.1-py3-none-any.whl#sha256=398683ddc282c3221e12c9c6c24dfdf2aac48a37d0e6934f34b3b35f07761701
