@@ -31,6 +31,9 @@ Read files and save content in payload
 Process Item
     ${value} =    Get Work Item Variable    var
     Log To Console    ${value}
+    IF    ${value} == ${2}
+        Fail    Work Item variable 2 failed
+    END
     RETURN    ${value}
 
 

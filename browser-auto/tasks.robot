@@ -2,7 +2,7 @@
 Documentation     Browser related examples.
 
 Library    Browser    auto_closing_level=MANUAL
-# Library    RPA.Browser.Selenium    auto_close=${False}    WITH NAME    Selenium
+# Library    RPA.Browser.Selenium   WITH NAME    Selenium
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
@@ -95,6 +95,6 @@ Selenium Select Elements
 
 
 Selenium Print Source
-    Selenium.Open Available Browser    https://google.com
+    Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}
     ${source} =    Get Source
     Log    ${source}
