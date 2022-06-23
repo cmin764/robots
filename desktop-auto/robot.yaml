@@ -23,6 +23,8 @@ tasks:
     robotTaskName: Send Keys LibreOffice
   Match Quote Names:
     robotTaskName: Match Quote Names
+  Mac Detect Title With OCR Or Image:
+    robotTaskName: Mac Detect Title With OCR Or Image
 
 condaConfigFile: conda.yaml
 artifactsDir: output

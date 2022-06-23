@@ -257,3 +257,10 @@ Match Quote Names
 
     ${loc} =    Windows.Control Window    file.txt - Notepad    timeout=${1}
     Log    With name: ${loc}
+
+
+Mac Detect Title With OCR Or Image
+    ${locator} =    Set Variable    ocr:Untitled
+    # ${locator} =    Set Variable    alias:Untitled
+    ${match} =    Desktop.Wait For Element    ${locator}
+    Log To Console    ${match.left} ${match.top} ${match.right} ${match.bottom}

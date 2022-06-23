@@ -3,7 +3,7 @@ Documentation    Testing the helper keyword on consuming all work items in the q
 
 Library          RPA.Robocorp.WorkItems
 Library          OperatingSystem
-Library    Collections
+Library          Collections
 
 
 *** Keywords ***
