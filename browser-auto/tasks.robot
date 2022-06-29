@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Browser related examples.
 
+Library    AppiumLibrary
 Library    Browser    auto_closing_level=MANUAL
 # Library    RPA.Browser.Selenium   WITH NAME    Selenium
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
@@ -98,3 +99,8 @@ Selenium Print Source
     Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}
     ${source} =    Get Source
     Log    ${source}
+
+
+Test Appium Keyword
+    ${timeout} =    Get Appium Timeout
+    Log To Console    ${timeout}
