@@ -1,9 +1,9 @@
 *** Settings ***
-Documentation       Testing issues with handling Excel files.
+Documentation       Testing issues with handling Excel files/app and tables.
 
 Library    Collections
-Library    RPA.Excel.Application    WITH NAME    App
-Library    RPA.Excel.Files    WITH NAME    Files
+Library    ExtendedExcelFiles    WITH NAME    ExcelFiles
+Library    RPA.Excel.Application    WITH NAME    ExcelApp
 Library    RPA.FileSystem
 Library    RPA.Tables
 Library    String
@@ -23,7 +23,7 @@ Append Content To Sheet
     ${srcx} =    Set Variable    devdata${/}${excel_file}
     ${destx} =    Set Variable    ${OUTPUT_DIR}${/}${excel_file}
     Copy File    ${srcx}    ${destx}
-    Files.Open Workbook    ${destx}
+    ExcelFiles.Open Workbook    ${destx}
     ${data} =    Read Worksheet    Sheet
     Log To Console    Initial table: ${data}
     Append Rows To Worksheet    ${content}    header=${True}
@@ -35,21 +35,21 @@ Append Content To Sheet
 
 *** Tasks ***
 Open and export excel file as PDF
-    App.Open Application    visible=True
-    App.Open Workbook    devdata/blank.xlsx
-    App.Export as PDF    output/blank.pdf
-    App.Quit Application
+    ExcelApp.Open Application    visible=True
+    ExcelApp.Open Workbook    devdata/blank.xlsx
+    ExcelApp.Export as PDF    output/blank.pdf
+    ExcelApp.Quit Application
 
 
 Transplant Column
     # Get the third column starting below "Col 3" row in the excel-1.xlsx file.
-    Files.Open Workbook    devdata${/}excel-1.xlsx
+    ExcelFiles.Open Workbook    devdata${/}excel-1.xlsx
     ${subtable1} =    Read Worksheet As Table    name=Sheet 1    start=5
     ${col1} =    Get Table Column    ${subtable1}    C
     Log To Console    Column 1st file: ${col1}
 
     # Then get the same from the other file, but pick the second column.
-    Files.Open Workbook    devdata${/}excel-2.xlsx
+    ExcelFiles.Open Workbook    devdata${/}excel-2.xlsx
     ${subtable2} =    Read Worksheet As Table    name=Sheet 1    start=5
     ${col2} =    Get Table Column    ${subtable2}    B
     Log To Console    Column 2nd file before: ${col2}
@@ -65,7 +65,7 @@ Transplant Column
 
 Remove rows with empty cells
     # Open Excel and read "Sheet 1" as table.
-    Files.Open Workbook    devdata${/}emails.xlsx
+    ExcelFiles.Open Workbook    devdata${/}emails.xlsx
     ${table} =    Read Worksheet As Table    name=Sheet 1    start=3  # avoiding some headers
     ${emails} =     Get Table Column    ${table}    C  # e-mails on third column
     
@@ -125,10 +125,11 @@ Export CSV Table To Excel
 
 
 Test Trailing Spaces
-    Create Workbook    ${OUTPUT_DIR}${/}spaces.xlsx
-    ${value} =    Evaluate    "x" + " "
+    ${value} =    Evaluate    "2" + " "
     &{dict} =    Create Dictionary    A    1    B    ${value}
     ${table} =    Create Table    ${dict}
-    Log To Console    ${table}
+    Log List    ${table}
+
+    Create Workbook    ${OUTPUT_DIR}${/}spaces.xlsx
     Append Rows To Worksheet    ${table}    header=${True}
     Save Workbook
