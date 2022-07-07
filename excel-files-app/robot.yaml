@@ -7,6 +7,10 @@ tasks:
     robotTaskName: Remove rows with empty cells
   Test single row sheet:
     robotTaskName: Test single row sheet
+  Export CSV Table To Excel:
+    robotTaskName: Export CSV Table To Excel
+  Test Trailing Spaces:
+    robotTaskName: Test Trailing Spaces
 
 condaConfigFile: conda.yaml
 artifactsDir: output
