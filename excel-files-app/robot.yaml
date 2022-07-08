@@ -11,6 +11,8 @@ tasks:
     robotTaskName: Export CSV Table To Excel
   Test Trailing Spaces:
     robotTaskName: Test Trailing Spaces
+  Run Macro On Bad Name:
+    robotTaskName: Run Macro On Bad Name
 
 condaConfigFile: conda.yaml
 artifactsDir: output

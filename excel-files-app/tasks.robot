@@ -35,9 +35,9 @@ Append Content To Sheet
 
 *** Tasks ***
 Open and export excel file as PDF
-    ExcelApp.Open Application    visible=True
-    ExcelApp.Open Workbook    devdata/blank.xlsx
-    ExcelApp.Export as PDF    output/blank.pdf
+    ExcelApp.Open Application    visible=${True}
+    ExcelApp.Open Workbook    devdata${/}blank.xlsx
+    ExcelApp.Export as PDF    ${OUTPUT_DIR}${/}blank.pdf
     ExcelApp.Quit Application
 
 
@@ -133,3 +133,11 @@ Test Trailing Spaces
     Create Workbook    ${OUTPUT_DIR}${/}spaces.xlsx
     Append Rows To Worksheet    ${table}    header=${True}
     Save Workbook
+
+
+Run Macro On Bad Name
+    ExcelApp.Open Application    visible=${True}
+    ExcelApp.Open Workbook    devdata${/}boldmacro-x.xlsm
+    ExcelApp.Run Macro    bold_column
+    Sleep    5s
+    ExcelApp.Quit Application
