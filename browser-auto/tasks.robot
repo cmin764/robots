@@ -97,7 +97,7 @@ Selenium Select Elements
 
 Selenium Print Source
     Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}
-    ${source} =    Get Source
+    ${source} =    Selenium.Get Source
     Log    ${source}
 
 
