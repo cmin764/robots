@@ -1,4 +1,5 @@
 import fnmatch
+import logging
 import os
 import sys
 from pathlib import Path
@@ -46,11 +47,12 @@ class ExtendedSelenium(Selenium):
         
         # On *nix systems Firefox binary path still needs to be explicitly set.
         for path in os.getenv("PATH").strip().split(":"):
-            if fnmatch.fnmatch(path, "*/holotree/*/bin"):
+            if fnmatch.fnmatch(path, "*/ht/*/bin"):
                 # We just found the path containing firefox and geckodriver binaries.
                 break
         else:
-            raise Exception("Holotree path not found: please run with rcc/VSCode")
+            logging.warning("Holotree path not found: please run with rcc/VSCode")
+            return
         
         options.binary_location = f"{path}/firefox"
     
