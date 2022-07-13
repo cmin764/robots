@@ -264,3 +264,4 @@ Mac Detect Title With OCR Or Image
     # ${locator} =    Set Variable    alias:Untitled
     ${match} =    Desktop.Wait For Element    ${locator}
     Log To Console    ${match.left} ${match.top} ${match.right} ${match.bottom}
+    Click    ${match}    double click
