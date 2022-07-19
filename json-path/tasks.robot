@@ -35,7 +35,9 @@ Validate traffic data
 
 JSON Add Value
     @{acuerdos} =     Create List
-    &{data_dict} =    Create Dictionary    my    data    acuerdos    ${acuerdos}
+    &{data_dict} =    Create Dictionary
+    ...    my    data    acuerdos    ${acuerdos}
+    ...    numeroAcuerdo    ${2}
     &{item} =    Create Dictionary    reqData    ${data_dict}
 
     &{acuerdo} =       Create Dictionary
