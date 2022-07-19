@@ -50,4 +50,4 @@ JSON Add Value
 
     Add to JSON    ${item}[reqData]    $.acuerdos    ${acuerdo}
     Log To Console   ${item}
-    # 'reqData': {'my': 'data', 'acuerdos': [{'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}], 'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}}
+    # {'reqData': {'my': 'data', 'acuerdos': [{'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}], 'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}}
