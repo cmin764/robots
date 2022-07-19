@@ -31,3 +31,23 @@ Validate traffic data
     Log To Console    Output: ${OUTPUT_DIR}
     Log To Console    Artifacts: %{ROBOT_ARTIFACTS}
     Log Environment Variables
+
+
+JSON Add Value
+    @{acuerdos} =     Create List
+    &{data_dict} =    Create Dictionary    my    data    acuerdos    ${acuerdos}
+    &{item} =    Create Dictionary    reqData    ${data_dict}
+
+    &{acuerdo} =       Create Dictionary
+        ...            numeroAcuerdo                  ${1}
+        ...            fechaCreacionAcuerdo           19-07-2022
+        ...            fechaEnviadoBeneficario        19-07-2022
+        ...            errorCreacion                  Mensaje de Error
+    Log To Console   ${item}[reqData]
+    ${after} =    Add to JSON    ${item}[reqData]    $    ${acuerdo}
+    Log To Console   ${after}
+    # {'my': 'data', 'acuerdos': [], 'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}
+
+    Add to JSON    ${item}[reqData]    $.acuerdos    ${acuerdo}
+    Log To Console   ${item}
+    # 'reqData': {'my': 'data', 'acuerdos': [{'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}], 'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}}
