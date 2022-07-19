@@ -141,3 +141,13 @@ Run Macro On Bad Name
     ExcelApp.Run Macro    bold_column
     Sleep    5s
     ExcelApp.Quit Application
+
+
+Get Numbers Total
+    @{numbers} =    Create List    ${194.40}    ${168.06}    ${77.57}
+    ${total} =    Evaluate    sum($numbers)
+    Log To Console    ${total}
+
+    Create Workbook    ${OUTPUT_DIR}${/}numbers.xlsx    sheet_name=Numbers
+    Set Cell Value    1    A    ${total}    fmt=0.00
+    Save Workbook

@@ -13,6 +13,8 @@ tasks:
     robotTaskName: Test Trailing Spaces
   Run Macro On Bad Name:
     robotTaskName: Run Macro On Bad Name
+  Get Numbers Total:
+    robotTaskName: Get Numbers Total
 
 condaConfigFile: conda.yaml
 artifactsDir: output
