@@ -1,9 +1,10 @@
 *** Settings ***
 Documentation    Testing the helper keyword on consuming all work items in the queue.
 
-Library          RPA.Robocorp.WorkItems
-Library          OperatingSystem
-Library          Collections
+Library        Collections
+Library        MyLibrary
+Library        OperatingSystem
+Library        RPA.Robocorp.WorkItems
 
 
 *** Keywords ***
@@ -33,6 +34,10 @@ Process Item
     Log To Console    ${value}
     IF    ${value} == ${2}
         Fail    Work Item variable 2 failed
+        # Fail Func
+        # ${status}    ${msg} =    Run Keyword And Ignore Error
+        # ...    Fail    Work Item variable 2 failed
+        # Log    ${msg}
     END
     RETURN    ${value}
 
