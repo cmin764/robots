@@ -7,8 +7,8 @@ tasks:
     robotTaskName: Read work item with attached file and add content as payload
   Get payload given e-mail process triggering:
     robotTaskName: Get payload given e-mail process triggering
-  Break Work Items Loop:
-    robotTaskName: Break Work Items Loop
+  Failing Work Item On Task Or Setup:
+    robotTaskName: Failing Work Item On Task Or Setup
 
 condaConfigFile: conda.yaml
 artifactsDir: output

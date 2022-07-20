@@ -6,6 +6,8 @@ Library        MyLibrary
 Library        OperatingSystem
 Library        RPA.Robocorp.WorkItems
 
+Suite Setup    Fail On Zero
+
 
 *** Keywords ***
 Add work item with attached file
@@ -31,15 +33,26 @@ Read files and save content in payload
 
 Process Item
     ${value} =    Get Work Item Variable    var
-    Log To Console    ${value}
-    IF    ${value} == ${2}
-        Fail    Work Item variable 2 failed
+    Log To Console    Processing item value: ${value}
+    IF    ${value} == ${2}  # make it fail if `var` is 2
+        Fail    Work Item with variable value ${value} failed
         # Fail Func
         # ${status}    ${msg} =    Run Keyword And Ignore Error
         # ...    Fail    Work Item variable 2 failed
         # Log    ${msg}
     END
     RETURN    ${value}
+
+
+Fail On Zero
+    ${status}    ${value} =    Run Keyword And Ignore Error
+    ...    Get Work Item Variable    var
+    IF    "${status}" == "FAIL"    RETURN
+    
+    Log To Console    Setup value: ${value}
+    IF    ${value} == ${0}
+        Fail    Initial Work Item failed because of zero value
+    END
 
 
 *** Tasks ***
@@ -69,6 +82,6 @@ Get payload given e-mail process triggering
     Should Be Equal     ${message}      from email
 
 
-Break Work Items Loop
+Failing Work Item On Task Or Setup
     @{values} =    For Each Input Work Item    Process Item
     Log List    ${values}
