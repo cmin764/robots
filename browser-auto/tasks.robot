@@ -104,3 +104,7 @@ Selenium Print Source
 Test Appium Keyword
     ${timeout} =    Get Appium Timeout
     Log To Console    ${timeout}
+
+
+Test Chrome Certs
+    Open Chrome Site    https://www.robocorp.com    headless=${HEADLESS}

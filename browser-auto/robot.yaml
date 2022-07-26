@@ -17,6 +17,8 @@ tasks:
     robotTaskName: Selenium Print Source
   Test Appium Keyword:
     robotTaskName: Test Appium Keyword
+  Test Chrome Certs:
+    robotTaskName: Test Chrome Certs
 
 condaConfigFile: conda.yaml
 artifactsDir: output

@@ -5,8 +5,9 @@ import sys
 from pathlib import Path
 
 from RPA.Browser.Selenium import Selenium
-from SeleniumLibrary.base import keyword
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from SeleniumLibrary.base import keyword
 from webdrivermanager import ChromeDriverManager
 
 
@@ -28,15 +29,21 @@ class ExtendedSelenium(Selenium):
         self._chrome_ready = True
                     
     @keyword
-    def open_chrome_site(self, url, **kwargs):
+    def open_chrome_site(self, url, headless=False, **kwargs):
         self._setup_chrome()
         
         options = webdriver.ChromeOptions()
         if self.USER_DATA_PATH:
             options.add_argument(f"user-data-dir={self.USER_DATA_PATH}")
+        if headless:
+            options.add_argument("--headless")
+        caps = DesiredCapabilities.CHROME.copy()
+        caps["acceptInsecureCerts"] = True
         self.open_browser(
             url=url,
             options=options,
+            desired_capabilities=caps,
+            browser="chrome",
             **kwargs
         )
         
