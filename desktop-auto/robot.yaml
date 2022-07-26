@@ -25,6 +25,8 @@ tasks:
     robotTaskName: Match Quote Names
   Mac Detect Title With OCR Or Image:
     robotTaskName: Mac Detect Title With OCR Or Image
+  Windows Tick Checkbox:
+    robotTaskName: Windows Tick Checkbox
 
 condaConfigFile: conda.yaml
 artifactsDir: output

@@ -265,3 +265,12 @@ Mac Detect Title With OCR Or Image
     ${match} =    Desktop.Wait For Element    ${locator}
     Log To Console    ${match.left} ${match.top} ${match.right} ${match.bottom}
     Click    ${match}    double click
+
+
+Windows Tick Checkbox
+    Windows.Control Window    UIDemo
+    ${checkbox} =    Windows.Get Element    GraphLabel
+    ${toggle} =    Evaluate    $checkbox.item.GetTogglePattern()
+    IF    ${toggle.ToggleState} == ${0}
+        Evaluate    $toggle.Toggle()
+    END
