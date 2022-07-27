@@ -90,8 +90,8 @@ Selenium Select Elements
     Selenium.Open Available Browser    https://my.hirezstudios.com/    headless=${HEADLESS}
     # ${locator} =    Set Variable    xpath://div[contains(@class, 'panel')]
     ${locator} =    Set Variable    class:hirez-acct-dashboard
-    Wait Until Element Is Visible    ${locator}
-    ${elem} =    Get WebElement    ${locator}
+    Selenium.Wait Until Element Is Visible    ${locator}
+    ${elem} =    Selenium.Get WebElement    ${locator}
     Log To Console    ${elem}
 
 
