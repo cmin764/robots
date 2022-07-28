@@ -281,7 +281,8 @@ Fill Robocorp Form Fields
 
 
 Unicode Text Search
-    # Open Pdf    devdata${/}foersom.pdf
     Open Pdf    devdata${/}template-filled.pdf
     @{matches} =    Find Text    regex:.*żă.*
+    # @{matches} =    Find Text    regex:[\\s\\S]*bold[\\s\\S]*
     Log List    ${matches}
+    Log To Console    ${matches[0].anchor}
