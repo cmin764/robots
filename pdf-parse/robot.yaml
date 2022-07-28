@@ -29,6 +29,8 @@ tasks:
     robotTaskName: Fill Foersom Form Fields
   Fill Robocorp Form Fields:
     robotTaskName: Fill Robocorp Form Fields
+  Unicode Text Search:
+    robotTaskName: Unicode Text Search
 
 condaConfigFile: conda.yaml
 artifactsDir: output

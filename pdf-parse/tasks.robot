@@ -278,3 +278,10 @@ Fill Robocorp Form Fields
     # Set Field Value    Describe the problem    The Robot does not want to start anymore!
     Save Field Values    output_path=${OUTPUT_DIR}${/}robo-form-ticked.pdf
     ...    use_appearances_writer=${True}
+
+
+Unicode Text Search
+    # Open Pdf    devdata${/}foersom.pdf
+    Open Pdf    devdata${/}template-filled.pdf
+    @{matches} =    Find Text    regex:.*żă.*
+    Log List    ${matches}
