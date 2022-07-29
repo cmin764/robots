@@ -27,6 +27,8 @@ tasks:
     robotTaskName: Mac Detect Title With OCR Or Image
   Windows Tick Checkbox:
     robotTaskName: Windows Tick Checkbox
+  Adobe Click Menu Item:
+    robotTaskName: Adobe Click Menu Item
 
 condaConfigFile: conda.yaml
 artifactsDir: output

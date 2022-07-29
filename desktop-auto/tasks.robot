@@ -274,3 +274,13 @@ Windows Tick Checkbox
     IF    ${toggle.ToggleState} == ${0}
         Evaluate    $toggle.Toggle()
     END
+
+
+Adobe Click Menu Item
+    Windows.Set Global Timeout    3
+
+    Windows Run    Acrobat
+    Control Window    subname:"Adobe Acrobat Reader DC"
+    
+    Windows.Click    type:MenuBar and name:"Application" > type:MenuItem and index:1
+    # Windows.Click    File
