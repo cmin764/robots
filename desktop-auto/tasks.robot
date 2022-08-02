@@ -3,7 +3,7 @@ Documentation     Investigating COMErrors with the Desktop/Windows libraries.
 
 Library    Collections
 Library    RPA.FileSystem
-Library    RPA.Desktop    WITH NAME    Desktop
+Library    RPA.Desktop    locators_path=locators.json    WITH NAME    Desktop
 Library    RPA.Desktop.Windows    WITH NAME    Deskwin
 Library    RPA.Windows    WITH NAME    Windows
 Library    RPA.Excel.Application    WITH NAME    Excel
@@ -260,11 +260,20 @@ Match Quote Names
 
 
 Mac Detect Title With OCR Or Image
-    ${locator} =    Set Variable    ocr:Untitled
-    # ${locator} =    Set Variable    alias:Untitled
+    # Opens a new TextEdit window to write text into.
+    ${app} =    Desktop.Open Application    open    -a    TextEdit
+    Sleep    1s
+    Desktop.Press Keys    cmd    n
+    
+    # Double-click over "Untitled" title.
+    # ${locator} =    Set Variable    ocr:Untitled  # OCR
+    ${locator} =    Set Variable    alias:Untitled  # image locator
     ${match} =    Desktop.Wait For Element    ${locator}
-    Log To Console    ${match.left} ${match.top} ${match.right} ${match.bottom}
+    Log To Console    Coords: ${match.left} ${match.top} ${match.right} ${match.bottom}
     Click    ${match}    double click
+
+    # Doesn't have effect since the editor was opened by another process that exited.
+    Desktop.Close Application    ${app}
 
 
 Windows Tick Checkbox
