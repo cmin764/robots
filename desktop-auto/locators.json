@@ -1,4 +1,10 @@
 {
+    "NEW_DOCUMENT": {
+        "confidence": 80.0,
+        "path": ".images/new_document-path.png",
+        "source": null,
+        "type": "image"
+    },
     "Untitled": {
         "confidence": 80.0,
         "path": ".images/untitled-path.png",
