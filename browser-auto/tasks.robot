@@ -35,22 +35,17 @@ File Upload
     ${data} =    Read File    ${path}
     Log    File ${path} to be uploaded with data: ${data}
     
-    Browser.Open Browser    https://viljamis.com/filetest/    headless=${HEADLESS}
+    ${url} =    Set Variable    http://www.csm-testcenter.org/test?do=show&subdo=common&test=file_upload
+    Browser.Open Browser    ${url}    headless=${HEADLESS}
     Sleep    1s
-    Upload File By Selector    xpath=//input[@name="image"]    ${path}
+    Upload File By Selector    xpath=(//input[@name="file_upload"])[1]    ${path}
     Sleep    2s
-    Click    xpath=//input[@value="Upload"]
-    IF    "${HEADLESS}" != "${True}"
-        Click    id=proceed-button
-    END
+    Click    xpath=//input[@value="Start HTTP upload"]
     Sleep    3s
 
-    ${content} =    Browser.Get Text    table
+    ${content} =    Browser.Get Text    (//table)[1]
     Log    Page table data: ${content}
     Should Contain    ${content}    file.txt
-    # This fails if the upload isn't done manually for some reason, maybe a problem
-    #  with the web page itself.
-    # Should Contain    ${content}    ${data}
 
 
 Open Google Chrome
