@@ -108,3 +108,9 @@ Test Appium Keyword
 
 Test Chrome Certs
     Open Chrome Site    https://www.robocorp.com    headless=${HEADLESS}
+
+
+Print Page To PDF
+    Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}
+    Print To PDF
+    Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf

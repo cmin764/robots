@@ -19,6 +19,8 @@ tasks:
     robotTaskName: Test Appium Keyword
   Test Chrome Certs:
     robotTaskName: Test Chrome Certs
+  Print Page To PDF:
+    robotTaskName: Print Page To PDF
 
 condaConfigFile: conda.yaml
 artifactsDir: output
