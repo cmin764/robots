@@ -112,5 +112,6 @@ Test Chrome Certs
 
 Print Page To PDF
     Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}
-    Print To PDF
+    ${out} =    Print To PDF
+    Log To Console    Printed page on: ${out}
     Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
