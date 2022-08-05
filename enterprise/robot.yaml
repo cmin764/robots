@@ -1,0 +1,12 @@
+tasks:
+  Query objects using Salesforce Object Query Language:
+    robotTaskName: Query objects using Salesforce Object Query Language
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
