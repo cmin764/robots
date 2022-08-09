@@ -28,3 +28,4 @@ Query Empty Result As Table
 
     ${result} =    Salesforce Query Result As Table    ${query}
     Log To Console    ${result}
+    Write Table To CSV    ${result}    ${OUTPUT_DIR}/rows.csv
