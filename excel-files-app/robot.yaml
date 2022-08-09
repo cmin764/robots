@@ -15,6 +15,8 @@ tasks:
     robotTaskName: Run Macro On Bad Name
   Get Numbers Total:
     robotTaskName: Get Numbers Total
+  Find Rows In Table:
+    robotTaskName: Find Rows In Table
 
 condaConfigFile: conda.yaml
 artifactsDir: output

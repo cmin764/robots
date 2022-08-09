@@ -5,6 +5,7 @@ Library    Collections
 Library    ExtendedExcelFiles    WITH NAME    ExcelFiles
 Library    RPA.Excel.Application    WITH NAME    ExcelApp
 Library    RPA.FileSystem
+Library    RPA.JSON
 Library    RPA.Tables
 Library    String
 
@@ -151,3 +152,20 @@ Get Numbers Total
     Create Workbook    ${OUTPUT_DIR}${/}numbers.xlsx    sheet_name=Numbers
     Set Cell Value    1    A    ${total}    fmt=0.00
     Save Workbook
+
+
+Find Rows In Table
+    ExcelFiles.Open Workbook    devdata${/}emails.xlsx
+
+    ${table} =    Read Worksheet As Table    header=${True}    start=${2}
+    ${results} =    Find Table Rows    ${table}    Age    >    ${1}
+    Log To Console    Table: ${results}
+    FOR    ${result}    IN    @{results}
+        Log To Console    Row: ${result}
+    END
+
+    Filter Table By Column    ${table}    E-mail    not is    ${None}
+    @{out} =    Export Table    ${table}    as_list=${True}
+    Log To Console    Out: ${out}
+    ${serialized} =    Convert JSON to String    ${out}  # list of dicts
+    Log To Console    Serialized: ${serialized}
