@@ -169,3 +169,21 @@ Find Rows In Table
     Log To Console    Out: ${out}
     ${serialized} =    Convert JSON to String    ${out}  # list of dicts
     Log To Console    Serialized: ${serialized}
+
+
+Append From First Empty Row
+    # Add 50 rows in a 23 total rowed Excel file.
+    @{rows} =    Create List
+    FOR    ${counter}    IN RANGE    1    51
+        ${row} =    Create Dictionary
+        ...    Name      Cosmin
+        ...    Age       29
+        ...    E-mail    cosmin@robocorp.com
+        Append To List    ${rows}    ${row}
+    END
+
+    ${workbook} =    Set Variable    ${OUTPUT_DIR}${/}emails.xlsx
+    Copy File    devdata${/}emails.xlsx    ${workbook}
+    ExcelFiles.Open Workbook    ${workbook}
+    Append Rows to Worksheet    ${rows}    formatting_as_empty=${True}
+    Save Workbook

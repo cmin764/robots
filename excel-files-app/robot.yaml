@@ -17,6 +17,8 @@ tasks:
     robotTaskName: Get Numbers Total
   Find Rows In Table:
     robotTaskName: Find Rows In Table
+  Append From First Empty Row:
+    robotTaskName: Append From First Empty Row
 
 condaConfigFile: conda.yaml
 artifactsDir: output
