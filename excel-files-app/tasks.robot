@@ -175,7 +175,7 @@ Append From First Empty Row
     # Add 50 rows in a 23 total rowed Excel file.
     @{rows} =    Create List
     FOR    ${counter}    IN RANGE    1    51
-        ${row} =    Create Dictionary
+        &{row} =    Create Dictionary
         ...    Name      Cosmin
         ...    Age       29
         ...    E-mail    cosmin@robocorp.com
