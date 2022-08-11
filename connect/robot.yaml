@@ -1,0 +1,16 @@
+tasks:
+  SSH Write And Read From Terminal:
+    robotTaskName: SSH Write And Read From Terminal
+  SSH Execute And Wait For Output:
+    robotTaskName: SSH Execute And Wait For Output
+  SSH Execute And Read Async:
+    robotTaskName: SSH Execute And Read Async
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
