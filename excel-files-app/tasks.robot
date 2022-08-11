@@ -176,8 +176,8 @@ Append From First Empty Row
     @{rows} =    Create List
     FOR    ${counter}    IN RANGE    1    51
         &{row} =    Create Dictionary
-        ...    Name      Cosmin
-        ...    Age       29
+        ...    Age       29  # explicitly I avoided the correct ordering here
+        ...    Name      Cosmin  # to see how `header=${True}` works
         ...    E-mail    cosmin@robocorp.com
         Append To List    ${rows}    ${row}
     END
@@ -186,4 +186,5 @@ Append From First Empty Row
     Copy File    devdata${/}emails.xlsx    ${workbook}
     ExcelFiles.Open Workbook    ${workbook}
     Append Rows to Worksheet    ${rows}    formatting_as_empty=${True}
+    ...    header=${True}    start=${2}
     Save Workbook
