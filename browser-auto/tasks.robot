@@ -3,8 +3,8 @@ Documentation     Browser related examples.
 
 Library    AppiumLibrary
 Library    Browser    auto_closing_level=MANUAL
-# Library    RPA.Browser.Selenium   WITH NAME    Selenium
-Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
+Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
+# Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 
@@ -27,6 +27,12 @@ Close Browsers
         Close All Browsers
         Run Keyword And Ignore Error    Browser.Close Browser    ALL
     END
+
+
+Open Specific Browser
+    [Arguments]    ${browser}
+    Open Available Browser    https://robocorp.com    browser_selection=${browser}
+    ...    headless=${HEADLESS}
 
 
 *** Tasks ***
@@ -110,3 +116,10 @@ Print Page To PDF
     ${out} =    Print To PDF
     Log To Console    Printed page on: ${out}
     Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
+
+
+Test Webdrivers
+    @{browsers} =    Create List    Chrome    Firefox    ChromiumEdge
+    FOR    ${browser}    IN    @{browsers}
+        Open Specific Browser    ${browser}
+    END

@@ -21,6 +21,8 @@ tasks:
     robotTaskName: Test Chrome Certs
   Print Page To PDF:
     robotTaskName: Print Page To PDF
+  Test Webdrivers:
+    robotTaskName: Test Webdrivers
 
 condaConfigFile: conda.yaml
 artifactsDir: output
