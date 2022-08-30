@@ -30,9 +30,9 @@ Close Browsers
 
 
 Open Specific Browser
-    [Arguments]    ${browser}
+    [Arguments]    ${browser}    ${options}=${None}
     Open Available Browser    https://robocorp.com    browser_selection=${browser}
-    ...    headless=${HEADLESS}
+    ...    headless=${HEADLESS}    options=${options}
 
 
 *** Tasks ***
@@ -121,5 +121,5 @@ Print Page To PDF
 Test Webdrivers
     @{browsers} =    Create List    Chrome    Firefox    ChromiumEdge
     FOR    ${browser}    IN    @{browsers}
-        Open Specific Browser    ${browser}
+        Open Specific Browser    ${browser}    options=add_argument("--incognito")
     END

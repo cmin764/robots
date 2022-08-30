@@ -8,7 +8,6 @@ from RPA.Browser.Selenium import Selenium
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from SeleniumLibrary.base import keyword
-from webdrivermanager import ChromeDriverManager
 
 
 class ExtendedSelenium(Selenium):
@@ -18,20 +17,9 @@ class ExtendedSelenium(Selenium):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._chrome_ready = False
-    
-    def _setup_chrome(self):
-        if self._chrome_ready:
-            return
-        
-        cdm = ChromeDriverManager(link_path="AUTO")
-        cdm.download_and_install()
-        self._chrome_ready = True
                     
     @keyword
     def open_chrome_site(self, url, headless=False, **kwargs):
-        self._setup_chrome()
-        
         options = webdriver.ChromeOptions()
         if self.USER_DATA_PATH:
             options.add_argument(f"user-data-dir={self.USER_DATA_PATH}")
