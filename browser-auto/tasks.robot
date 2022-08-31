@@ -3,8 +3,8 @@ Documentation     Browser related examples.
 
 Library    AppiumLibrary
 Library    Browser    auto_closing_level=MANUAL
-Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
-# Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
+# Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
+Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 
