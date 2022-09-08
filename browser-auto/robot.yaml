@@ -23,6 +23,8 @@ tasks:
     robotTaskName: Print Page To PDF
   Test Webdrivers:
     robotTaskName: Test Webdrivers
+  Open With Port:
+    robotTaskName: Open With Port
 
 condaConfigFile: conda.yaml
 artifactsDir: output

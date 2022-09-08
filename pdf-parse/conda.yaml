@@ -12,5 +12,4 @@ dependencies:
   - pip:
     # Define pip packages here. 
     # https://pypi.org/
-    # - rpaframework==15.6.0 # https://rpaframework.org/releasenotes.html
-    - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/51d/e0eff0f09d478/rpaframework_pdf-4.1.0-py3-none-any.whl#sha256=51de0eff0f09d4785bf2401cbef697d71fdd2c7d4f41d52a77bf7cd4060016a5
+    - rpaframework==16.3.0 # https://rpaframework.org/releasenotes.html

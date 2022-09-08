@@ -123,3 +123,8 @@ Test Webdrivers
     FOR    ${browser}    IN    @{browsers}
         Open Specific Browser    ${browser}    options=add_argument("--incognito")
     END
+
+
+Open With Port
+    Open Available Browser    https://robocorp.com    browser_selection=ChromiumEdge
+    ...    headless=${HEADLESS}   port=${18888}
