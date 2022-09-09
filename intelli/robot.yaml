@@ -1,6 +1,8 @@
 tasks:
   Run Python:
     shell: python task.py
+  Use Vault:
+    robotTaskName: Use Vault
 
 condaConfigFile: conda.yaml
 artifactsDir: output
