@@ -16,7 +16,6 @@ Dialogs And Work Items
         ${result} =    Run dialog
         ${is_valid} =    Run Keyword And Return Status
         ...    Should Match Regexp    ${result.number}    	^\\d{6}$
-        Exit For Loop If  ${is_valid}
         IF    ${is_valid}    BREAK
 
         Add icon    Warning    size=${64}
