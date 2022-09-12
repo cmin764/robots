@@ -19,7 +19,7 @@ Testing purposes only, don't use anything like this in production, because of:
 
 1. An Assistant which collects info from the user then triggers a new unattended
    Process with Work Item data from the attended one.
-2. An Assistant reading Process' Work Items data (queue) and does work based on those.
+2. An Assistant reading Process' Work Items data (queue) and does work based on that.
 
 Read more on [Process API](https://robocorp.com/docs/control-room/apis-and-webhooks/process-api)
 - https://robocorp.com/docs/control-room/apis-and-webhooks
