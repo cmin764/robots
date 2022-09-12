@@ -1,6 +1,6 @@
 tasks:
-  Run all tasks:
-    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Dialogs And Work Items:
+    robotTaskName: Dialogs And Work Items
 
 condaConfigFile: conda.yaml
 artifactsDir: output
