@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       Dialogs working with work items.
+Documentation       Dialogs working with Work Items. (Unadvised!)
 
 Library    RPA.Dialogs
 Library    RPA.Robocorp.WorkItems
