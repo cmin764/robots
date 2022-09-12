@@ -1,12 +1,16 @@
 *** Settings ***
-Documentation       Template robot main suite.
+Documentation       Dialogs working with work items.
 
-Library  RPA.Dialogs
+Library    RPA.Dialogs
+Library    RPA.Robocorp.WorkItems
 
 
 *** Tasks ***
 Minimal task
+    ${msg} =    Get Work Item Variable    message
+
     FOR    ${counter}    IN RANGE    100
+        Add heading    From Work Item: ${msg}
         Add heading    Input a number
         Add text input    number
         ${result}=    Run dialog
