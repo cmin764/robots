@@ -112,7 +112,7 @@ Test Chrome Certs
 
 
 Print Page To PDF
-    Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}
+    Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}    download=${True}
     ${out} =    Print To PDF
     Log To Console    Printed page on: ${out}
     Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
@@ -128,3 +128,8 @@ Test Webdrivers
 Open With Port
     Open Available Browser    https://robocorp.com    browser_selection=ChromiumEdge
     ...    headless=${HEADLESS}   port=${18888}
+
+
+Attach To Chrome
+    Attach Chrome Browser    9222
+    Go To    https://robocorp.com

@@ -25,6 +25,8 @@ tasks:
     robotTaskName: Test Webdrivers
   Open With Port:
     robotTaskName: Open With Port
+  Attach To Chrome:
+    robotTaskName: Attach To Chrome
 
 condaConfigFile: conda.yaml
 artifactsDir: output
