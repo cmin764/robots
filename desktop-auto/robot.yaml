@@ -29,6 +29,8 @@ tasks:
     robotTaskName: Windows Tick Checkbox
   Adobe Click Menu Item:
     robotTaskName: Adobe Click Menu Item
+  Get Elements Coords:
+    robotTaskName: Get Elements Coords
 
 condaConfigFile: conda.yaml
 artifactsDir: output

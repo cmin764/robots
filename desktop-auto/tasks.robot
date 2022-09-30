@@ -33,7 +33,7 @@ Kill app by name
 
 Open And Control App
     [Arguments]    ${app_name}   ${sleep_time}
-    
+
     # Bad example of closing apps while in control of the affected window.
 
     # Kill app by name    ${app_name}
@@ -80,7 +80,7 @@ Open an application many times  # This one fails with COMError.
     ${elem} =     Open And Control App    Calc    2
     Log     Controlling element: ${elem}
     Windows.Close Current Window
-    
+
     ${elem} =     Open And Control App    Calc    2
     Log     Controlling new element but forgetting to close window: ${elem}
     # Windows.Close Current Window
@@ -114,10 +114,10 @@ Screenshot Notepad while controlling Calc
 
 Get elements of controlled window
     [Setup]  Windows.Windows Run   Notepad
-    
+
     # ${app} =   Desktop.Open Application    Notepad
     # Sleep    1s
-    
+
     ${window} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlled Notepad window: ${window}
 
@@ -155,7 +155,7 @@ Test desktop windows and apps
 
     ${ver} =    Windows.Get Os Version
     Log    Running on Windows ${ver}
-    
+
     # Windows related calls.
     ${window} =     Windows.Control Window   subname:Notepad
     Log    Controlling Notepad window: ${window}
@@ -221,7 +221,7 @@ Control Kulcs App
     #     Windows.Send Keys    keys={DOWN}{ENTER}
     # END
     # Log Dictionary    ${combos}
-    
+
     ${vat_value} =    Set Variable    18%-os áfa  # identify option by text value
     # ${downs_count} =    Get From Dictionary    ${combos}    ${vat_value}
     # Log To Console    Going down ${downs_count} times...
@@ -264,7 +264,7 @@ Mac Detect Title With OCR Or Image
     ${app} =    Desktop.Open Application    open    -a    TextEdit
     Sleep    1s
     Desktop.Press Keys    cmd    n
-    
+
     # Double-click over "Untitled" title.
     # ${locator} =    Set Variable    ocr:Untitled  # OCR
     ${locator} =    Set Variable    alias:Untitled  # image locator
@@ -290,6 +290,13 @@ Adobe Click Menu Item
 
     Windows Run    Acrobat
     Control Window    subname:"Adobe Acrobat Reader DC"
-    
+
     Windows.Click    type:MenuBar and name:"Application" > type:MenuItem and index:1
     # Windows.Click    File
+
+
+Get Elements Coords
+    Windows.Windows Run   Calc
+    Windows.Control Window   subname:Calc
+    @{buttons} =    Get Elements    id:NumberPad > class:Button
+    Log To Console    ${buttons}
