@@ -27,6 +27,8 @@ tasks:
     robotTaskName: Open With Port
   Attach To Chrome:
     robotTaskName: Attach To Chrome
+  Open With Custom User Data:
+    robotTaskName: Open With Custom User Data
 
 condaConfigFile: conda.yaml
 artifactsDir: output

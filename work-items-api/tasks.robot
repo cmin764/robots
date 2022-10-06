@@ -74,13 +74,13 @@ Work items variables
     Log    Available variables in work item: ${variables}
     ${files} =    Get Work Item Files    *
     Log    Available files in work item: ${files}
-    
+
     ${vars_len} =    Get Length    ${variables}
     IF    ${vars_len}
         Delete Work Item Variables    ${variables[0]}
         Save Work Item  # it's important to save, to be reflected in CR as well
     END
-    
+
     ${variables} =    List work item variables
     Log    Available variables in work item after removal of the initial one: ${variables}
 

@@ -40,7 +40,7 @@ File Upload
     ${path} =    Absolute Path    devdata${/}file.txt
     ${data} =    Read File    ${path}
     Log    File ${path} to be uploaded with data: ${data}
-    
+
     ${url} =    Set Variable    http://www.csm-testcenter.org/test?do=show&subdo=common&test=file_upload
     Browser.Open Browser    ${url}    headless=${HEADLESS}
     Sleep    1s
@@ -133,3 +133,8 @@ Open With Port
 Attach To Chrome
     Attach Chrome Browser    9222
     Go To    https://robocorp.com
+
+
+Open With Custom User Data
+    &{opts} =     Create Dictionary    arguments=user-data-dir=/Users/cmin/Library/Application Support/Google/Chrome
+    Open Available Browser    https://robocorp.com    options=${opts}

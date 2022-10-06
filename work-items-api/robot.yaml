@@ -13,6 +13,10 @@ tasks:
     robotTaskName: Display content on raw email process trigger
   Display content on parsed email process trigger:
     robotTaskName: Display content on parsed email process trigger
+  Work items coverage producer debug:
+    shell: python -m robot -d output -L TRACE --logtitle "Task log" --task "Work items coverage producer" tasks.robot
+  Work items coverage consumer failures debug:
+    shell: python -m robot -d output -L TRACE --logtitle "Task log" --task "Work items coverage consumer failures" tasks.robot
 
 condaConfigFile: conda.yaml
 artifactsDir: output
