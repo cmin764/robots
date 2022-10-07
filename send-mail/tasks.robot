@@ -4,9 +4,17 @@ Documentation       Test mail sending, mainly with Outlook.
 Library    OperatingSystem
 Library    RPA.FileSystem
 Library    RPA.Outlook.Application
+Library    RPA.Robocorp.WorkItems
 
-Task Setup              Open Application
-Suite Teardown          Quit Application
+Suite Setup           Open App
+Suite Teardown        Quit Application
+
+
+*** Keywords ***
+Open App
+    ${visible} =    Get Work Item Variable    visible
+    Log To Console    Visible: ${visible}
+    Open Application    visible=${visible}  # is not guaranteed to provide UI
 
 
 *** Tasks ***
@@ -18,6 +26,7 @@ Save PDF From Outlook App
 
     ${emails} =  Get Emails    email_filter=[Subject]='Duplicate attachment'
     FOR  ${email}  IN   @{emails}
+        Log To Console    Email: ${email}
         FOR  ${attachment}  IN  @{email}[Attachments]
             IF  ".pdf" in "${attachment}[filename]"
                 # Double save to observe how duplication is resolved.
