@@ -18,12 +18,37 @@ def store_screenshot(filename):
     browser_lib.screenshot(filename=filename)
 
 
+def save_pdf_from_w3():
+    print("Trying to save from w3schools")
+    prefs = {
+            'download.default_directory': "./output",
+            'download.prompt_for_download': False,
+            'download.directory_upgrade': True,
+            'safebrowsing.enabled': False,
+            'safebrowsing.disable_download_protection': True,
+            'profile.default_content_setting_values.automatic_downloads': 1
+        }
+    browser_lib.open_available_browser(headless=True, preferences=prefs)
+
+    url = "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_print"
+    browser_lib.go_to(url)
+
+    iframe = browser_lib.find_element('xpath://iframe[@id="iframeResult"]')
+    browser_lib.driver.switch_to.frame(iframe)
+    browser_lib.print_to_pdf("./output/w3.pdf")
+
+    # btn_locator = 'xpath://button[contains(text(), "Print this page")]'
+    # browser_lib.click_element_when_visible(btn_locator)
+    # print("Button clicked.")
+
+
 # Define a main() function that calls the other functions in order:
 def main():
     try:
-        open_the_website("https://robocorp.com/docs/")
-        search_for("python")
-        store_screenshot("output/screenshot.png")
+        # open_the_website("https://robocorp.com/docs/")
+        # search_for("python")
+        # store_screenshot("output/screenshot.png")
+        save_pdf_from_w3()
     finally:
         browser_lib.close_all_browsers()
 
