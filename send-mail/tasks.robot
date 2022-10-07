@@ -12,14 +12,13 @@ Suite Teardown        Quit Application
 
 *** Keywords ***
 Open App
-    ${visible} =    Get Work Item Variable    visible
+    ${visible} =    Get Work Item Variable    visible    default=${True}
     Log To Console    Visible: ${visible}
     Open Application    visible=${visible}  # is not guaranteed to provide UI
 
 
 *** Tasks ***
 Save PDF From Outlook App
-
     ${name} =   Get Work Item Variable    attachment_name    default=exchange-oauth2
     ${ext} =    Set Variable    pdf
     @{files} =  Find Files  ${OUTPUT_DIR}${/}${name}*
