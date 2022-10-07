@@ -19,7 +19,8 @@ Open App
 
 *** Tasks ***
 Save PDF From Outlook App
-    ${name} =   Set Variable    exchange-oauth2
+
+    ${name} =   Get Work Item Variable    attachment_name    default=exchange-oauth2
     ${ext} =    Set Variable    pdf
     @{files} =  Find Files  ${OUTPUT_DIR}${/}${name}*
     RPA.FileSystem.Remove Files    @{files}
