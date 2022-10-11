@@ -136,5 +136,12 @@ Attach To Chrome
 
 
 Open With Custom User Data
-    &{opts} =     Create Dictionary    arguments=user-data-dir=/Users/cmin/Library/Application Support/Google/Chrome
-    Open Available Browser    https://robocorp.com    options=${opts}
+    # &{opts} =     Create Dictionary
+    # ...    arguments=user-data-dir=/Users/cmin/Library/Application Support/Google/Chrome,--profile-directory=Profile 1
+    # Open Available Browser    https://robocorp.com    headless=${HEADLESS}
+    # ...    browser_selection=chrome    download=${False}
+    # ...    options=${opts}
+
+    Open Available Browser    https://robocorp.com    headless=${HEADLESS}
+    ...    browser_selection=chrome    download=${False}
+    ...    use_profile=${True}    profile_name=Profile 2
