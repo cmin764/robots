@@ -244,7 +244,7 @@ Add Files
 
 Tick Alianz Checkbox
     Open Pdf    devdata${/}alianz.pdf
-    
+
     ${fields} =    Get Input Fields
     Log To Console    ${fields}
     ${checkboxes} =    Evaluate    {key: value['value'] for key, value in $fields.items() if hasattr(value['value'], 'name') and value['value'].name in ('Off', 'Yes')}
