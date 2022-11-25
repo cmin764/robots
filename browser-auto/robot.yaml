@@ -29,6 +29,10 @@ tasks:
     robotTaskName: Attach To Chrome
   Open With Custom User Data:
     robotTaskName: Open With Custom User Data
+  Open Chrome With Download:
+    robotTaskName: Open Chrome With Download
+  Open Chrome With Download Trace:
+    shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Open Chrome With Download" tasks.robot
 
 condaConfigFile: conda.yaml
 artifactsDir: output

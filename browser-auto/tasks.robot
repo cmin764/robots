@@ -145,3 +145,8 @@ Open With Custom User Data
     Open Available Browser    https://robocorp.com  #  headless=${HEADLESS}
     ...    browser_selection=chrome  #   download=${False}
     ...    use_profile=${True}  #  profile_name=Profile 2
+
+
+Open Chrome With Download
+    Open Available Browser    https://robocorp.com    headless=${HEADLESS}
+    ...    browser_selection=chrome   # download=${True}
