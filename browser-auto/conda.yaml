@@ -19,7 +19,7 @@ dependencies:
       # - robotframework-appiumlibrary==1.6.3
       - rpaframework==19.2.0 # https://rpaframework.org/releasenotes.html
       # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/8d3/55c52d3b08e77/rpaframework-16.0.0-py3-none-any.whl#sha256=8d355c52d3b08e770edd0de782bd86de6f42469eb7123fad9dbe68fb32492c59
-      - selenium==4.4.0
+      - selenium==4.5.0
 
 # rccPostInstall:
 #   - rfbrowser init
