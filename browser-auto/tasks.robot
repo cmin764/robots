@@ -147,6 +147,12 @@ Open With Custom User Data
     ...    use_profile=${True}  #  profile_name=Profile 2
 
 
-Open Chrome With Download
-    Open Available Browser    https://robocorp.com    headless=${HEADLESS}
-    ...    browser_selection=chrome   # download=${True}
+Open Chrome With Custom Webdriver
+    &{options} =    Create Dictionary
+    IF    ${HEADLESS}
+        Set To Dictionary    ${options}
+        ...    arguments    --headless
+    END
+    Open Browser    https://robocorp.com    browser=chrome
+    ...    options=${options}
+    ...    executable_path=/Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac64/107.0.5304/chromedriver
