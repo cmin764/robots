@@ -9,6 +9,8 @@ tasks:
     shell: python -m robot -L TRACE --logtitle "Task log" --task "Validate traffic data" tasks.robot
   JSON Add Value:
     robotTaskName: JSON Add Value
+  Replace EOLs:
+    robotTaskName: Replace EOLs
 
 condaConfigFile: conda.yaml
 artifactsDir: output

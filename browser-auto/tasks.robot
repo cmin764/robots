@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation     Browser related examples.
 
-Library    AppiumLibrary
-Library    Browser    auto_closing_level=MANUAL
-Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
-# Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
+# Library    AppiumLibrary
+# Library    Browser    auto_closing_level=MANUAL
+# Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
+Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 
@@ -156,3 +156,8 @@ Open Chrome With Custom Webdriver
     Open Browser    https://robocorp.com    browser=chrome
     ...    options=${options}
     ...    executable_path=/Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac64/107.0.5304/chromedriver
+
+
+Set Date With Attribute
+    Open Available Browser    https://www.abhibus.com/
+    Set Attribute To Element    datepicker1    value    26-01-2022

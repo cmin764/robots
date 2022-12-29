@@ -3,6 +3,7 @@ Documentation       Test JSON keywords.
 
 Library    OperatingSystem
 Library    RPA.JSON
+Library    String
 
 
 *** Keywords ***
@@ -53,3 +54,9 @@ JSON Add Value
     Add to JSON    ${item}[reqData]    $.acuerdos    ${acuerdo}
     Log To Console   ${item}
     # {'reqData': {'my': 'data', 'acuerdos': [{'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}], 'numeroAcuerdo': 1, 'fechaCreacionAcuerdo': '19-07-2022', 'fechaEnviadoBeneficario': '19-07-2022', 'errorCreacion': 'Mensaje de Error'}}
+
+
+Replace EOLs
+    ${text} =    Set Variable    first\nsecond
+    ${text} =    Replace String    ${text}    \n    ${\n}
+    Log To Console    ${text}
