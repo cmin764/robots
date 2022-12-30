@@ -7,6 +7,7 @@ Documentation     Browser related examples.
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
+Library    String
 
 Suite Setup    Set Headless
 Task Teardown    Close Browsers
@@ -160,9 +161,12 @@ Open Chrome With Custom Webdriver
 
 Search Bus Route
     Open Available Browser    https://www.abhibus.com/
-    Input Text When Element Is Visible    source    New Delhi
+    Press Keys    source    New Delhi
     Press Keys    source    ENTER    TAB
-    Input Text When Element Is Visible    destination    Agra
+    Press Keys    destination    Agra
     Press Keys    destination    ENTER    TAB    ENTER    TAB
-    Set Attribute To Element    datepicker1    value    14-01-2023
     Click Link    //a[text()='Search']
+
+    ${loc} =    Get Location
+    ${new_loc} =    Replace String Using Regexp    ${loc}    \\d+-\\d+-\\d+    14-01-2023
+    Go To    ${new_loc}
