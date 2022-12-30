@@ -158,6 +158,11 @@ Open Chrome With Custom Webdriver
     ...    executable_path=/Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac64/107.0.5304/chromedriver
 
 
-Set Date With Attribute
+Search Bus Route
     Open Available Browser    https://www.abhibus.com/
-    Set Attribute To Element    datepicker1    value    26-01-2022
+    Input Text When Element Is Visible    source    New Delhi
+    Press Keys    source    ENTER    TAB
+    Input Text When Element Is Visible    destination    Agra
+    Press Keys    destination    ENTER    TAB    ENTER    TAB
+    Set Attribute To Element    datepicker1    value    14-01-2023
+    Click Link    //a[text()='Search']

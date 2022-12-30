@@ -33,8 +33,8 @@ tasks:
     robotTaskName: Open Chrome With Custom Webdriver
   Open Chrome With Custom Webdriver Trace:
     shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Open Chrome With Custom Webdriver" tasks.robot
-  Set Date With Attribute:
-    robotTaskName: Set Date With Attribute
+  Search Bus Route:
+    robotTaskName: Search Bus Route
 
 condaConfigFile: conda.yaml
 artifactsDir: output
