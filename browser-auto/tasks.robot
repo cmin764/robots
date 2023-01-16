@@ -171,3 +171,19 @@ Search Bus Route
     ${loc} =    Get Location
     ${new_loc} =    Replace String Using Regexp    ${loc}    \\d+-\\d+-\\d+    14-01-2023
     Go To    ${new_loc}
+
+
+Open Edge In IE Mode
+    ${url} =    Set Variable    https://robocorp.com
+    ${webdriver} =    Set Variable    bin${/}IEDriverServer32.exe
+
+    &{ie_opts} =    Create Dictionary
+    ...    initialBrowserUrl    https://www.google.com
+    ...    ignoreProtectedModeSettings    ${True}
+    ...    ignoreZoomSetting    ${True}
+    ...    ie.browserCommandLineSwitches    --ie-mode-test
+    &{ie_caps} =    Create Dictionary    se:ieOptions    ${ie_opts}
+    &{ie_options} =    Create Dictionary    capabilities    ${ie_caps}
+
+    Open Browser    ${url}    browser=ie    executable_path=${webdriver}
+    ...    options=${ie_options}

@@ -35,11 +35,14 @@ tasks:
     shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Open Chrome With Custom Webdriver" tasks.robot
   Search Bus Route:
     robotTaskName: Search Bus Route
+  Open Edge In IE Mode:
+    robotTaskName: Open Edge In IE Mode
 
 condaConfigFile: conda.yaml
 artifactsDir: output
 PATH:
   - .
+  - bin
 PYTHONPATH:
   - .
 ignoreFiles:
