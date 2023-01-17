@@ -174,8 +174,9 @@ Search Bus Route
 
 
 Open Edge In IE Mode
-    ${url} =    Set Variable    https://robocorp.com
-    ${webdriver} =    Set Variable    bin${/}IEDriverServer32.exe
+    ${url} =    Set Variable
+    ...    http://www.csm-testcenter.org/test?do=show&subdo=common&test=file_upload
+    ${webdriver} =    Set Variable    bin${/}IEDriverServer.exe
 
     &{ie_opts} =    Create Dictionary
     ...    initialBrowserUrl    https://www.google.com
@@ -185,5 +186,8 @@ Open Edge In IE Mode
     &{ie_caps} =    Create Dictionary    se:ieOptions    ${ie_opts}
     &{ie_options} =    Create Dictionary    capabilities    ${ie_caps}
 
-    Open Browser    ${url}    browser=ie    executable_path=${webdriver}
-    ...    options=${ie_options}
+    Open Available Browser    ${url}    headless=${HEADLESS}    browser_selection=ie
+    # Open Browser    ${url}    browser=ie    executable_path=${webdriver}
+    # ...    options=${ie_options}
+
+    Click Element When Visible    id:button
