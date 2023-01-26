@@ -98,7 +98,7 @@ Selenium Select Elements
 
 
 Selenium Print Source
-    Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}
+    Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}  #  browser_selection=safari, firefox
     ${source} =    Selenium.Get Source
     Log    ${source}
 
