@@ -292,8 +292,8 @@ Fill a PDF containing a form and save a copy
     Open Pdf    devdata${/}repair-form.pdf
 
     Set Field Value    Your name    John Doe
-    Set Field Value    Warranty    /Yes  # visible in preview and browsers
-    # Set Field Value    Warranty    Yes  # visible in VSCode and some apps
+    Set Field Value    Warranty    /Yes  # visible in preview, browsers and most apps
+    # Set Field Value    Warranty    Yes  # visible in VSCode and some apps only
     Set Field Value    Robot model name    Robositter
     Set Field Value    Describe the problem    The Robot does not want to start anymore!
 
