@@ -286,3 +286,16 @@ Unicode Text Search
     # @{matches} =    Find Text    regex:[\\s\\S]*bold[\\s\\S]*
     Log List    ${matches}
     Log To Console    ${matches[0].anchor}
+
+
+Fill a PDF containing a form and save a copy
+    Open Pdf    devdata${/}repair-form.pdf
+
+    Set Field Value    Your name    John Doe
+    Set Field Value    Warranty    /Yes  # visible in preview and browsers
+    # Set Field Value    Warranty    Yes  # visible in VSCode and some apps
+    Set Field Value    Robot model name    Robositter
+    Set Field Value    Describe the problem    The Robot does not want to start anymore!
+
+    Save Field Values    output_path=${OUTPUT_DIR}${/}repair-form-filled.pdf
+    ...    use_appearances_writer=${True}

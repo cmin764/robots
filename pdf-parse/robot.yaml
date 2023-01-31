@@ -31,6 +31,8 @@ tasks:
     robotTaskName: Fill Robocorp Form Fields
   Unicode Text Search:
     robotTaskName: Unicode Text Search
+  Fill a PDF containing a form and save a copy:
+    robotTaskName: Fill a PDF containing a form and save a copy
 
 condaConfigFile: conda.yaml
 artifactsDir: output
