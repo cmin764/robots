@@ -11,6 +11,12 @@ tasks:
     robotTaskName: JSON Add Value
   Replace EOLs:
     robotTaskName: Replace EOLs
+  Get All Prices and Order Ids:
+    robotTaskName: Get All Prices and Order Ids
+  Find Only Valid Emails With Regex:
+    robotTaskName: Find Only Valid Emails With Regex
+  Find Orders From Texas Over 100:
+    robotTaskName: Find Orders From Texas Over 100
 
 condaConfigFile: conda.yaml
 artifactsDir: output
