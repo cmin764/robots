@@ -321,4 +321,9 @@ Path Explore Notepad
         Log To Console    ${elem.name}
     END
 
+    # Taken from the printed tree logs.
+    Windows.Set Anchor    desktop
+    ${elem} =    Get Element    subname:Notepad and type:WindowControl > path:2|1|2
+    Log To Console    ${elem.name}  # should be Settings
+
     [Teardown]    Windows.Close Current Window
