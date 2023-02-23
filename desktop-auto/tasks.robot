@@ -305,9 +305,13 @@ Get Elements Coords
 Path Explore Notepad
     [Setup]    Windows.Windows Run    Notepad
 
+    # None of these work for Notepad. (but they appear in the recorder)
+    # ${elem} =    Windows.Get Element    Text editor
+    # ${elem} =    Windows.Get Element    subname:Notepad > name:"Text editor"
+
     ${main} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlled Notepad window: ${main}
-    &{tree} =    Windows.Print Tree    ${main}    max_depth=${6}
+    &{tree} =    Windows.Print Tree    ${main}    max_depth=${32}  # 7 is the max depth
     ...    return_structure=${True}
     Log Dictionary    ${tree}
 
