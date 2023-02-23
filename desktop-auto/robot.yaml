@@ -31,6 +31,8 @@ tasks:
     robotTaskName: Adobe Click Menu Item
   Get Elements Coords:
     robotTaskName: Get Elements Coords
+  Path Explore Notepad:
+    robotTaskName: Path Explore Notepad
 
 condaConfigFile: conda.yaml
 artifactsDir: output

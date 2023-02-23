@@ -300,3 +300,21 @@ Get Elements Coords
     Windows.Control Window   subname:Calc
     @{buttons} =    Get Elements    id:NumberPad > class:Button
     Log To Console    ${buttons}
+
+
+Path Explore Notepad
+    [Setup]    Windows.Windows Run    Notepad
+
+    ${main} =     Windows.Control Window   subname:Notepad   timeout=1
+    Log    Controlled Notepad window: ${main}
+    &{tree} =    Windows.Print Tree    ${main}    max_depth=${6}
+    ...    return_structure=${True}
+    Log Dictionary    ${tree}
+
+    @{paths} =    Create List    2|1|2    3|1|4
+    FOR    ${path}    IN    @{paths}
+        ${elem} =    Windows.Get Element    path:${path}
+        Log To Console    ${elem.name}
+    END
+
+    [Teardown]    Windows.Close Current Window
