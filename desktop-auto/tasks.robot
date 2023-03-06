@@ -327,3 +327,8 @@ Path Explore Notepad
     Log To Console    ${elem.name}  # should be Settings
 
     [Teardown]    Windows.Close Current Window
+
+
+Set Wordpad Value
+    Windows.Set Value    name:"Rich Text Window"    test    send_keys_fallback=${True}
+    ...    enter=${True}    append=${True}

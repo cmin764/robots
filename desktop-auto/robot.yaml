@@ -33,6 +33,8 @@ tasks:
     robotTaskName: Get Elements Coords
   Path Explore Notepad:
     robotTaskName: Path Explore Notepad
+  Set Wordpad Value:
+    robotTaskName: Set Wordpad Value
 
 condaConfigFile: conda.yaml
 artifactsDir: output
