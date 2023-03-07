@@ -356,7 +356,11 @@ Get Entries From KeePass Group
 
     # Now print all the entries in every accepted group.
     FOR    ${group}    IN    @{groups}
+        Windows.Click    ${group}  # make sure to unfold the current group
         Log To Console    In group: ${group.name}
+        # Note that the parent `path:` below is relative to the main window and not the
+        #  group we're currently in. (as the entries are not listed inside the group
+        #  itself in the element tree)
         ${elems} =    Windows.Get Elements    path:1|1|1|2|1 > type:ListItemControl
         FOR    ${elem}    IN    @{elems}
             Log To Console    Entry: ${elem.name}
