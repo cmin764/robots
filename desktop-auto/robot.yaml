@@ -35,6 +35,8 @@ tasks:
     robotTaskName: Path Explore Notepad
   Set Wordpad Value:
     robotTaskName: Set Wordpad Value
+  Get Entries From KeePass Group:
+    robotTaskName: Get Entries From KeePass Group
 
 condaConfigFile: conda.yaml
 artifactsDir: output

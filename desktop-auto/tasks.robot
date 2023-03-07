@@ -332,3 +332,35 @@ Path Explore Notepad
 Set Wordpad Value
     Windows.Set Value    name:"Rich Text Window"    test    send_keys_fallback=${True}
     ...    enter=${True}    append=${True}
+
+
+Get Entries From KeePass Group
+    [Setup]    Windows.Windows Search    KeePass 2
+
+    # Control KeePass window and log+print its element tree.
+    Windows.Control Window    subname:"- KeePass"
+    ${structure} =    Windows.Print Tree    return_structure=${True}
+    Log To Console    ${structure}
+
+    # Get all secret groups matching criteria. (belonging to the accepted names list)
+    @{names} =    Create List    Test
+    @{groups} =    Create List
+    ${elems} =    Windows.Get Elements    name:Database > type:TreeItemControl
+    FOR    ${elem}    IN    @{elems}
+        ${status} =    Run Keyword And Return Status    Should Contain
+        ...    ${names}    ${elem.name}
+        IF    ${status}
+            Append To List    ${groups}    ${elem}
+        END
+    END
+
+    # Now print all the entries in every accepted group.
+    FOR    ${group}    IN    @{groups}
+        Log To Console    In group: ${group.name}
+        ${elems} =    Windows.Get Elements    path:1|1|1|2|1 > type:ListItemControl
+        FOR    ${elem}    IN    @{elems}
+            Log To Console    Entry: ${elem.name}
+        END
+    END
+
+    [Teardown]    Close Current Window
