@@ -126,9 +126,14 @@ Test Webdrivers
     END
 
 
-Open With Port
-    Open Available Browser    https://robocorp.com    browser_selection=ChromiumEdge
-    ...    headless=${HEADLESS}   port=${18888}
+Open In Incognito With Port And Custom Profile
+    ${options} =    Set Variable    add_argument("--incognito")
+    ${data_dir} =    Absolute Path    ${OUTPUT_DIR}${/}browser
+    RPA.FileSystem.Create Directory    ${data_dir}    parents=${True}
+
+    Open Available Browser    https://robocorp.com    browser_selection=Chrome
+    ...    headless=${HEADLESS}    port=${18888}    options=${options}
+    ...    use_profile=${True}    profile_path=${data_dir}
 
 
 Attach To Chrome

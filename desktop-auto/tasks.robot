@@ -311,7 +311,7 @@ Path Explore Notepad
 
     ${main} =     Windows.Control Window   subname:Notepad   timeout=1
     Log    Controlled Notepad window: ${main}
-    &{tree} =    Windows.Print Tree    ${main}    max_depth=${32}  # 7 is the max depth
+    &{tree} =    Windows.Print Tree    ${main}    max_depth=${3}  # 7 is the max depth
     ...    return_structure=${True}
     Log Dictionary    ${tree}
 
@@ -323,7 +323,8 @@ Path Explore Notepad
 
     # Taken from the printed tree logs.
     Windows.Set Anchor    desktop
-    ${elem} =    Get Element    subname:Notepad and type:WindowControl > path:2|1|2
+    ${elem} =    Windows.Get Element
+    ...    subname:Notepad and type:WindowControl > path:2|1|2
     Log To Console    ${elem.name}  # should be Settings
 
     [Teardown]    Windows.Close Current Window
