@@ -42,13 +42,35 @@ def save_pdf_from_w3():
     # print("Button clicked.")
 
 
+from RPA.Browser.Selenium import Selenium
+from RPA.FileSystem import FileSystem
+
+selenium = Selenium()
+file_system = FileSystem()
+
+OUTPUT_DIR = "output"
+
+def download_pdf_in_custom_directory():
+    selenium.set_download_directory(OUTPUT_DIR)
+    file_name = "Robocorp-EULA-v1.0.pdf"
+    selenium.open_available_browser(
+        f"https://cdn.robocorp.com/legal/{file_name}", headless=False
+    )
+    import time
+    time.sleep(10)
+    files = file_system.list_files_in_directory(OUTPUT_DIR)
+    for file_path in files:
+        print(file_path)
+
+
 # Define a main() function that calls the other functions in order:
 def main():
     try:
         # open_the_website("https://robocorp.com/docs/")
         # search_for("python")
         # store_screenshot("output/screenshot.png")
-        save_pdf_from_w3()
+        # save_pdf_from_w3()
+        download_pdf_in_custom_directory()
     finally:
         browser_lib.close_all_browsers()
 

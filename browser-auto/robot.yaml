@@ -6,7 +6,7 @@ tasks:
   Open Google Chrome:
     robotTaskName: Open Google Chrome
   Run Python Robot:
-    shell: python tasks.py
+    shell: python task.py
   Test Timeout Message:
     robotTaskName: Test Timeout Message
   Test Firefox:
