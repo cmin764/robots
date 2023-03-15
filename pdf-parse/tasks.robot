@@ -299,3 +299,32 @@ Fill a PDF containing a form and save a copy
 
     Save Field Values    output_path=${OUTPUT_DIR}${/}repair-form-filled.pdf
     ...    use_appearances_writer=${True}
+
+
+*** Keywords ***
+Fill HC Fields
+    ${zip_code} =    Set Variable    ${620149}
+    # ${zip_code} =    Set Variable    620149
+    Set Field Value    ins_zip    ${zip_code}
+    Set Field Value    insurance_city_state_zip    ${zip_code}
+    Set Field Value    pt_zip    ${zip_code}
+    Set Field Value    pt_AreaCode    ${zip_code}
+
+
+Fill Anthem Fields
+    Set Field Value    Member name    Cosmin
+
+
+*** Tasks ***
+Set Fields In PDF
+    # Open PDF    ${OUTPUT_DIR}${/}hc.pdf  # failed to fill any field
+    Open PDF    ${OUTPUT_DIR}${/}anthem.pdf
+    &{fields} =    Get Input Fields
+    Log Dictionary    ${fields}
+
+    # Fill HC Fields  # hc.pdf
+    Fill Anthem Fields  # anthem.pdf
+
+    # Raises: IndexError: string index out of range
+    Save Field Values    output_path=${OUTPUT_DIR}${/}filled.pdf
+    ...    use_appearances_writer=${True}

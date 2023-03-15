@@ -33,6 +33,8 @@ tasks:
     robotTaskName: Unicode Text Search
   Fill a PDF containing a form and save a copy:
     robotTaskName: Fill a PDF containing a form and save a copy
+  Set Fields In PDF:
+    robotTaskName: Set Fields In PDF
 
 condaConfigFile: conda.yaml
 artifactsDir: output
