@@ -118,7 +118,8 @@ Email To Document
     ${mail_dict} =     Email To Dictionary    ${mail_data}
     ${mail_html} =     Set Variable    ${mail_dict}[Body]
 
-    RPA.FileSystem.Create File    ${OUTPUT_DIR}${/}mail.html    ${mail_html}    overwrite=True
+    RPA.FileSystem.Create File    ${OUTPUT_DIR}${/}mail.html    ${mail_html}
+    ...    overwrite=${True}
     ${mail_html} =     Get File    ${OUTPUT_DIR}${/}mail.html
     # This needs more work on validation and the output doesn't look right.
     # HTML to PDF    ${mail_html}    ${OUTPUT_DIR}${/}mail.pdf

@@ -1,0 +1,12 @@
+List Of Groups
+Group: eMail; Level=0
+Group: Recycle Bin; Level=0
+Group: SEMM03; Level=0
+	 Title=semm03-1; User Name=user3-1; Password=********; URL=; Notes=was;
+	 Title=Herbert01.1.4; User Name=herbert01; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert;
+	 Title=Herbert02.1.5; User Name=herbert02; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert;
+	 Title=Herbert02.1.5; User Name=herbert02; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert;
+	 Title=Herbert02.1.5; User Name=herbert02; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert;
+Group: General; Level=0
+	 Title=Herbert03.1.5; User Name=herbert0; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert3;
+	 Title=Herbert05.1.5; User Name=herbert05; Password=********; URL=www.tenfold.com; Notes=Notes für Herbert3;
