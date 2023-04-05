@@ -1,15 +1,15 @@
 *** Settings ***
-Library     RPA.Windows
-Library     RPA.FileSystem
 Library     Collections
 Library     RPA.Browser.Selenium
 Library     RPA.Desktop
+Library     RPA.FileSystem
+Library     RPA.Windows
 
 Suite Setup    Set Global Timeout    ${3}
 
 
 *** Variables ***
-${MAIN_WINDOW}    regex:"AutoDb.kdbx.*KeePass"
+${MAIN_WINDOW}    subname:"AutoDb.kdbx"
 ${DATABASE}    name:AutoDb
 
 
@@ -51,8 +51,8 @@ Display Items In Group
 
 *** Tasks ***
 Iterate Groups
-    # [Setup]    PrepareKeepass
-    ${main} =    Control Window    ${MAIN_WINDOW}  # once is enough
+    [Setup]    PrepareKeepass
+    ${main} =    Control Window    ${MAIN_WINDOW}  # controlling it once is enough
 
     # Print the tree of elements given the current state of the app.
     &{structure} =    Print Tree    max_depth=${32}    return_structure=${True}
@@ -60,7 +60,7 @@ Iterate Groups
 
     # Test element clicking from the returned structure above. (bugfix)
     @{elems} =    Get From Dictionary    ${structure}    ${7}  # on level 7
-    ${email_elem} =    Get From List    ${elems}    ${0}  # pick the first element
+    ${email_elem} =    Get From List    ${elems}    ${0}  # pick the first group
     Log To Console    ${email_elem}
     RPA.Windows.Double Click    ${email_elem}  # works now (no offset error anymore)
 
@@ -70,19 +70,19 @@ Iterate Groups
     FOR    ${group}    IN    @{groups}
         Append To List    ${group_names}    ${group.name}
     END
-    Log List    ${group_names}
+    Log List    ${group_names}  # display all detected groups by their names
 
     # And process every existing group by its name and a new element retrieval each
     #  time.
     FOR    ${group_name}    IN    @{group_names}
-        Control Window    ${main}
+        Control Window    ${main}  # ensure window is in focus before clicking
         Click Group If Visible    ${group_name}
         Display Items In Group
     END
 
 
 List Groups
-    # [Setup]    PrepareKeepass
+    [Setup]    PrepareKeepass
 
     ${Window} =    Control Window    ${MAIN_WINDOW}
 #    Print Tree    log_as_warnings=True
