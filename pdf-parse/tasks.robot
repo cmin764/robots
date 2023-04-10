@@ -320,7 +320,7 @@ Fill Anthem Fields
 Set Fields In PDF
     # Open PDF    ${OUTPUT_DIR}${/}hc.pdf  # failed to fill any field
     Open PDF    ${OUTPUT_DIR}${/}anthem.pdf
-    &{fields} =    Get Input Fields
+    &{fields} =    Get Input Fields    replace_none_value=${True}
     Log Dictionary    ${fields}
 
     # Fill HC Fields  # hc.pdf
