@@ -33,7 +33,7 @@ Close Browsers
 Open Specific Browser
     [Arguments]    ${browser}    ${options}=${None}
     Open Available Browser    https://robocorp.com    browser_selection=${browser}
-    ...    headless=${HEADLESS}    options=${options}
+    ...    headless=${HEADLESS}    download=${True}    options=${options}
 
 
 *** Tasks ***
@@ -83,9 +83,9 @@ Test Firefox
 
     # Using our own RPA keywords.
     Selenium.Open Available Browser    https://www.google.com    headless=${HEADLESS}
-    ...    browser_selection=firefox  # this also runs
+    ...    browser_selection=Firefox
 
-    Sleep    1s
+    # Sleep    1s
 
 
 Selenium Select Elements
@@ -98,7 +98,7 @@ Selenium Select Elements
 
 
 Selenium Print Source
-    Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}  #  browser_selection=safari, firefox
+    Selenium.Open Available Browser    https://google.com    headless=${HEADLESS}   browser_selection=chrome
     ${source} =    Selenium.Get Source
     Log    ${source}
 
@@ -116,13 +116,14 @@ Print Page To PDF
     Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}    download=${True}
     ${out} =    Print To PDF
     Log To Console    Printed page on: ${out}
-    Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
+    # Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
 
 
 Test Webdrivers
-    @{browsers} =    Create List    Chrome    Firefox    ChromiumEdge
+    @{browsers} =    Create List    Chrome    Firefox    Edge    Safari,Ie
     FOR    ${browser}    IN    @{browsers}
-        Open Specific Browser    ${browser}    options=add_argument("--incognito")
+        Open Specific Browser    ${browser}
+        Close Browser
     END
 
 

@@ -35,6 +35,7 @@ class ExtendedSelenium(Selenium):
         self.open_browser(
             url=url,
             options=options,
+            browser="firefox",
             **kwargs
         )
 
