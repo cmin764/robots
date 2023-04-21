@@ -336,7 +336,7 @@ Set Wordpad Value
 
 
 Get Entries From KeePass Group
-    [Setup]    Windows.Windows Search    KeePass 2
+    # [Setup]    Windows.Windows Search    KeePass 2
 
     # Control KeePass window and log+print its element tree.
     Windows.Control Window    subname:"- KeePass"
@@ -344,9 +344,9 @@ Get Entries From KeePass Group
     Log To Console    ${structure}
 
     # Get all secret groups matching criteria. (belonging to the accepted names list)
-    @{names} =    Create List    Test
+    @{names} =    Create List    General
     @{groups} =    Create List
-    ${elems} =    Windows.Get Elements    name:Database > type:TreeItemControl
+    ${elems} =    Windows.Get Elements    name:AutoDb > type:TreeItemControl
     FOR    ${elem}    IN    @{elems}
         ${status} =    Run Keyword And Return Status    Should Contain
         ...    ${names}    ${elem.name}
@@ -357,7 +357,7 @@ Get Entries From KeePass Group
 
     # Now print all the entries in every accepted group.
     FOR    ${group}    IN    @{groups}
-        Windows.Click    ${group}  # make sure to unfold the current group
+        Windows.Double Click    ${group}  # make sure to unfold the current group
         Log To Console    In group: ${group.name}
         # Note that the parent `path:` below is relative to the main window and not the
         #  group we're currently in. (as the entries are not listed inside the group
@@ -368,4 +368,4 @@ Get Entries From KeePass Group
         END
     END
 
-    [Teardown]    Close Current Window
+    # [Teardown]    Close Current Window
