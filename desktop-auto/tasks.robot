@@ -336,7 +336,7 @@ Set Wordpad Value
 
 
 Get Entries From KeePass Group
-    # [Setup]    Windows.Windows Search    KeePass 2
+    [Setup]    Windows.Windows Search    KeePass 2
 
     # Control KeePass window and log+print its element tree.
     Windows.Control Window    subname:"- KeePass"
@@ -368,4 +368,4 @@ Get Entries From KeePass Group
         END
     END
 
-    # [Teardown]    Close Current Window
+    [Teardown]    Close Current Window
