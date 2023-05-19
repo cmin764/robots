@@ -41,6 +41,8 @@ tasks:
     robotTaskName: Download In Custom Location
   Screenshot Robocorp Google search result:
     robotTaskName: Screenshot Robocorp Google search result
+  Demo Selenium:
+    robotTaskName: Demo Selenium
 
 condaConfigFile: conda.yaml
 artifactsDir: output

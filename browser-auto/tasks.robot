@@ -5,10 +5,11 @@ Documentation     Browser related examples.
 # Library    Browser    auto_closing_level=MANUAL
 # Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
+Library    OperatingSystem
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
-Library    String
 Library    RPA.Desktop
+Library    String
 
 Suite Setup    Set Headless
 Task Teardown    Close Browsers
@@ -223,7 +224,7 @@ Screenshot Robocorp Google search result
 
     Input Text    q    Robocorp
     Click Element    q
-    Press Keys    q    ENTER
+    Selenium.Press Keys    q    ENTER
     Wait Until Element Is Visible    css:div.logo
 
     ${output_path} =    Screenshot    css:div.logo
@@ -234,3 +235,21 @@ Screenshot Robocorp Google search result
     ...    filename=${BROWSER_DATA}${/}google-robocorp-result.png
     File Should Exist    ${output_path}
     Log To Console    Full page screenshot: ${output_path}
+
+
+Demo Selenium
+    Set Download Directory    ${OUTPUT_DIR}
+
+    ${options} =    Set Variable    add_argument("-inprivate")
+    ${data_dir} =    Absolute Path    ${OUTPUT_DIR}${/}browser
+    RPA.FileSystem.Create Directory    ${data_dir}    parents=${True}
+
+    Open Available Browser    https://robocorp.com/docs/security
+    ...    browser_selection=Edge    headless=${HEADLESS}    options=${options}
+    ...    use_profile=${True}    profile_path=${data_dir}
+
+    Set Element Attribute    xpath://a[@href='#general']    style    color: red;
+    # Click Link     Data protection whitepaper
+    Click Element When Clickable    xpath://a[text()='Data protection whitepaper']
+
+    [Teardown]    Close Browser
