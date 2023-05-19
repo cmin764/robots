@@ -1,10 +1,8 @@
 import os
 from pathlib import Path
-from typing import Union
 
 from RPA.Browser.Selenium import Selenium
 from selenium import webdriver
-from selenium.webdriver.remote.webelement import WebElement
 from SeleniumLibrary.base import keyword
 
 
@@ -37,18 +35,4 @@ class ExtendedSelenium(Selenium):
             options=options,
             browser="firefox",
             **kwargs
-        )
-
-    @keyword
-    def set_attribute_to_element(
-        self,
-        locator: Union[WebElement, str],
-        attribute: str,
-        value: str
-    ):
-        """Sets an attribute value to the element identified by ``locator``."""
-        element = self.find_element(locator)
-        self.driver.execute_script(
-            f"arguments[0].setAttribute('{attribute}', '{value}');",
-            element
         )

@@ -37,6 +37,10 @@ tasks:
     robotTaskName: Search Bus Route
   Open Edge In IE Mode:
     robotTaskName: Open Edge In IE Mode
+  Download In Custom Location:
+    robotTaskName: Download In Custom Location
+  Screenshot Robocorp Google search result:
+    robotTaskName: Screenshot Robocorp Google search result
 
 condaConfigFile: conda.yaml
 artifactsDir: output

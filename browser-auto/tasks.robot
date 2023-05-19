@@ -8,6 +8,7 @@ Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    RPA.FileSystem
 Library    RPA.Robocorp.WorkItems
 Library    String
+Library    RPA.Desktop
 
 Suite Setup    Set Headless
 Task Teardown    Close Browsers
@@ -60,7 +61,8 @@ Open Google Chrome
         Open Headless Chrome Browser   https://www.google.com
     ELSE
         Open Chrome Browser    https://www.google.com
-        # Open Site    https://www.google.com    browser=chrome
+        ${ss} =    Screenshot
+        Log To Console    ${ss}
     END
 
 
@@ -128,11 +130,12 @@ Test Webdrivers
 
 
 Open In Incognito With Port And Custom Profile
-    ${options} =    Set Variable    add_argument("--incognito")
+    # ${options} =    Set Variable    add_argument("--incognito")
+    ${options} =    Set Variable    add_argument("-inprivate")
     ${data_dir} =    Absolute Path    ${OUTPUT_DIR}${/}browser
     RPA.FileSystem.Create Directory    ${data_dir}    parents=${True}
 
-    Open Available Browser    https://robocorp.com    browser_selection=Chrome
+    Open Available Browser    https://robocorp.com    browser_selection=Edge
     ...    headless=${HEADLESS}    port=${18888}    options=${options}
     ...    use_profile=${True}    profile_path=${data_dir}
 
@@ -197,3 +200,37 @@ Open Edge In IE Mode
     # ...    options=${ie_options}
 
     Click Element When Visible    id:button
+
+
+Download In Custom Location
+    [Documentation]    Tests setting a custom downloading dir with various browsers.
+
+    Set Download Directory    ${OUTPUT_DIR}
+    # ${url} =    Set Variable    https://uwaterloo.ca/onbase/help/sample-pdf-documents
+    ${url} =    Set Variable    https://robocorp.com/docs/security
+    Open Available Browser    ${url}    browser_selection=firefox    headless=${HEADLESS}
+    Click Link    Data protection whitepaper
+
+
+Screenshot Robocorp Google search result
+    Open Available Browser    about:blank    headless=${HEADLESS}
+    ...    browser_selection=Chrome
+    ${BROWSER_DATA} =    Set Variable    ${OUTPUT_DIR}${/}browser
+
+    # NOTE(cmin764): As of 19.05.2023 this test passes in CI, Mac and Windows.
+    Go To    www.google.com
+    Wait Until Element Is Visible    q
+
+    Input Text    q    Robocorp
+    Click Element    q
+    Press Keys    q    ENTER
+    Wait Until Element Is Visible    css:div.logo
+
+    ${output_path} =    Screenshot    css:div.logo
+    ...    filename=${BROWSER_DATA}${/}google-logo.png
+    File Should Exist    ${output_path}
+
+    ${output_path} =    Screenshot
+    ...    filename=${BROWSER_DATA}${/}google-robocorp-result.png
+    File Should Exist    ${output_path}
+    Log To Console    Full page screenshot: ${output_path}

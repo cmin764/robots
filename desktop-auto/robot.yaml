@@ -37,6 +37,8 @@ tasks:
     robotTaskName: Set Wordpad Value
   Get Entries From KeePass Group:
     robotTaskName: Get Entries From KeePass Group
+  Windows Control Python:
+    shell: python task.py
 
 condaConfigFile: conda.yaml
 artifactsDir: output
