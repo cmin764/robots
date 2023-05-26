@@ -17,7 +17,7 @@ class ExtendedSelenium(Selenium):
         if self.USER_DATA_PATH:
             options.add_argument(f"user-data-dir={self.USER_DATA_PATH}")
         if headless:
-            options.add_argument("--headless")
+            options.add_argument("--headless=new")
         options.set_capability("acceptInsecureCerts", True)
         self.open_browser(
             url=url,
