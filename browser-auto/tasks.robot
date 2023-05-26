@@ -4,6 +4,7 @@ Documentation     Browser related examples.
 # Library    AppiumLibrary
 # Library    Browser    auto_closing_level=MANUAL
 # Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
+Library    Collections
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
 Library    OperatingSystem
 Library    RPA.FileSystem
@@ -16,12 +17,12 @@ Task Teardown    Close Browsers
 
 
 *** Variables ***
-${HEADLESS}    ${False}
+${HEADLESS}    ${True}
 
 
 *** Keywords ***
 Set Headless
-    ${headless} =    Get Work Item Variable    headless    default=${False}
+    ${headless} =    Get Work Item Variable    headless    default=${True}
     Set Global Variable    ${HEADLESS}    ${headless}
 
 
@@ -116,10 +117,10 @@ Test Chrome Certs
 
 
 Print Page To PDF
-    Selenium.Open Available Browser    robocorp.com    headless=${HEADLESS}    download=${True}
+    Selenium.Open Available Browser    robocorp.com     browser_selection=Chrome
+    ...    headless=${HEADLESS}    download=${True}
     ${out} =    Print To PDF
     Log To Console    Printed page on: ${out}
-    # Print To PDF    ${OUTPUT_DIR}${/}robocorp.pdf
 
 
 Test Webdrivers
@@ -159,14 +160,36 @@ Open With Custom User Data
 
 
 Open Chrome With Custom Webdriver
-    &{options} =    Create Dictionary
-    IF    ${HEADLESS}
-        Set To Dictionary    ${options}
-        ...    arguments    --headless
-    END
-    Open Browser    https://robocorp.com    browser=chrome
-    ...    options=${options}
-    ...    executable_path=/Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac64/107.0.5304/chromedriver
+    # &{options} =    Create Dictionary
+    # IF    ${HEADLESS}
+    #     Set To Dictionary    ${options}
+    #     ...    arguments=--headless
+    # END
+
+    # @{vars} =    Evaluate
+    # ...    webdriver_manager.chrome.ChromeDriverManager().driver.get_driver_download_url()
+    # ...    [webdriver_manager.chrome.ChromeDriverManager(chrome_type="chromium").driver.get_browser_version_from_os(), webdriver_manager.chrome.ChromeDriverManager(chrome_type="chromium").driver.get_latest_release_version()]
+    # ...    modules=webdriver_manager.chrome
+    # Log    Vars: ${vars}
+    # Log To Console    Vars: ${vars}
+
+    # ${version} =     Evaluate
+    # ...    os.system("google-chrome --version || google-chrome-stable --version || google-chrome-beta --version || google-chrome-dev --version")
+    # ...    os.system("chromium --version || chromium-browser --version")
+    # ...    modules=os
+    # Log    Version: ${version}
+    # Log To Console     Version: ${version}
+
+    # ${path} =    Evaluate    RPA.core.webdriver.download("Chrome")
+    # ...    modules=RPA.core.webdriver
+    # Open Browser    https://robocorp.com    browser=headlesschrome
+    # ...    options=${options}
+    # ...    executable_path=baddriver  # for Selenium Manager test
+    # ...    executable_path=${path}  # our webdriver_manager from core
+    # ...    executable_path=bin${/}chromiumdriver  # manually downloaded webdriver
+
+    Open Available Browser    https://robocorp.com    browser_selection=Chrome
+    ...    download=${True}    headless=${HEADLESS}
 
 
 Search Bus Route
