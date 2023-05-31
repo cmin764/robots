@@ -3,6 +3,7 @@ from pathlib import Path
 
 from RPA.Browser.Selenium import Selenium
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from SeleniumLibrary.base import keyword
 
 
@@ -36,3 +37,13 @@ class ExtendedSelenium(Selenium):
             browser="firefox",
             **kwargs
         )
+
+    @keyword
+    def get_shadow_webelement(self, locator, shadow=False, parent=None):
+        if parent:
+            # web_elem = self.find_element(locator, parent=parent)
+            web_elem = parent.find_element(By.CSS_SELECTOR, locator)
+        web_elem = self.get_webelement(locator)
+        if shadow:
+            web_elem = web_elem.shadow_root
+        return web_elem

@@ -2,7 +2,7 @@
 Documentation     Browser related examples.
 
 # Library    AppiumLibrary
-# Library    Browser    auto_closing_level=MANUAL
+Library    Browser    auto_closing_level=MANUAL
 # Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
 Library    Collections
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
@@ -76,14 +76,20 @@ Test Timeout Message
     ...    locator.click: Timeout 100ms exceeded.
     ...    *Use "Set Browser Timeout" for increasing the timeout or double check${SPACE}
     ...    your locator as the targeted element(s) couldn't be found.
-    Run Keyword And Expect Error    *${err}*    Click    nothing
+    Run Keyword And Expect Error    *${err}*    Browser.Click    nothing
+
+    TRY
+        Browser.Click    nothing
+    EXCEPT
+        Log To Console    Excepted!
+    END
 
 
 Test Firefox
     # No simple `headless` switch with these. (require adding options or using
     #  `headlessfirefox` driver directly)
     # Selenium.Open Browser    https://www.google.com  # this fails
-    # Selenium.Open Firefox Site    https://www.google.com  # this runs
+    Selenium.Open Firefox Site    https://www.google.com  # this runs
 
     # Using our own RPA keywords.
     Selenium.Open Available Browser    https://www.google.com    headless=${HEADLESS}
@@ -276,3 +282,12 @@ Demo Selenium
     Click Element When Clickable    xpath://a[text()='Data protection whitepaper']
 
     [Teardown]    Close Browser
+
+
+Get From Shadow Root
+    Open Available Browser    http://watir.com/examples/shadow_dom.html
+    ...    browser_selection=Chrome    headless=${HEADLESS}
+    ${shadow_elem} =    Get Shadow WebElement    css:#shadow_host    shadow=${True}
+    ${elem} =    Get Shadow WebElement    [id="shadow_content"]    parent=${shadow_elem}
+    ${text} =    Get Text    ${elem}
+    Log To Console    ${text}
