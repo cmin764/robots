@@ -2,7 +2,7 @@
 Documentation     Browser related examples.
 
 # Library    AppiumLibrary
-Library    Browser    auto_closing_level=MANUAL
+Library    RPA.Browser.Playwright    auto_closing_level=MANUAL    WITH NAME    Browser
 # Library    RPA.Browser.Selenium    auto_close=${False}   WITH NAME    Selenium
 Library    Collections
 Library    ExtendedSelenium    auto_close=${False}    WITH NAME    Selenium
@@ -287,7 +287,17 @@ Demo Selenium
 Get From Shadow Root
     Open Available Browser    http://watir.com/examples/shadow_dom.html
     ...    browser_selection=Chrome    headless=${HEADLESS}
-    ${shadow_elem} =    Get Shadow WebElement    css:#shadow_host    shadow=${True}
-    ${elem} =    Get Shadow WebElement    [id="shadow_content"]    parent=${shadow_elem}
-    ${text} =    Get Text    ${elem}
+
+    # ${shadow_elem} =    Get Shadow WebElement    css:#shadow_host    shadow=${True}
+    # ${elem} =    Get Shadow WebElement    [id="shadow_content"]    parent=${shadow_elem}
+    ${shadow_elem} =    Get WebElement    css:#shadow_host    shadow=${True}
+    ${elem} =    Get WebElement    css:#shadow_content    parent=${shadow_elem}
+
+    ${text} =    Selenium.Get Text    ${elem}
     Log To Console    ${text}
+
+
+Playwright Automatic Headless
+    # Browser.Open Browser    https://robocorp.com
+    Browser.New Browser    headless=${False}
+    Browser.New Page    https://robocorp.com

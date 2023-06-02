@@ -45,6 +45,8 @@ tasks:
     robotTaskName: Demo Selenium
   Get From Shadow Robot:
     robotTaskName: Get From Shadow Root
+  Playwright Automatic Headless:
+    robotTaskName: Playwright Automatic Headless
 
 condaConfigFile: conda.yaml
 artifactsDir: output

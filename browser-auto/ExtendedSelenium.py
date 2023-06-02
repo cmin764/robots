@@ -43,7 +43,8 @@ class ExtendedSelenium(Selenium):
         if parent:
             # web_elem = self.find_element(locator, parent=parent)
             web_elem = parent.find_element(By.CSS_SELECTOR, locator)
-        web_elem = self.get_webelement(locator)
+        else:
+            web_elem = self.get_webelement(locator)
         if shadow:
             web_elem = web_elem.shadow_root
         return web_elem
