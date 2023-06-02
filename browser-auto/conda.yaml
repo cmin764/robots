@@ -17,11 +17,11 @@ dependencies:
       # https://pypi.org/
       - robotframework-browser==16.2.0
       # - robotframework-appiumlibrary==1.6.3
-      # - rpaframework==23.2.0 # https://rpaframework.org/releasenotes.html
+      - rpaframework==23.2.0 # https://rpaframework.org/releasenotes.html
       # - rpaframework-core==11.0.2
       # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/bd5/7c3c9ddf9973e/rpaframework-23.1.0-py3-none-any.whl#sha256=bd57c3c9ddf9973e844286fad32b1480a73ec3f1731fe8f657ef2b270f592a11
       # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/69a/27b1349ac67f3/rpaframework_core-11.0.2-py3-none-any.whl#sha256=69a27b1349ac67f39252aa394684bb9c0ee6a3711766bef835fb870df6fc9c34
-      - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/bdf/691df1331c828/rpaframework-23.2.0-py3-none-any.whl#sha256=bdf691df1331c8284102e94278bd2d1fa5dfe7f99fda24233b4775292bc8d475
+      # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/bdf/691df1331c828/rpaframework-23.2.0-py3-none-any.whl#sha256=bdf691df1331c8284102e94278bd2d1fa5dfe7f99fda24233b4775292bc8d475
 
 rccPostInstall:
   - rfbrowser init
