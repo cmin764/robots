@@ -298,6 +298,8 @@ Get From Shadow Root
 
 
 Playwright Automatic Headless
+    Set Browser Timeout    5000
+
     # Browser.Open Browser    https://robocorp.com
     Browser.New Browser    headless=${False}
     Browser.New Page    https://robocorp.com
