@@ -43,7 +43,7 @@ tasks:
     robotTaskName: Screenshot Robocorp Google search result
   Demo Selenium:
     robotTaskName: Demo Selenium
-  Get From Shadow Robot:
+  Get From Shadow Root:
     robotTaskName: Get From Shadow Root
   Playwright Automatic Headless:
     robotTaskName: Playwright Automatic Headless

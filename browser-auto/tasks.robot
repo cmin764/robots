@@ -286,14 +286,18 @@ Demo Selenium
 
 Get From Shadow Root
     Open Available Browser    http://watir.com/examples/shadow_dom.html
-    ...    browser_selection=Chrome    headless=${HEADLESS}
+    ...    browser_selection=Chrome    headless=${HEADLESS}    download=${True}
 
-    # ${shadow_elem} =    Get Shadow WebElement    css:#shadow_host    shadow=${True}
-    # ${elem} =    Get Shadow WebElement    [id="shadow_content"]    parent=${shadow_elem}
     ${shadow_elem} =    Get WebElement    css:#shadow_host    shadow=${True}
     ${elem} =    Get WebElement    css:#shadow_content    parent=${shadow_elem}
-
     ${text} =    Selenium.Get Text    ${elem}
+    Log To Console    ${text}
+
+    ${nested_shadow_root} =    Get WebElement    css:#nested_shadow_host
+    ...    parent=${shadow_elem}    shadow=${True}
+    ${nested_elem} =    Get WebElement    css:#nested_shadow_content
+    ...    parent=${nested_shadow_root}
+    ${text} =    Selenium.Get Text    ${nested_elem}
     Log To Console    ${text}
 
 
