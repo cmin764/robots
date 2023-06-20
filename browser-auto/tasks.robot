@@ -150,7 +150,7 @@ Open In Incognito With Port And Custom Profile
 
 Attach To Chrome
     Attach Chrome Browser    9222
-    Go To    https://robocorp.com
+    Selenium.Go To    https://robocorp.com
 
 
 Open With Custom User Data
