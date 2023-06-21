@@ -9,7 +9,7 @@ Suite Setup    Set Workspace
 
 
 *** Variables ***
-${WORKSPACE}    d043e967-5c2b-4a2d-8919-789f82859ba2
+${WORKSPACE}    4f107208-5f4b-47f2-a510-79936169aa8e  # CI: Proof of Consepts
 
 
 *** Keywords ***
