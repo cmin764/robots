@@ -15,8 +15,8 @@ ${WORKSPACE}    4f107208-5f4b-47f2-a510-79936169aa8e  # CI: Proof of Consepts
 *** Keywords ***
 Set Workspace
     Log Environment Variables
-    ${debug} =    Get Environment Variable    DEBUG    ${EMPTY}
-    IF    "${debug}"
+    ${local_run} =    Get Environment Variable    LOCAL_RUN    ${EMPTY}
+    IF    "${local_run}"
         Set Environment Variable    RC_WORKSPACE_ID    ${WORKSPACE}
     END
 
