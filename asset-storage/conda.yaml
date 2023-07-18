@@ -12,6 +12,5 @@ dependencies:
   - pip=22.1.2                  # https://pip.pypa.io/en/stable/news/
   - pip:
       # Define pip packages here -> https://pypi.org/
-      # - rpaframework==23.4.0    # https://rpaframework.org/releasenotes.htm
-      - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/6dc/052aa2544f2a8/rpaframework-23.4.0-py3-none-any.whl#sha256=6dc052aa2544f2a8ddc94bf3b0e2ca6f0377ba867b5a876dba340735574931ac
-      # - robocorp-storage==0.1.2
+      - rpaframework==24.0.0    # https://rpaframework.org/releasenotes.html
+      # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/1bb/22aedbf40b2cc/rpaframework-24.0.0-py3-none-any.whl#sha256=1bb22aedbf40b2cc7428b8a0c98ef88f99fc20022acea00dab41efd24ccbfc12
