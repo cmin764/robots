@@ -7,17 +7,17 @@ dependencies:
   # If available, always prefer the conda version of a package.
   # Installation will be faster and more efficient.
   # https://anaconda.org/search
-  - python=3.9.13
-  - nodejs=16.14.2
+  - python=3.9.16
+  # - nodejs=16.14.2
   # - firefox=104.0
 
   - pip=22.1.2
   - pip:
       # Define pip packages here.
       # https://pypi.org/
-      - robotframework-browser==16.2.0
-      - rpaframework==23.2.0 # https://rpaframework.org/releasenotes.html
-      # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/bdf/691df1331c828/rpaframework-23.2.0-py3-none-any.whl#sha256=bdf691df1331c8284102e94278bd2d1fa5dfe7f99fda24233b4775292bc8d475
+      # - robotframework-browser==16.2.0
+      - rpaframework==24.1.2 # https://rpaframework.org/releasenotes.html
+      # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/3d3/f4b6af32e1545/rpaframework_core-11.0.3-py3-none-any.whl#sha256=3d3f4b6af32e15455bbac6ffcf3f76e3b624887929f02df8206a1a47cef9ec42
 
-rccPostInstall:
-  - rfbrowser init
+# rccPostInstall:
+#   - rfbrowser init

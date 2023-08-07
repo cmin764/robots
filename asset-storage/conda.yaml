@@ -14,3 +14,7 @@ dependencies:
       # Define pip packages here -> https://pypi.org/
       - rpaframework==24.0.0    # https://rpaframework.org/releasenotes.html
       # - https://robocorp:freeasinbeer@devpi.robocorp.cloud/ci/test/+f/1bb/22aedbf40b2cc/rpaframework-24.0.0-py3-none-any.whl#sha256=1bb22aedbf40b2cc7428b8a0c98ef88f99fc20022acea00dab41efd24ccbfc12
+      - robocorp==0.8.1             # https://pypi.org/project/robocorp
+      - robocorp-browser==2.0.1     # https://pypi.org/project/robocorp-browser
+      - robocorp-excel==0.4.0       # https://pypi.org/project/robocorp-excel
+      - robocorp-http==0.2.0        # https://pypi.org/project/robocorp-http

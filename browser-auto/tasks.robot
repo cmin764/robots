@@ -166,18 +166,23 @@ Open With Custom User Data
 
 
 Open Chrome With Custom Webdriver
-    # &{options} =    Create Dictionary
-    # IF    ${HEADLESS}
-    #     Set To Dictionary    ${options}
-    #     ...    arguments=--headless
-    # END
+    &{options} =    Create Dictionary
+    ...    binary_location=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+    IF    ${HEADLESS}
+        Set To Dictionary    ${options}
+        ...    arguments=--headless=new
+    END
 
-    # @{vars} =    Evaluate
-    # ...    webdriver_manager.chrome.ChromeDriverManager().driver.get_driver_download_url()
-    # ...    [webdriver_manager.chrome.ChromeDriverManager(chrome_type="chromium").driver.get_browser_version_from_os(), webdriver_manager.chrome.ChromeDriverManager(chrome_type="chromium").driver.get_latest_release_version()]
-    # ...    modules=webdriver_manager.chrome
-    # Log    Vars: ${vars}
-    # Log To Console    Vars: ${vars}
+    ${url} =    Evaluate
+    ...    RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_driver_download_url()
+    ...    modules=RPA.core.webdriver
+    Log    Download URL: ${url}
+    Log To Console    Download URL: ${url}
+    @{vers} =    Evaluate
+    ...    [RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_browser_version_from_os(), RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_latest_release_version()]
+    ...    modules=RPA.core.webdriver
+    Log    Versions: ${vers}
+    Log To Console    Versions: ${vers}
 
     # ${version} =     Evaluate
     # ...    os.system("google-chrome --version || google-chrome-stable --version || google-chrome-beta --version || google-chrome-dev --version")
@@ -188,14 +193,17 @@ Open Chrome With Custom Webdriver
 
     # ${path} =    Evaluate    RPA.core.webdriver.download("Chrome")
     # ...    modules=RPA.core.webdriver
-    # Open Browser    https://robocorp.com    browser=headlesschrome
+    # ${path} =    Set Variable    /Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac_arm64/115.0.5790.102/chromedriver-mac-arm64/chromedriver
+    # # ${path} =    Set Variable    /Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver
+    # Open Browser    https://robocorp.com    browser=chrome
     # ...    options=${options}
-    # ...    executable_path=baddriver  # for Selenium Manager test
+    # # ...    executable_path=baddriver  # for Selenium Manager test
     # ...    executable_path=${path}  # our webdriver_manager from core
-    # ...    executable_path=bin${/}chromiumdriver  # manually downloaded webdriver
+    # # ...    executable_path=bin${/}chromiumdriver  # manually downloaded webdriver
 
-    Open Available Browser    https://robocorp.com    browser_selection=Chrome
-    ...    download=${True}    headless=${HEADLESS}
+    # Open Available Browser    https://robocorp.com    browser_selection=Chrome
+    # ...    headless=${HEADLESS}    options=${options}
+    # ...    download=${True}
 
 
 Search Bus Route
