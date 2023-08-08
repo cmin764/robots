@@ -33,7 +33,8 @@ CONVERTERS = {
 
 
 def _get_document_paths():
-    root = Path(os.getenv("DOC_ROOT")).expanduser().resolve()
+    root = os.getenv("DOC_ROOT", "devdata")
+    root = Path(root).expanduser().resolve()
     print(f"Collecting docs from directory: {root}")
     for candidate in root.iterdir():
         fname, ext = candidate.stem, candidate.suffix
@@ -43,7 +44,7 @@ def _get_document_paths():
 
 @task
 def convert_doc_to_pdf():
-    converter_str = os.getenv("DOC_CONVERTER")
+    converter_str = os.getenv("DOC_CONVERTER", "libreoffice")
     print(f"Using converter: {converter_str}")
     converter = CONVERTERS[converter_str]
     if converter_str == "rpa-word":
