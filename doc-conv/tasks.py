@@ -21,8 +21,11 @@ def _libre_doc_to_pdf(src, dest):
     if not LOEXE:
         raise EnvironmentError("LibreOffice not found")
 
-    cmd = [LOEXE, "--convert-to", "pdf", "--outdir", str(Path(dest).parent), src]
-    subprocess.check_call(cmd, stderr=subprocess.DEVNULL)
+    cmd = [
+        LOEXE, "--headless", "--convert-to", "pdf",
+        "--outdir", str(Path(dest).parent), src
+    ]
+    subprocess.check_call(cmd, stderr=subprocess.STDOUT)
 
 
 CONVERTERS = {
