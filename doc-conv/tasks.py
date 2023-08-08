@@ -12,6 +12,10 @@ APP = Application(autoexit=True)
 
 
 def _rpa_doc_to_pdf(src, dest):
+    try:
+        APP.close_document()
+    except Exception:
+        pass
     APP.open_file(src)
     APP.export_to_pdf(dest)
 
