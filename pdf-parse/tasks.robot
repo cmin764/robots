@@ -291,15 +291,19 @@ Unicode Text Search
 
 Fill a PDF containing a form and save a copy
     Open Pdf    devdata${/}repair-form.pdf
+    &{fields} =    Get Input Fields    replace_none_value=${False}
+    Log Dictionary    ${fields}
+    # Log To Console    Warranty: ${fields['Warranty'].value.name}
 
     Set Field Value    Your name    John Doe
     Set Field Value    Warranty    /Yes  # visible in preview, browsers and most apps
+    # Set Field Value    Warranty    ${EMPTY}
     # Set Field Value    Warranty    Yes  # visible in VSCode and some apps only
     Set Field Value    Robot model name    Robositter
     Set Field Value    Describe the problem    The Robot does not want to start anymore!
 
     Save Field Values    output_path=${OUTPUT_DIR}${/}repair-form-filled.pdf
-    ...    use_appearances_writer=${True}
+    ...    use_appearances_writer=${False}
 
 
 *** Keywords ***
@@ -318,14 +322,16 @@ Fill Anthem Fields
 
 *** Tasks ***
 Set Fields In PDF
-    # Open PDF    ${OUTPUT_DIR}${/}hc.pdf  # failed to fill any field
-    Open PDF    ${OUTPUT_DIR}${/}anthem.pdf
+    Open PDF    ${OUTPUT_DIR}${/}hc.pdf  # failed to fill any field
+    # Open PDF    ${OUTPUT_DIR}${/}anthem.pdf
     &{fields} =    Get Input Fields    replace_none_value=${True}
     Log Dictionary    ${fields}
 
-    # Fill HC Fields  # hc.pdf
-    Fill Anthem Fields  # anthem.pdf
+    Fill HC Fields  # hc.pdf
+    # Fill Anthem Fields  # anthem.pdf
 
     # Raises: IndexError: string index out of range
-    Save Field Values    output_path=${OUTPUT_DIR}${/}filled.pdf
+    # &{vals} =    Create Dictionary    Member name    Cosmin
+    Save Field Values        output_path=${OUTPUT_DIR}${/}filled.pdf
     ...    use_appearances_writer=${True}
+    # ...    newvals=${vals}
