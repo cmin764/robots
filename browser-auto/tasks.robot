@@ -224,6 +224,7 @@ Search Bus Route
 Open Edge In IE Mode
     ${url} =    Set Variable    https://demos.telerik.com/aspnet-ajax/salesdashboard/views/productsandorders.aspx
     Open Available Browser    ${url}    headless=${HEADLESS}    browser_selection=Ie
+    ...    download=${True}
     Click Element    id:About
     Page Should Contain    Telerik
 
