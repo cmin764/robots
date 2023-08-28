@@ -1,7 +1,8 @@
 [
   {
       "payload": {
-         "headless": false
+        "random": "var",
+        "headless": false
       }
   }
 ]

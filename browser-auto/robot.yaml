@@ -37,6 +37,8 @@ tasks:
     robotTaskName: Search Bus Route
   Open Edge In IE Mode:
     robotTaskName: Open Edge In IE Mode
+  Open Edge In IE Mode Trace:
+    shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Open Edge In IE Mode" tasks.robot
   Download In Custom Location:
     robotTaskName: Download In Custom Location
   Screenshot Robocorp Google search result:

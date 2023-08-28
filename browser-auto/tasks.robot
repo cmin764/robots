@@ -173,16 +173,16 @@ Open Chrome With Custom Webdriver
         ...    arguments=--headless=new
     END
 
-    ${url} =    Evaluate
-    ...    RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_driver_download_url()
-    ...    modules=RPA.core.webdriver
-    Log    Download URL: ${url}
-    Log To Console    Download URL: ${url}
-    @{vers} =    Evaluate
-    ...    [RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_browser_version_from_os(), RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_latest_release_version()]
-    ...    modules=RPA.core.webdriver
-    Log    Versions: ${vers}
-    Log To Console    Versions: ${vers}
+    # ${url} =    Evaluate
+    # ...    RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_driver_download_url()
+    # ...    modules=RPA.core.webdriver
+    # Log    Download URL: ${url}
+    # Log To Console    Download URL: ${url}
+    # @{vers} =    Evaluate
+    # ...    [RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_browser_version_from_os(), RPA.core.webdriver.ChromeDriverManager(chrome_type="chromium").driver.get_latest_release_version()]
+    # ...    modules=RPA.core.webdriver
+    # Log    Versions: ${vers}
+    # Log To Console    Versions: ${vers}
 
     # ${version} =     Evaluate
     # ...    os.system("google-chrome --version || google-chrome-stable --version || google-chrome-beta --version || google-chrome-dev --version")
@@ -191,8 +191,9 @@ Open Chrome With Custom Webdriver
     # Log    Version: ${version}
     # Log To Console     Version: ${version}
 
-    # ${path} =    Evaluate    RPA.core.webdriver.download("Chrome")
-    # ...    modules=RPA.core.webdriver
+    ${path} =    Evaluate    RPA.core.webdriver.download("Chrome")
+    ...    modules=RPA.core.webdriver
+    Log To Console    ${path}
     # ${path} =    Set Variable    /Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac_arm64/115.0.5790.102/chromedriver-mac-arm64/chromedriver
     # # ${path} =    Set Variable    /Users/cmin/.robocorp/webdrivers/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver
     # Open Browser    https://robocorp.com    browser=chrome
@@ -221,23 +222,13 @@ Search Bus Route
 
 
 Open Edge In IE Mode
-    ${url} =    Set Variable
-    ...    http://www.csm-testcenter.org/test?do=show&subdo=common&test=file_upload
-    ${webdriver} =    Set Variable    bin${/}IEDriverServer.exe
+    Log To Console    ${HEADLESS}
+    Fail    Headless: ${HEADLESS}
 
-    &{ie_opts} =    Create Dictionary
-    ...    initialBrowserUrl    https://www.google.com
-    ...    ignoreProtectedModeSettings    ${True}
-    ...    ignoreZoomSetting    ${True}
-    ...    ie.browserCommandLineSwitches    --ie-mode-test
-    &{ie_caps} =    Create Dictionary    se:ieOptions    ${ie_opts}
-    &{ie_options} =    Create Dictionary    capabilities    ${ie_caps}
-
-    Open Available Browser    ${url}    headless=${HEADLESS}    browser_selection=ie
-    # Open Browser    ${url}    browser=ie    executable_path=${webdriver}
-    # ...    options=${ie_options}
-
-    Click Element When Visible    id:button
+    ${url} =    Set Variable    https://demos.telerik.com/aspnet-ajax/salesdashboard/views/productsandorders.aspx
+    Open Available Browser    ${url}    headless=${HEADLESS}    browser_selection=Ie
+    Click Link    About
+    Page Should Contain    Telerik
 
 
 Download In Custom Location
