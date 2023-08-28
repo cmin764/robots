@@ -222,9 +222,6 @@ Search Bus Route
 
 
 Open Edge In IE Mode
-    Log To Console    ${HEADLESS}
-    Fail    Headless: ${HEADLESS}
-
     ${url} =    Set Variable    https://demos.telerik.com/aspnet-ajax/salesdashboard/views/productsandorders.aspx
     Open Available Browser    ${url}    headless=${HEADLESS}    browser_selection=Ie
     Click Link    About
