@@ -21,6 +21,8 @@ tasks:
     robotTaskName: Test Chrome Certs
   Print Page To PDF:
     robotTaskName: Print Page To PDF
+  Print Page To PDF With Trace:
+    shell: python -m robot -L TRACE --outputdir output --logtitle "Task log" --task "Print Page To PDF" tasks.robot
   Test Webdrivers:
     robotTaskName: Test Webdrivers
   Open In Incognito With Port And Custom Profile:
