@@ -1,0 +1,12 @@
+tasks:
+  Notepad test:
+    shell: python -m robocorp.tasks run tasks.py
+  
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
