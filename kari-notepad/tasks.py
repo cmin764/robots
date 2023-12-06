@@ -34,11 +34,12 @@ def notepad_automation():
 
     # The following line fails with robocorp-windows v0.0.1 and produces a LOT of logging.
     # desktop.find('control:MenuItemControl and name:Nothing')
-    # This one isn't that bad, but still fails with the unicode error.
+    # This one isn't that bad, but still fails with the unicode error when printing the exception.
     try:
         notepad_window.find('control:MenuItemControl and name:Nothing', timeout=1)
     except Exception as exc:
-        print(exc)
+        pass
+        # print(exc)
 
     # Screenshot of the application window confirms the result
     notepad_window.screenshot(get_output_dir() / "notepad-ss.png")
