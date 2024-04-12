@@ -38,8 +38,8 @@ def notepad_automation():
     try:
         notepad_window.find('control:MenuItemControl and name:Nothing', timeout=1)
     except Exception as exc:
-        pass
-        # print(exc)
+        # pass
+        print(exc)
 
     # Screenshot of the application window confirms the result
     notepad_window.screenshot(get_output_dir() / "notepad-ss.png")
