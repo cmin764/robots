@@ -5,17 +5,17 @@ Currently supporting:
 """
 
 
-import json
 import os
 from pathlib import Path
 from typing import Annotated
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from robocorp.actions import Request, Secret, action
+from robocorp.actions import Secret, action
 
 from hubspot import HubSpot
 from hubspot.crm.companies import PublicObjectSearchRequest as CompanySearchRequest
+
 
 ACCESS_TOKEN_FIELD = "HUBSPOT_ACCESS_TOKEN"
 
@@ -28,16 +28,11 @@ class CompanyResult(BaseModel):
     names: Annotated[list[str], Field(description="Company names.")]
 
 
-def _get_api_client(access_token: Secret) -> HubSpot:
-    # Sets the access token from the incoming injected secret if present, otherwise it
-    #  defaults to an environment variable.
-    token = os.getenv(ACCESS_TOKEN_FIELD, access_token.value)
-    return HubSpot(access_token=token)
-
-
 @action(is_consequential=False)
 def hubspot_search_companies(
-    request: Request, access_token: Secret, query: str, limit: int = 10
+    query: str,
+    limit: int = 10,
+    access_token: Secret = Secret.model_validate(os.getenv(ACCESS_TOKEN_FIELD, "")),
 ) -> CompanyResult:
     """Search for HubSpot companies based on the provided string query.
 
@@ -53,7 +48,7 @@ def hubspot_search_companies(
     Returns:
         A structure with a list of company names matching the query.
     """
-    api_client = _get_api_client(access_token)
+    api_client = HubSpot(access_token=access_token.value)
     search_request = CompanySearchRequest(query=query, limit=limit)
     response = api_client.crm.companies.search_api.do_search(
         public_object_search_request=search_request
