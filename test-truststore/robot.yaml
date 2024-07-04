@@ -2,8 +2,11 @@
 # https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-robotyaml
 
 tasks:
-  Run Task:
+  Py Get Vault:
     shell: python -m robocorp.tasks run tasks.py
+  RF Get Vault:
+    shell: python -m robot -d output -L TRACE --logtitle "Task log" tasks.robot
+
 
 environmentConfigs:
   - environment_windows_amd64_freeze.yaml
